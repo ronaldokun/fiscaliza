@@ -966,11 +966,9 @@ Na terceira etapa é gerado um relatório da monitoração no Sistema Eletrônic
 
 Após o relatório ser assinado basta chamar a função com os mesmos argumentos para que a etapa final seja realizada.
 
-
 ```python
 estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 ```
-
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Usuário Autenticado com Sucesso 👍</span>
 </pre>

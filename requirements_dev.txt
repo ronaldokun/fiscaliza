@@ -15,7 +15,6 @@ defusedxml==0.7.1
 entrypoints==0.3
 fastcore==1.3.20
 fastrelease==0.1.11
--e git+git@github.com:ronaldokun/fiscaliza.git@3fbe203fc8e9f3e095895f065c1209001e920be3#egg=fiscaliza
 ghapi==0.1.16
 idna==2.10
 ipykernel==5.5.5
