@@ -1,6 +1,6 @@
-call conda create -n test python=3.8 -y
+call conda create -n fiscaliza python=3.8 -y
 
-call conda activate test
+call conda activate fiscaliza
 
 call conda install -c intel libpython m2w64-toolchain -y
 
