@@ -1,5 +1,5 @@
-call conda create -n fiscaliza python=3.8 -y
+call conda create -n teste2 python=3.8 -y
 
-call conda activate fiscaliza
+call conda activate teste2
 
 call python -m pip install -e .
