@@ -302,7 +302,7 @@ def validar_dicionario(
         d[key] = check_update(key, utilizou, DICT_FIELDS[key], ("0", "1"))
 
     if save_path is not None:
-        json.dump(d, Path(save_path).open("w"))
+        json.dump(d, Path(save_path).open("w", encoding="utf-8"))
 
     return d
 
