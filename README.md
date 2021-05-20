@@ -11,7 +11,30 @@ console = Console()
 ```
 
 ## Instalação
+Como boa prática é sugerido a criação de um ambiente virtual para encapsular o ambiente python no qual você irá instalar a biblioteca
 
+Utilizando o `conda`:
+```bash
+conda create -n fiscaliza python=3.8
+conda activate fiscaliza
+python -m pip install fiscaliza
+```
+Utilizando somente python:
+
+Windows
+```bash
+python -m venv <pasta onde criar o ambiente virtual>
+<pasta onde criou o ambiente virtual>\Scripts\activate.bat
+python -m pip install fiscaliza
+```
+Linux:
+```bash
+python -m venv <pasta onde criar o ambiente virtual>
+source <pasta onde criou o ambiente virtual>/Scripts/activate
+python -m pip install fiscaliza
+```
+
+Caso não desejar utilizar um ambiente virtual basta rodar:
 `pip install fiscaliza`
 
 ## Como utilizar
@@ -30,6 +53,8 @@ O Escopo desse módulo basicamente está encapsulado em 3 funções básicas:
 * relatar_inspecao - **Atualiza e Issue com o dicionário de dados passado**
 
 _O escopo da terceira função `relatar_inspecao` possui escopo limitado. Atualmente somente é formatado e relatado Inspeções ( Issue ) to tipo "Uso do Espectro - Monitoração". Essa inspeção é a principal utilizada para as atividades de monitoração da Anatel e foi o que motivou a criação da presente biblioteca. Outras inspeções possuem campos distintos e assim exigem formatação distinta. Versões futuras poderão abarcar o relato de diferentes inspeções._
+
+### Detalhar Inspeção
 
 ```python
 show_doc(detalhar_inspecao)
@@ -549,9 +574,8 @@ for k,v in detalhes.items():
 </pre>
 
 
-
-## Dicionário de Dados
-A função anterior somente retorna as informações já constantes em dada Inspeção ( Issue ) do Fiscaliza. Para alterarmos ou atualizarmos dada inspeção, precisamos passar um dicionário de dados ou um caminho para um arquivo `.json` ou pickle `.pkl` onde conste esse dicionário de dados serializado. O exemplo seguinte mostra um dicionário de dados com as informações básicas constantes de uma monitoração e a formatação que elas são validadas:
+### Validação de Dados e Formatação para submeter à API
+A função anterior somente retorna as informações já constantes em dada Inspeção ( Issue ) do Fiscaliza. Para alterarmos ou atualizarmos dada inspeção, precisamos passar um dicionário de dados ou um caminho para um arquivo `.json` onde conste esse dicionário de dados serializado. O exemplo seguinte mostra um dicionário de dados com as informações básicas constantes de uma monitoração e a formatação que elas são validadas:
 
 
 
@@ -861,10 +885,8 @@ for k,v in dados.items():
 </pre>
 
 
-
-## Relatar Inspeção
+### Relatar Inspeção
 A função a seguir é a mais importante do módulo porque ela de fato altera os dados na plataforma Fiscaliza.
-
 
 ```python
 show_doc(relatar_inspecao)

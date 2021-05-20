@@ -23,18 +23,18 @@ index = {"URL": "constants.ipynb",
          "FIELD2ID": "constants.ipynb",
          "ESTADOS": "constants.ipynb",
          "journal2table": "redmine.ipynb",
-         "check_update": "redmine.ipynb",
-         "validar_dicionario": "redmine.ipynb",
          "value_text_string": "redmine.ipynb",
-         "auth_user": "redmine.ipynb",
+         "check_update": "redmine.ipynb",
+         "view_string": "redmine.ipynb",
          "valida_fiscaliza": "redmine.ipynb",
          "issue_type": "redmine.ipynb",
+         "hm2prod": "redmine.ipynb",
+         "validar_dicionario": "redmine.ipynb",
+         "auth_user": "redmine.ipynb",
          "issue2users": "redmine.ipynb",
          "insp2acao": "redmine.ipynb",
-         "view_string": "redmine.ipynb",
          "detalhar_inspecao": "redmine.ipynb",
          "atualiza_fiscaliza": "redmine.ipynb",
-         "hm2prod": "redmine.ipynb",
          "relatar_inspecao": "redmine.ipynb"}
 
 modules = ["constants.py",
@@ -42,6 +42,6 @@ modules = ["constants.py",
 
 doc_url = "https://ronaldokun.github.io/fiscaliza/"
 
-git_url = "https://github.com/ronaldokun/fiscaliza/tree/main/"
+git_url = "https://github.com/ronaldokun/fiscaliza/tree/master/"
 
 def custom_doc_links(name): return None
