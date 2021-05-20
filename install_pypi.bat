@@ -6,6 +6,6 @@ call conda create -n teste python=3.8 -y
 
 call conda activate teste
 
-call python -m pip install -e .
+call python -m pip install -r requirements.txt
 
-call clear
+call python -m pip install -i https://test.pypi.org/simple/ fiscaliza
