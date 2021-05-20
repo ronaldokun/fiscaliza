@@ -3,11 +3,9 @@
 
 
 ```python
-from nbdev.showdoc import show_doc
-from getpass import getuser, getpass
-from fiscaliza.redmine import detalhar_inspecao, validar_dicionario, relatar_inspecao
-from rich.console import Console
-console = Console()
+%load_ext autoreload
+%autoreload 2
+%config Completer.use_jedi = False
 ```
 
 ## Instalação
@@ -30,40 +28,20 @@ O Escopo desse módulo basicamente está encapsulado em 3 funções básicas:
 * relatar_inspecao - **Atualiza e Issue com o dicionário de dados passado**
 {% include note.html content='O escopo da terceira função `relatar_inspecao` possui escopo limitado. Atualmente somente é formatado e relatado Inspeções ( Issue ) to tipo "Uso do Espectro - Monitoração". Essa inspeção é a principal utilizada para as atividades de monitoração da Anatel e foi o que motivou a criação da presente biblioteca. Outras inspeções possuem campos distintos e assim exigem formatação distinta. Versões futuras poderão abarcar o relato de diferentes inspeções. ' %}
 
-```python
-show_doc(detalhar_inspecao)
-```
-
-
-<h4 id="detalhar_inspecao" class="doc_header"><code>detalhar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/main/fiscaliza/redmine.py#L406" class="source_link" style="float:right">[source]</a></h4>
-> <code>detalhar_inspecao</code>(**`inspecao`**:`str`, **`login`**:`str`=*`None`*, **`senha`**:`str`=*`None`*, **`fiscaliza`**:`Redmine`=*`None`*, **`teste`**:`bool`=*`True`*)
-Recebe número da inspeção `inspecao`, o login e senha ou opcionalmente objeto Redmine logado `fiscaliza`
-inspecao: str - Número da Inspeção a ser relatada
-login: str - Login Anatel do Usuário
-senha: str - Senha Utilizada nos Sistemas Interativos da
-fiscaliza: Redmine - Objeto Redmine logado, opcional ao login e senha
-teste: bool - Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizado
-
-Returns:
-    dict: Retorna um dicionário com a Situação Atual e campos preenchidos da Inspeção
-
-
-
-Vamos exemplificar a Inspeção de Teste `57684`
+Vamos exemplificar a Inspeção de Teste `53689`
 
 ```python
 login = getuser()
 senha = getpass()
-inspecao = '57684'
+inspecao = '57689'
 ```
 
      ··········
-
+    
 
 ```python
 detalhes = detalhar_inspecao(inspecao, login, senha)
 ```
-
 
 ```python
 for k,v in detalhes.items():
@@ -71,13 +49,13 @@ for k,v in detalhes.items():
 ```
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">id </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">57684</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">id </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">57689</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">subject </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">INSP_GR01_2021_0504</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">subject </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">INSP_GR01_2021_0508</span>
 </pre>
 
 
@@ -261,15 +239,13 @@ for k,v in detalhes.items():
 </pre>
 
 
-Agora vamos testar o retorno de informações para um Inspeção no Fiscaliza de produção `teste=False`.
 
+Agora vamos testar o retorno de informações para um Inspeção no Fiscaliza de produção `teste=False`.
 
 ```python
 inspecao = '51804'
 detalhes = detalhar_inspecao(inspecao, login, senha, teste=False)
 ```
-
-
 
 ```python
 for k,v in detalhes.items():
@@ -552,8 +528,6 @@ for k,v in detalhes.items():
 ## Dicionário de Dados
 A função anterior somente retorna as informações já constantes em dada Inspeção ( Issue ) do Fiscaliza. Para alterarmos ou atualizarmos dada inspeção, precisamos passar um dicionário de dados ou um caminho para um arquivo `.json` ou pickle `.pkl` onde conste esse dicionário de dados serializado. O exemplo seguinte mostra um dicionário de dados com as informações básicas constantes de uma monitoração e a formatação que elas são validadas:
 
-
-
 ```python
 d = {}
 
@@ -636,22 +610,12 @@ d['Notes'] = """Faixa, Classe Especial, Classe A, Classe B, Classe C
             """
 ```
 
-
 A API do Redmine possui formatos específicos de como esses campos devem ser submetidos, validar os formatos acima e fazer essa formatação exigida pela API do Redmine é o papel da função `validar_dicionario`.
 
 ```python
-show_doc(validar_dicionario)
+inspecao = '57689'
+dados = validar_dicionario('files/data.json', inspecao, login, senha)
 ```
-
-
-<h4 id="validar_dicionario" class="doc_header"><code>validar_dicionario</code><a href="https://github.com/ronaldokun/fiscaliza/tree/main/fiscaliza/redmine.py#L58" class="source_link" style="float:right">[source]</a></h4>
-> <code>validar_dicionario</code>(**`data_dict`**:"Dicionário de Dados ou Caminho para o arquivo .json ou .pkl", **`inspecao`**:"Número da Inspeção a ser relatada", **`login`**:"Login Anatel do Usuário"=*`None`*, **`senha`**:"Senha Utilizada nos Sistemas Interativos da Anatel"=*`None`*, **`fiscaliza`**:"Objeto Redmine logado, opcional ao login e senha"=*`None`*, **`teste`**:"Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizado"=*`True`*)
-
-```python
-inspecao = '57684'
-dados = validar_dicionario(d, inspecao, login, senha)
-```
-
 
 ```python
 for k,v in dados.items():
@@ -864,22 +828,10 @@ for k,v in dados.items():
 ## Relatar Inspeção
 A função a seguir é a mais importante do módulo porque ela de fato altera os dados na plataforma Fiscaliza.
 
-
 ```python
-show_doc(relatar_inspecao)
+inspecao = '57689'
+relatar_inspecao(inspecao, login, senha, dados='files/dados.json', teste=True)
 ```
-
-
-<h4 id="relatar_inspecao" class="doc_header"><code>relatar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/main/fiscaliza/redmine.py#L491" class="source_link" style="float:right">[source]</a></h4>
-> <code>relatar_inspecao</code>(**`login`**:"Login Anatel do Usuário", **`senha`**:"Senha Utilizada nos Sistemas Interativos da Anatel", **`inspecao`**:"Número da Inspeção a ser relatada", **`dados`**:"Dicionário com os Dados a serem relatados", **`teste`**:"Indica se o relato será de teste"=*`True`*)
-Relata a inspeção `inspecao` com os dados constantes no dicionário `dados`
-
-
-```python
-inspecao = '57684'
-relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
-```
-
 
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Usuário Autenticado com Sucesso 👍</span>
@@ -888,10 +840,31 @@ relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57684</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57689</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
 <span style="color: #008000; text-decoration-color: #008000">'descrição_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span><span style="font-weight: bold">}</span>
 </pre>
 
+
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Rascunho ❗</span>
+</pre>
+
+
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+
+
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Sucesso ✨
+</pre>
+
+
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
 
 
 
@@ -907,6 +880,21 @@ relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Sucesso ✨
+</pre>
+
+
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+
+
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+
+
+
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Sucesso ✨
 </pre>
@@ -919,8 +907,7 @@ relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Em andamento ❗</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Relatando ❗</span>
 </pre>
 
 
@@ -931,28 +918,123 @@ relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Sucesso ✨
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Assine o Relatório de Monitoramento: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"0190565"</span>, <span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"https://seihm.anat</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Assine o Relatório de Monitoramento: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"0190599"</span>, <span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"https://seihm.anat</span>
 <span style="color: #008000; text-decoration-color: #008000">el.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455&amp;id_document</span>
-<span style="color: #008000; text-decoration-color: #008000">o=1962827"</span><span style="font-weight: bold">}</span> e chame a função novamente ❗
+<span style="color: #008000; text-decoration-color: #008000">o=1962869"</span><span style="font-weight: bold">}</span> e chame a função novamente ❗
 </pre>
+
+
+
+
+
+
+    {'id': '57689',
+     'subject': 'INSP_GR01_2021_0508',
+     'status': 'Relatando',
+     'priority': 'Normal',
+     'start_date': '2021-03-19',
+     'due_date': '2021-12-31',
+     'Classe da Inspeção': 'Técnica',
+     'Tipo de inspeção': 'Uso do Espectro - Monitoração',
+     'Ano': '2021',
+     'Número Sei do Processo': '{"numero"=>"53504.000007/2021-50", "link_acesso"=>"https://seihm.anatel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=1962455"}',
+     'Descrição da Inspeção': 'Atendimento da Denúncia AC202010213075425 (6104512), \nverificação da Potência e Intensidade de Campo Elétrico da Frequência 105.1MHz e seus harmônicos, \nalém da checagem de Intermodulação e Espúrios nas frequências 450.3MHz e 750MHz.',
+     'Fiscal Responsável': 'Ronaldo da Silva Alves Batista',
+     'Fiscais': ['Mario Augusto Volpini',
+      'Paulo Diogo Costa',
+      'Ronaldo da Silva Alves Batista'],
+     'Entidade da Inspeção': [],
+     'UF/Município': [],
+     'Serviços da Inspeção': [],
+     'Qnt. de emissões na faixa': '',
+     'Emissões não autorizadas/desc': '',
+     'Horas de Preparação': '',
+     'Horas de Deslocamento': '',
+     'Horas de Execução': '',
+     'Horas de Conclusão': '',
+     'SAV': '',
+     'PCDP': '',
+     'Procedimentos': [],
+     'Latitude (coordenadas)': '',
+     'Longitude (coordenadas)': '',
+     'Uso de PF': '',
+     'Ação de risco à vida criada?': '',
+     'Frequência Inicial': '54',
+     'Unidade da Frequência Inicial': 'MHz',
+     'Frequência Final': '700',
+     'Unidade da Frequência Final': 'MHz',
+     'Agrupamento': '',
+     'AppFiscaliza': '0',
+     'Relatório de Monitoramento': '{"numero"=>"0190599", "link_acesso"=>"https://seihm.anatel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=1962455&id_documento=1962869"}',
+     'Reservar Instrumentos?': '0',
+     'Utilizou algum instrumento?': '',
+     'id_ACAO': 52876,
+     'nome_ACAO': 'ACAO_GR01_2021_0491',
+     'descrição_ACAO': 'Teste',
+     'Users': ['Alexandre Elias de Andrade Oliveira',
+      'Alexandre Freitas de Lima',
+      'Alexandre Inacio',
+      'Alexandre Junzo Hamada',
+      'Alfredo de Andrade Filho',
+      'Ananias Pereira',
+      'Antonio Carlos Cardoso de Mello',
+      'Aparecido Sebastiao da Silva',
+      'Arthur Pisaruk',
+      'Carlos Augusto de Carvalho',
+      'Carlos Eduardo Guimaraes Silveira',
+      'Carlos da Paixao Filho',
+      'Celio Yukio Takahashi',
+      'Celso Luiz Maximino',
+      'Diogo Caldeira',
+      'Ediceu Beraldi',
+      'Eduardo Narkevicius',
+      'Elcio Maehara',
+      'Eustaquio Lages Duarte',
+      'Fiscal UD',
+      'Gauber Albuquerque',
+      'Gilson Ponce Ayres Filho',
+      'Helio Lopes de Carvalho Filho',
+      'Higor Paz Melo',
+      'Hugo Santana Lima',
+      'Humberto Barbosa Vinagre',
+      'Jamilson Evangelista',
+      'Joao Yokoyama',
+      'Joaquim Miranda',
+      'José Antônio S. Sanches',
+      'Julio Cesar de Assis Santos',
+      'Kiyotomo Kawamura',
+      'Laert Calil Junior',
+      'Lannei Vilela Moraes',
+      'Luis Lagomes',
+      'Luiz Vinicios Mielniczuk Seelig',
+      'Marcelo Augusto Scacabarozi',
+      'Marcio Costa',
+      'Marcio Rodrigues Maciel',
+      'Marcos Antônio Rodrigues',
+      'Marcos Juliano Valim da Silva',
+      'Maria Teresa Flosi Garrafa',
+      'Mario Augusto Volpini',
+      'Murilo Amaro',
+      'Osnir Lopes',
+      'Paulo Diogo Costa',
+      'Pedro Arai',
+      'Renato Sadao Kushioyada',
+      'Ricardo Santos Marques',
+      'Ricardo da Silva e Souza',
+      'Roberto Carlos Soares Campos',
+      'Roberto Ferreira dos Santos',
+      'Roberto Takata',
+      'Rodrigo Barbosa de Paula',
+      'Rogerio Zambotto',
+      'Ronaldo da Silva Alves Batista',
+      'Sergio Pereira',
+      'Thiago Silva',
+      'Thomaz Honma Ishida',
+      'Vinicius Paiva de Oliveira',
+      'Vitor Zelada',
+      'Wellington Devechi Piauilino',
+      'Wladimir Senise',
+      'marcio colazingari']}
 
 
 
@@ -967,8 +1049,9 @@ Na terceira etapa é gerado um relatório da monitoração no Sistema Eletrônic
 Após o relatório ser assinado basta chamar a função com os mesmos argumentos para que a etapa final seja realizada.
 
 ```python
-estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
+estado = relatar_inspecao(inspecao, login, senha, dados=dados, teste=True)
 ```
+
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Usuário Autenticado com Sucesso 👍</span>
 </pre>
@@ -976,20 +1059,20 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57684</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57689</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
 <span style="color: #008000; text-decoration-color: #008000">'descrição_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span><span style="font-weight: bold">}</span>
 </pre>
 
 
 
 
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Relatando ❗</span>
+</pre>
+
 
 
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-
-
-
 
 
 
@@ -1005,29 +1088,14 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Relatada ❗</span>
-</pre>
-
-
-
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção Relatada 😎
-</pre>
-
-
-
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'id'</span>: <span style="color: #008000; text-decoration-color: #008000">'57684'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'subject'</span>: <span style="color: #008000; text-decoration-color: #008000">'INSP_GR01_2021_0504'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'id'</span>: <span style="color: #008000; text-decoration-color: #008000">'57689'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'subject'</span>: <span style="color: #008000; text-decoration-color: #008000">'INSP_GR01_2021_0508'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'status'</span>: <span style="color: #008000; text-decoration-color: #008000">'Relatada'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'priority'</span>: <span style="color: #008000; text-decoration-color: #008000">'Normal'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'start_date'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021-03-19'</span>,
@@ -1044,8 +1112,8 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
     <span style="color: #008000; text-decoration-color: #008000">'Fiscal Responsável'</span>: <span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Fiscais'</span>: <span style="font-weight: bold">[</span>
         <span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Paulo Diogo Costa'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Mario Augusto Volpini'</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Mario Augusto Volpini'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Paulo Diogo Costa'</span>
     <span style="font-weight: bold">]</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Entidade da Inspeção'</span>: <span style="font-weight: bold">[]</span>,
     <span style="color: #008000; text-decoration-color: #008000">'UF/Município'</span>: <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'SP/São Paulo'</span><span style="font-weight: bold">]</span>,
@@ -1073,9 +1141,9 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
     <span style="color: #008000; text-decoration-color: #008000">'Unidade da Frequência Final'</span>: <span style="color: #008000; text-decoration-color: #008000">'MHz'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Agrupamento'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
     <span style="color: #008000; text-decoration-color: #008000">'AppFiscaliza'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Relatório de Monitoramento'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"0190565", "link_acesso"=&gt;"https://seihm.anatel</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Relatório de Monitoramento'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"0190599", "link_acesso"=&gt;"https://seihm.anatel</span>
 <span style="color: #008000; text-decoration-color: #008000">.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455&amp;id_documento=</span>
-<span style="color: #008000; text-decoration-color: #008000">1962827"}'</span>,
+<span style="color: #008000; text-decoration-color: #008000">1962869"}'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Reservar Instrumentos?'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Utilizou algum instrumento?'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>,
@@ -1149,4 +1217,11 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
     <span style="font-weight: bold">]</span>
 <span style="font-weight: bold">}</span>
 </pre>
+
+
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção Relatada 😎
+</pre>
+
 
