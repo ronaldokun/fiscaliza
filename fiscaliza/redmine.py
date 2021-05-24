@@ -8,6 +8,7 @@ __all__ = ['journal2table', 'value_text_string', 'check_update', 'view_string', 
 import json
 import re
 import logging
+import pkg_resources
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Iterable, Union
@@ -221,7 +222,9 @@ def validar_dicionario(
 
     key = keys[13]
     if municipio := d.get(key):
-        municipios = set(json.load(Path("files/municipios.json").open()))
+        stream = pkg_resources.resource_stream(__name__, "files/municipios.json")
+        #stream = Path("files/municipios.json").open()
+        municipios = set(json.load(stream))
         municipio = listify(municipio)
         lista_municipios = []
         for m in municipio:
