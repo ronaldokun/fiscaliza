@@ -8,6 +8,7 @@ __all__ = ['journal2table', 'value_text_string', 'check_update', 'view_string', 
 import json
 import re
 import logging
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Iterable, Union
 from redminelib import Redmine
@@ -39,9 +40,10 @@ def value_text_string(input_value):
     """Formata `input_value` como string json contendo chaves `texto` e `valor` com o mesmo valor de `input_value`"""
     return "{" + '"valor":"{0}","texto":"{0}"'.format(input_value) + "}"
 
+
 def check_update(
     field: str, value, dtype, values_set: Iterable = None, val_text_string: bool = False
-)->dict:
+) -> dict:
     """checa se `value` é do tipo `dtype`. Opcionalmente checa se `value` pertence ao conjunto `values_set`
     Opcionalmente formata `value` com a função `value_text_string`
     Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "value" : ...}
@@ -60,6 +62,7 @@ def check_update(
         value = value_text_string(value)
 
     return {"id": FIELD2ID[field], "value": value}
+
 
 def view_string(s):
     """Recebe uma string formatada como json e retorna somente o valor 'value' da string"""
@@ -86,6 +89,7 @@ def issue_type(insp, fiscaliza):
     elif tipo == 2:
         return "Ação"
     return "Desconhecido"
+
 
 def hm2prod():
     """Esta função substitui os ids de homologação pelos de produção, quando distintos"""
@@ -204,7 +208,7 @@ def validar_dicionario(
         ), f"A data informada é inválida {start_date}, informe o formato yyyy-mm-dd"
         d[key] = start_date
     else:
-        raise ValueError(f'O campo "Data de Início" não pode ficar vazio!')
+        raise ValueError(f'O campo "Data_de_Inicio" não pode ficar vazio!')
 
     key = keys[12]
     if due_date := d.get(key):
@@ -213,7 +217,7 @@ def validar_dicionario(
         ), f"A data informada é inválida {due_date}, informe o formato yyyy-mm-dd"
         d[key] = due_date
     else:
-        raise ValueError(f'O campo "Data Limite" não poder ficar vazio!')
+        raise ValueError(f'O campo "Data_Limite" não poder ficar vazio!')
 
     key = keys[13]
     if municipio := d.get(key):
@@ -223,7 +227,7 @@ def validar_dicionario(
         for m in municipio:
             match = re.match(f'({"|".join(ESTADOS)})/(\w+[\s|\w]+)', m)
             if not match:
-                raise ValueError(f"Verifique o formato da string UF/Município: {m}")
+                raise ValueError(f"Verifique o formato da string UF/Municipio: {m}")
             lista_municipios.append(
                 check_update(key, m, str, municipios, True)["value"]
             )
@@ -412,10 +416,10 @@ def insp2acao(insp: str, fiscaliza: Redmine) -> dict:
                     return {
                         "id_ACAO": getattr(issue_to_id, "id", ""),
                         "nome_ACAO": str(issue_to_id),
-                        "descrição_ACAO": description,
+                        "descricao_ACAO": description,
                     }
     else:
-        return {"id_ACAO": "", "nome_ACAO": "", "descrição_ACAO": ""}
+        return {"id_ACAO": "", "nome_ACAO": "", "descricao_ACAO": ""}
 
 
 def detalhar_inspecao(
@@ -446,6 +450,9 @@ def detalhar_inspecao(
     else:
         fiscaliza = auth_user(login, senha, teste)
 
+    if not teste:
+        hm2prod()
+
     result = {k: "" for k in FIELDS}
     issue = fiscaliza.issue.get(inspecao, include=["relations", "attachments"])
     result.update({k: str(getattr(issue, k, "")) for k in FIELDS})
@@ -456,9 +463,9 @@ def detalhar_inspecao(
             result[ID2FIELD.get(key, key)] = getattr(field, "value")
     result.update(insp2acao(inspecao, fiscaliza))
     id2users, users2id = issue2users(inspecao, fiscaliza)
-    if value := result["Fiscal Responsável"]:
+    if value := result["Fiscal_Responsavel"]:
         try:
-            result["Fiscal Responsável"] = id2users.get(int(value), value)
+            result["Fiscal_Responsavel"] = id2users.get(int(value), value)
         except ValueError:
             pass
     if value := result["Fiscais"]:
@@ -469,15 +476,31 @@ def detalhar_inspecao(
     users = list(users2id.keys())
     result["Users"] = users
     for f in JSON_FIELDS:
-        field = result[f]
+        if (field := result.get(f)) is None:
+            result[f] = ''
+            continue
         if is_listy(field):
             result[f] = [view_string(s) for s in field]
         else:
             result[f] = view_string(field)
+
+    if journal := list(issue.journals):
+        journal = dict(list(issue.journals)[-1])
+        key = 'user'
+    else:
+        journal = dict(issue)
+        key = 'author'
+
+    user = journal[key]['name']
+    date = datetime.strptime(journal['created_on'], '%Y-%m-%dT%H:%M:%SZ') - timedelta(hours=3)
+    result['Modificado'] = f"Atualizado por {user} em {date.date()} às {date.time()}"
+
     return result
 
 # Cell
-def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str, Notes=None):
+def atualiza_fiscaliza(
+    insp: str, fields: dict, fiscaliza: Redmine, status: str, Notes=None
+):
     """Atualiza a Inspeção `insp` para a Situação `status` com os dados do dicionário `fields`"""
     assert (
         status in STATUS
@@ -489,8 +512,8 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str,
         logging.info(f"A inspeção atual já está no status desejado: {status}.")
     custom_fields = [fields.get(field, "") for field in STATUS[status]]
     if status in ("Relatando", "Relatada"):
-        start_date = fields.get("Data de Início", "")
-        due_date = fields.get("Data Limite", "")
+        start_date = fields.get("Data_de_Inicio", "")
+        due_date = fields.get("Data_Limite", "")
     else:
         start_date, due_date = None, None
     Notes = fields.get("Notes") if status == "Relatada" else None
@@ -573,7 +596,7 @@ def relatar_inspecao(
 
         if antes == "Em andamento" and status == "Relatando":
             console.print(
-                f"Assine o Relatório de Monitoramento: {status_atual.get('Relatório de Monitoramento', '')} e chame a função novamente :exclamation:"
+                f"Assine o Relatorio_de_Monitoramento: {status_atual.get('Relatorio_de_Monitoramento', '')} e chame a função novamente :exclamation:"
             )
             break
         antes = status

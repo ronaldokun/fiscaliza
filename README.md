@@ -133,13 +133,13 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Classe da Inspeção </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Classe_da_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Tipo de inspeção </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Tipo_de_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
 </pre>
 
 
@@ -151,20 +151,20 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Número Sei do Processo </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"53504.000007/2021-50"</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"https://seihm.an</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Numero_Sei_do_Processo </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"53504.000007/2021-50"</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"https://seihm.an</span>
 <span style="color: #008000; text-decoration-color: #008000">atel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455"</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Descrição da Inspeção </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Descricao_da_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Fiscal Responsável </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Fiscal_Responsavel </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
 </pre>
 
 
@@ -176,43 +176,43 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Entidade da Inspeção </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Entidade_da_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">UF/Município </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">UF_Municipio </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Serviços da Inspeção </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Servicos_da_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas de Preparação </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas_de_Preparacao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas de Deslocamento </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas_de_Deslocamento </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas de Execução </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas_de_Execucao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas de Conclusão </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas_de_Conclusao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
 </pre>
 
 
@@ -260,7 +260,7 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">descrição_ACAO </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Teste</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">descricao_ACAO </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Teste</span>
 </pre>
 
 
@@ -339,13 +339,13 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Classe da Inspeção </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Técnica</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Classe_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Técnica</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Tipo de inspeção </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Uso do Espectro - Monitoração</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Tipo_de_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Uso do Espectro - Monitoração</span>
 </pre>
 
 
@@ -363,14 +363,14 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Número Sei do Processo </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"53504.006733/2020-03"</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"https://sei.anat</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Numero_Sei_do_Processo </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"53504.006733/2020-03"</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"https://sei.anat</span>
 <span style="color: #008000; text-decoration-color: #008000">el.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=6892566"</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Descrição da Inspeção </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Atendimento da Denúncia AC202010213075425 </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6104512</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">)</span><span style="color: #008000; text-decoration-color: #008000">, verificação da </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Descricao_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Atendimento da Denúncia AC202010213075425 </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6104512</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">)</span><span style="color: #008000; text-decoration-color: #008000">, verificação da </span>
 <span style="color: #008000; text-decoration-color: #008000">Potência e Intensidade de Campo Elétrico da Frequência </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">105.</span><span style="color: #008000; text-decoration-color: #008000">1MHz e seus harmônicos, além da </span>
 <span style="color: #008000; text-decoration-color: #008000">checagem de Intermodulação e Espúrios nas frequências </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">450.</span><span style="color: #008000; text-decoration-color: #008000">3MHz e 750MHz.</span>
 </pre>
@@ -378,7 +378,7 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscal Responsável </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Ronaldo da Silva Alves Batista</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscal_Responsavel </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Ronaldo da Silva Alves Batista</span>
 </pre>
 
 
@@ -390,56 +390,56 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Entidade da Inspeção </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"30913990000110","texto":"SISTEMA TRANSRIO DE COMUNICACAO </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Entidade_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"30913990000110","texto":"SISTEMA TRANSRIO DE COMUNICACAO </span>
 <span style="color: #008000; text-decoration-color: #008000">LTDA  (30913990000110)"}'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">UF/Município </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'RJ/Rio de Janeiro'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">UF_Municipio </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'RJ/Rio de Janeiro'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Serviços da Inspeção </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'230 - COLETIVO - RADIODIFUSÃO SONORA EM FREQÜÊNCIA MODULADA'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Servicos_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'230 - COLETIVO - RADIODIFUSÃO SONORA EM FREQÜÊNCIA MODULADA'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Qnt. de emissões na faixa </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">1</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Qnt_de_emissoes_na_faixa </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">1</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Emissões não autorizadas/desc </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Emissoes_nao_autorizadas </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas de Preparação </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Preparacao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas de Deslocamento </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Deslocamento </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas de Execução </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">32</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Execucao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">32</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas de Conclusão </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Conclusao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6</span>
 </pre>
 
 
@@ -475,37 +475,37 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Uso de PF </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Não se aplica PF - uso apenas de formulários</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Uso_de_PF </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Não se aplica PF - uso apenas de formulários</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Ação de risco à vida criada? </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Não</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Acao_de_risco_a_vida_criada </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Não</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequência Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">105.1</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequencia_Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">105.1</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade da Frequência Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">MHz</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade_da_Frequencia_Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">MHz</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequência Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">750</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequencia_Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">750</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade da Frequência Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">MHz</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade_da_Frequencia_Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">MHz</span>
 </pre>
 
 
@@ -547,7 +547,7 @@ for k,v in detalhes.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">descrição_ACAO </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Atendimento à Denúncia AC202010213075425 </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6104512</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">)</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">descricao_ACAO </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Atendimento à Denúncia AC202010213075425 </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6104512</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">)</span>
 </pre>
 
 
@@ -582,15 +582,15 @@ A função anterior somente retorna as informações já constantes em dada Insp
 ```python
 d = {}
 
-d['Classe da Inspeção'] = 'Técnica' # str
+d['Classe_da_Inspecao'] = 'Técnica' # str
 
-d['Tipo de inspeção'] = 'Uso do Espectro - Monitoração' #str
+d['Tipo_de_Inspecao'] = 'Uso do Espectro - Monitoração' #str
 
-d['Descrição da Inspeção'] = '''Atendimento da Denúncia AC202010213075425 (6104512), 
+d['Descricao_da_Inspecao'] = '''Atendimento da Denúncia AC202010213075425 (6104512), 
 verificação da Potência e Intensidade de Campo Elétrico da Frequência 105.1MHz e seus harmônicos, 
 além da checagem de Intermodulação e Espúrios nas frequências 450.3MHz e 750MHz.''' #str
 
-d['Fiscal Responsável'] = 'Ronaldo da Silva Alves Batista' #str
+d['Fiscal_Responsavel'] = 'Ronaldo da Silva Alves Batista' #str
 
 d['Fiscais'] = ['Ronaldo da Silva Alves Batista', 'Paulo Diogo Costa', 'Mario Augusto Volpini'] #string ou lista de strings
 
@@ -601,51 +601,51 @@ d['Html'] = 'D:\\OneDrive - ANATEL\\Monitoramento\\Processos\\53504.0005432021-5
 
 #Unix d['Html'] = '/d/OneDrive - ANATEL/Monitoramento/53504.0005432021-55/Guarulhos.html' #str
             
-d['Gerar Relatório'] = 1 # int 0 ou 1
+d['Gerar_Relatorio'] = 1 # int 0 ou 1
 
-d['Frequência Inicial']  = 54 #int ou float
+d['Frequencia_Inicial']  = 54 #int ou float
 
-d['Unidade da Frequência Inicial'] = 'MHz' #string
+d['Unidade_da_Frequencia_Inicial'] = 'MHz' #string
 
-d['Frequência Final'] = 700 #int ou float
+d['Frequencia_Final'] = 700 #int ou float
 
-d['Unidade da Frequência Final'] = 'MHz' #string
+d['Unidade_da_Frequencia_Final'] = 'MHz' #string
 
-d['Data de Início'] = '2021-03-19' #YYYY-MM-DD #string nesse formato
+d['Data_de_Inicio'] = '2021-03-19' #YYYY-MM-DD #string nesse formato
 
-d['Data Limite'] = '2021-12-31'  #YYYY-MM-DD #string nesse formato
+d['Data_Limite'] = '2021-12-31'  #YYYY-MM-DD #string nesse formato
 
-d['UF/Município'] = "SP/São Paulo" # string ou Lista de Strings: ["SP/São Paulo", "SP/Sorocaba"]
+d['UF_Municipio'] = "SP/São Paulo" # string ou Lista de Strings: ["SP/São Paulo", "SP/Sorocaba"]
 
-d['Serviços da Inspeção'] = ['230', '231', '800'] # String ou Lista de Strings
+d['Servicos_da_Inspecao'] = ['230', '231', '800'] # String ou Lista de Strings
 
-d['Qnt. de emissões na faixa'] = 12 # int
+d['Qnt_de_emissoes_na_faixa'] = 12 # int
 
-d['Emissões não autorizadas/desc'] = 70 # int
+d['Emissoes_nao_autorizadas'] = 70 # int
 
-d['Horas de Preparação'] = 2 # int
+d['Horas_de_Preparacao'] = 2 # int
 
-d['Horas de Deslocamento'] = 0 # int
+d['Horas_de_Deslocamento'] = 0 # int
 
-d['Horas de Execução'] = 32 # int
+d['Horas_de_Execucao'] = 32 # int
 
-d['Horas de Conclusão'] = 6 # int
+d['Horas_de_Conclusao'] = 6 # int
 
-d['Latitude (coordenadas)'] = -22.94694 # float
+d['Latitude'] = -22.94694 # float
 
-d['Longitude (coordenadas)'] = -43.21944 # float
+d['Longitude'] = -43.21944 # float
 
-d['Uso de PF'] = 'Não se aplica PF - uso apenas de formulários' # string
+d['Uso_de_PF'] = 'Não se aplica PF - uso apenas de formulários' # string
 
-d['Ação de risco à vida criada?'] = 'Não' # string Sim | Não
+d['Acao_de_risco_a_vida_criada'] = 'Não' # string Sim | Não
 
-d['Impossibilidade acesso online?'] = '0' # string '0' | '1'
+d['Impossibilidade_acesso_online'] = '0' # string '0' | '1'
 
-d['Reservar Instrumentos?'] = '0' #string '0' = Não | '1' = 'Sim'
+d['Reservar_Instrumentos'] = '0' #string '0' = Não | '1' = 'Sim'
 
-d['Utilizou algum instrumento?'] = '0'
+d['Utilizou_algum_instrumento'] = '0'
 
-#d['Reserva de Instrumentos'] = '' 
+#d['Reserva_de_Instrumentos'] = '' 
 
 d['Notes'] = "Não foi constatada irregularidade no Período monitorado" # string
 
@@ -687,20 +687,20 @@ for k,v in dados.items():
 ```
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Classe da Inspeção </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">89</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"Técnica","texto":"Técnica"}'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Classe_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">89</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"Técnica","texto":"Técnica"}'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Tipo de inspeção </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"Uso do Espectro - Monitoração","texto":"Uso</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Tipo_de_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"Uso do Espectro - Monitoração","texto":"Uso</span>
 <span style="color: #008000; text-decoration-color: #008000">do Espectro - Monitoração"}'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Descrição da Inspeção </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">22</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'Atendimento da Denúncia AC202010213075425 </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Descricao_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">22</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'Atendimento da Denúncia AC202010213075425 </span>
 <span style="color: #008000; text-decoration-color: #008000">(6104512), \nverificação da Potência e Intensidade de Campo Elétrico da Frequência 105.1MHz e</span>
 <span style="color: #008000; text-decoration-color: #008000">seus harmônicos, \nalém da checagem de Intermodulação e Espúrios nas frequências 450.3MHz e </span>
 <span style="color: #008000; text-decoration-color: #008000">750MHz.'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
@@ -709,7 +709,7 @@ for k,v in dados.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscal Responsável </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">25</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscal_Responsavel </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">25</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
@@ -732,55 +732,55 @@ for k,v in dados.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Gerar Relatório </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">534</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">1</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Gerar_Relatorio </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">534</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">1</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequência Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">156</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">54</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequencia_Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">156</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">54</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade da Frequência Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">157</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'MHz'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade_da_Frequencia_Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">157</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'MHz'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequência Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">158</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">700</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequencia_Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">158</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">700</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade da Frequência Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">159</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'MHz'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade_da_Frequencia_Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">159</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'MHz'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Data de Início </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">03</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">19</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Data_de_Inicio </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">03</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">19</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Data Limite </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">12</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">31</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Data_Limite </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">12</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">31</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">UF/Município </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">31</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"SP/São Paulo","texto":"SP/São Paulo"}'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">UF_Municipio </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">31</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"SP/São Paulo","texto":"SP/São Paulo"}'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Serviços da Inspeção </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">57</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"230 - COLETIVO - RADIODIFUSÃO SONORA </span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Servicos_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">57</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"230 - COLETIVO - RADIODIFUSÃO SONORA </span>
 <span style="color: #008000; text-decoration-color: #008000">EM FREQÜÊNCIA MODULADA","texto":"230 - COLETIVO - RADIODIFUSÃO SONORA EM FREQÜÊNCIA </span>
 <span style="color: #008000; text-decoration-color: #008000">MODULADA"}'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"231 - COLETIVO - RADIODIFUSÃO COMUNITÁRIA","texto":"231 - COLETIVO - </span>
 <span style="color: #008000; text-decoration-color: #008000">RADIODIFUSÃO COMUNITÁRIA"}'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"800 - COLETIVO - RETRANSMISSAO DE T.V.","texto":"800 </span>
@@ -790,37 +790,37 @@ for k,v in dados.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Qnt. de emissões na faixa </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">69</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">12</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Qnt_de_emissoes_na_faixa </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">69</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">12</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Emissões não autorizadas/desc </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">70</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">70</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Emissoes_nao_autorizadas </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">70</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">70</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas de Preparação </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">91</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Preparacao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">91</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas de Deslocamento </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">92</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Deslocamento </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">92</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas de Execução </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">93</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">32</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Execucao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">93</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">32</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas de Conclusão </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">94</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Conclusao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">94</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
@@ -838,31 +838,31 @@ for k,v in dados.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Uso de PF </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">151</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'Não se aplica PF - uso apenas de formulários'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Uso_de_PF </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">151</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'Não se aplica PF - uso apenas de formulários'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Ação de risco à vida criada? </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">154</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'Não'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Acao_de_risco_a_vida_criada </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">154</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'Não'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Impossibilidade acesso online? </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">450</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'0'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Impossibilidade_acesso_online </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">450</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'0'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Reservar Instrumentos? </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">658</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'0'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Reservar_Instrumentos </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">658</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'0'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Utilizou algum instrumento? </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">660</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'0'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Utilizou_algum_instrumento </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">660</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'0'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
@@ -912,7 +912,7 @@ relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57684</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
-<span style="color: #008000; text-decoration-color: #008000">'descrição_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span><span style="font-weight: bold">}</span>
+<span style="color: #008000; text-decoration-color: #008000">'descricao_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span><span style="font-weight: bold">}</span>
 </pre>
 
 
@@ -972,7 +972,7 @@ relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Assine o Relatório de Monitoramento: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"0190565"</span>, <span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"https://seihm.anat</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Assine o Relatorio_de_Monitoramento: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"0190565"</span>, <span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"https://seihm.anat</span>
 <span style="color: #008000; text-decoration-color: #008000">el.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455&amp;id_document</span>
 <span style="color: #008000; text-decoration-color: #008000">o=1962827"</span><span style="font-weight: bold">}</span> e chame a função novamente ❗
 </pre>
@@ -1002,7 +1002,7 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57684</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
-<span style="color: #008000; text-decoration-color: #008000">'descrição_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span><span style="font-weight: bold">}</span>
+<span style="color: #008000; text-decoration-color: #008000">'descricao_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span><span style="font-weight: bold">}</span>
 </pre>
 
 
@@ -1057,55 +1057,55 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
     <span style="color: #008000; text-decoration-color: #008000">'priority'</span>: <span style="color: #008000; text-decoration-color: #008000">'Normal'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'start_date'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021-03-19'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'due_date'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021-12-31'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Classe da Inspeção'</span>: <span style="color: #008000; text-decoration-color: #008000">'Técnica'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Tipo de inspeção'</span>: <span style="color: #008000; text-decoration-color: #008000">'Uso do Espectro - Monitoração'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Classe_da_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">'Técnica'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Tipo_de_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">'Uso do Espectro - Monitoração'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Ano'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Número Sei do Processo'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"53504.000007/2021-50", "link_acesso"=&gt;"https://sei</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Numero_Sei_do_Processo'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"53504.000007/2021-50", "link_acesso"=&gt;"https://sei</span>
 <span style="color: #008000; text-decoration-color: #008000">hm.anatel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455"}'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Descrição da Inspeção'</span>: <span style="color: #008000; text-decoration-color: #008000">'Atendimento da Denúncia AC202010213075425 (6104512), </span>
+    <span style="color: #008000; text-decoration-color: #008000">'Descricao_da_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">'Atendimento da Denúncia AC202010213075425 (6104512), </span>
 <span style="color: #008000; text-decoration-color: #008000">\nverificação da Potência e Intensidade de Campo Elétrico da Frequência 105.1MHz e seus </span>
 <span style="color: #008000; text-decoration-color: #008000">harmônicos, \nalém da checagem de Intermodulação e Espúrios nas frequências 450.3MHz e </span>
 <span style="color: #008000; text-decoration-color: #008000">750MHz.'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Fiscal Responsável'</span>: <span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Fiscal_Responsavel'</span>: <span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Fiscais'</span>: <span style="font-weight: bold">[</span>
         <span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Paulo Diogo Costa'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Mario Augusto Volpini'</span>
     <span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Entidade da Inspeção'</span>: <span style="font-weight: bold">[]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'UF/Município'</span>: <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'SP/São Paulo'</span><span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Serviços da Inspeção'</span>: <span style="font-weight: bold">[</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Entidade_da_Inspecao'</span>: <span style="font-weight: bold">[]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'UF_Municipio'</span>: <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'SP/São Paulo'</span><span style="font-weight: bold">]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Servicos_da_Inspecao'</span>: <span style="font-weight: bold">[</span>
         <span style="color: #008000; text-decoration-color: #008000">'800 - COLETIVO - RETRANSMISSAO DE T.V.'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'231 - COLETIVO - RADIODIFUSÃO COMUNITÁRIA'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'230 - COLETIVO - RADIODIFUSÃO SONORA EM FREQÜÊNCIA MODULADA'</span>
     <span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Qnt. de emissões na faixa'</span>: <span style="color: #008000; text-decoration-color: #008000">'12'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Emissões não autorizadas/desc'</span>: <span style="color: #008000; text-decoration-color: #008000">'70'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Horas de Preparação'</span>: <span style="color: #008000; text-decoration-color: #008000">'2'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Horas de Deslocamento'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Horas de Execução'</span>: <span style="color: #008000; text-decoration-color: #008000">'32'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Horas de Conclusão'</span>: <span style="color: #008000; text-decoration-color: #008000">'6'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Qnt_de_emissoes_na_faixa'</span>: <span style="color: #008000; text-decoration-color: #008000">'12'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Emissoes_nao_autorizadas'</span>: <span style="color: #008000; text-decoration-color: #008000">'70'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Preparacao'</span>: <span style="color: #008000; text-decoration-color: #008000">'2'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Deslocamento'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Execucao'</span>: <span style="color: #008000; text-decoration-color: #008000">'32'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Conclusao'</span>: <span style="color: #008000; text-decoration-color: #008000">'6'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'SAV'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
     <span style="color: #008000; text-decoration-color: #008000">'PCDP'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Procedimentos'</span>: <span style="font-weight: bold">[]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Latitude (coordenadas)'</span>: <span style="color: #008000; text-decoration-color: #008000">'-22.94694'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Longitude (coordenadas)'</span>: <span style="color: #008000; text-decoration-color: #008000">'-43.21944'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Uso de PF'</span>: <span style="color: #008000; text-decoration-color: #008000">'Não se aplica PF - uso apenas de formulários'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Ação de risco à vida criada?'</span>: <span style="color: #008000; text-decoration-color: #008000">'Não'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Frequência Inicial'</span>: <span style="color: #008000; text-decoration-color: #008000">'54'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Unidade da Frequência Inicial'</span>: <span style="color: #008000; text-decoration-color: #008000">'MHz'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Frequência Final'</span>: <span style="color: #008000; text-decoration-color: #008000">'700'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Unidade da Frequência Final'</span>: <span style="color: #008000; text-decoration-color: #008000">'MHz'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Latitude'</span>: <span style="color: #008000; text-decoration-color: #008000">'-22.94694'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Longitude'</span>: <span style="color: #008000; text-decoration-color: #008000">'-43.21944'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Uso_de_PF'</span>: <span style="color: #008000; text-decoration-color: #008000">'Não se aplica PF - uso apenas de formulários'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Acao_de_risco_a_vida_criada'</span>: <span style="color: #008000; text-decoration-color: #008000">'Não'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Frequencia_Inicial'</span>: <span style="color: #008000; text-decoration-color: #008000">'54'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Unidade_da_Frequencia_Inicial'</span>: <span style="color: #008000; text-decoration-color: #008000">'MHz'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Frequencia_Final'</span>: <span style="color: #008000; text-decoration-color: #008000">'700'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Unidade_da_Frequencia_Final'</span>: <span style="color: #008000; text-decoration-color: #008000">'MHz'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Agrupamento'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
     <span style="color: #008000; text-decoration-color: #008000">'AppFiscaliza'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Relatório de Monitoramento'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"0190565", "link_acesso"=&gt;"https://seihm.anatel</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Relatorio_de_Monitoramento'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"0190565", "link_acesso"=&gt;"https://seihm.anatel</span>
 <span style="color: #008000; text-decoration-color: #008000">.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455&amp;id_documento=</span>
 <span style="color: #008000; text-decoration-color: #008000">1962827"}'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Reservar Instrumentos?'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Utilizou algum instrumento?'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Reservar_Instrumentos'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Utilizou_algum_instrumento'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>,
     <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'descrição_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'descricao_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Users'</span>: <span style="font-weight: bold">[</span>
         <span style="color: #008000; text-decoration-color: #008000">'Alexandre Elias de Andrade Oliveira'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Alexandre Freitas de Lima'</span>,
