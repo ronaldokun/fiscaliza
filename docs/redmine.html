@@ -87,7 +87,7 @@ nb_path: "nbs\redmine.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="journal2table" class="doc_header"><code>journal2table</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L24" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>journal2table</code>(<strong><code>journal</code></strong>)</p>
+<h4 id="journal2table" class="doc_header"><code>journal2table</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L39" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>journal2table</code>(<strong><code>journal</code></strong>)</p>
 </blockquote>
 <p>Recebe a string journal, caso a formatação seja compatível com um csv, retorna este formato como markdown
 Do contrário simplesmente retorna a string inalterada</p>
@@ -113,7 +113,7 @@ Do contrário simplesmente retorna a string inalterada</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="value_text_string" class="doc_header"><code>value_text_string</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L39" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>value_text_string</code>(<strong><code>input_value</code></strong>)</p>
+<h4 id="value_text_string" class="doc_header"><code>value_text_string</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L54" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>value_text_string</code>(<strong><code>input_value</code></strong>)</p>
 </blockquote>
 <p>Formata <code>input_value</code> como string json contendo chaves <code>texto</code> e <code>valor</code> com o mesmo valor de <code>input_value</code></p>
 
@@ -138,7 +138,7 @@ Do contrário simplesmente retorna a string inalterada</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="check_update" class="doc_header"><code>check_update</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L44" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>check_update</code>(<strong><code>field</code></strong>:<code>str</code>, <strong><code>value</code></strong>, <strong><code>dtype</code></strong>, <strong><code>values_set</code></strong>:<code>Iterable</code>[<code>T_co</code>]=<em><code>None</code></em>, <strong><code>val_text_string</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="check_update" class="doc_header"><code>check_update</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L59" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>check_update</code>(<strong><code>field</code></strong>:<code>str</code>, <strong><code>value</code></strong>, <strong><code>dtype</code></strong>, <strong><code>values_set</code></strong>:<code>Iterable</code>[<code>T_co</code>]=<em><code>None</code></em>, <strong><code>val_text_string</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>checa se <code>value</code> é do tipo <code>dtype</code>. Opcionalmente checa se <code>value</code> pertence ao conjunto <code>values_set</code>
 Opcionalmente formata <code>value</code> com a função <a href="/fiscaliza/redmine.html#value_text_string"><code>value_text_string</code></a>
@@ -165,7 +165,7 @@ Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="view_string" class="doc_header"><code>view_string</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L67" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>view_string</code>(<strong><code>s</code></strong>)</p>
+<h4 id="view_string" class="doc_header"><code>view_string</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L82" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>view_string</code>(<strong><code>s</code></strong>)</p>
 </blockquote>
 <p>Recebe uma string formatada como json e retorna somente o valor 'value' da string</p>
 
@@ -190,7 +190,7 @@ Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="valida_fiscaliza" class="doc_header"><code>valida_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L76" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>valida_fiscaliza</code>(<strong><code>fiscaliza_obj</code></strong>:<code>Redmine</code>)</p>
+<h4 id="valida_fiscaliza" class="doc_header"><code>valida_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>valida_fiscaliza</code>(<strong><code>fiscaliza_obj</code></strong>:<code>Redmine</code>)</p>
 </blockquote>
 <p>Checa se <code>fiscaliza_obj</code> é do tipo <code>Redmine</code></p>
 
@@ -215,7 +215,7 @@ Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="issue_type" class="doc_header"><code>issue_type</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L85" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>issue_type</code>(<strong><code>insp</code></strong>, <strong><code>fiscaliza</code></strong>)</p>
+<h4 id="issue_type" class="doc_header"><code>issue_type</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L100" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>issue_type</code>(<strong><code>insp</code></strong>, <strong><code>fiscaliza</code></strong>)</p>
 </blockquote>
 <p>Checa se a Issue de nº <code>insp</code> do Redmine é de um dos tipos válidos: <code>Inspeção | Ação</code></p>
 
@@ -240,7 +240,7 @@ Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="hm2prod" class="doc_header"><code>hm2prod</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L94" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>hm2prod</code>()</p>
+<h4 id="hm2prod" class="doc_header"><code>hm2prod</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L109" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>hm2prod</code>()</p>
 </blockquote>
 <p>Esta função substitui os ids de homologação pelos de produção, quando distintos</p>
 
@@ -272,7 +272,7 @@ Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="validar_dicionario" class="doc_header"><code>validar_dicionario</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L102" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>validar_dicionario</code>(<strong><code>data_dict</code></strong>:"Dicionário de Dados ou Caminho para o arquivo .json", <strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário"=<em><code>None</code></em>, <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel"=<em><code>None</code></em>, <strong><code>fiscaliza</code></strong>:"Objeto Redmine logado, opcional ao login e senha"=<em><code>None</code></em>, <strong><code>teste</code></strong>:"Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizado"=<em><code>True</code></em>, <strong><code>save_path</code></strong>:"Caminho para salvar o dicionário formatado"=<em><code>None</code></em>)</p>
+<h4 id="validar_dicionario" class="doc_header"><code>validar_dicionario</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L118" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>validar_dicionario</code>(<strong><code>data_dict</code></strong>:"Dicionário de Dados ou Caminho para o arquivo .json", <strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário"=<em><code>None</code></em>, <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel"=<em><code>None</code></em>, <strong><code>fiscaliza</code></strong>:"Objeto Redmine logado, opcional ao login e senha"=<em><code>None</code></em>, <strong><code>teste</code></strong>:"Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizado"=<em><code>True</code></em>, <strong><code>save_path</code></strong>:"Caminho para salvar o dicionário formatado"=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Valida as informações de data_dict e as formata como exigido pela API do Redmine.
 Opcionalmente salva o dicionário serializado como .json caso seja passado um <code>save_path</code> válido
@@ -312,7 +312,7 @@ Returns: dicionário com os dados formatados</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="auth_user" class="doc_header"><code>auth_user</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L345" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>auth_user</code>(<strong><code>username</code></strong>, <strong><code>password</code></strong>, <strong><code>teste</code></strong>=<em><code>True</code></em>, <strong><code>verify</code></strong>=<em><code>True</code></em>)</p>
+<h4 id="auth_user" class="doc_header"><code>auth_user</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L372" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>auth_user</code>(<strong><code>username</code></strong>, <strong><code>password</code></strong>, <strong><code>teste</code></strong>=<em><code>True</code></em>, <strong><code>verify</code></strong>=<em><code>True</code></em>)</p>
 </blockquote>
 
 </div>
@@ -336,7 +336,7 @@ Returns: dicionário com os dados formatados</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="issue2users" class="doc_header"><code>issue2users</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L354" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>issue2users</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>)</p>
+<h4 id="issue2users" class="doc_header"><code>issue2users</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L381" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>issue2users</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>)</p>
 </blockquote>
 <p>Recebe objeto Redmine <code>fiscaliza</code> e string <code>insp</code> e retorna um dicionário com os usuários do grupo Inspeção-Execução</p>
 
@@ -361,7 +361,7 @@ Returns: dicionário com os dados formatados</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="insp2acao" class="doc_header"><code>insp2acao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L378" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>insp2acao</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>)</p>
+<h4 id="insp2acao" class="doc_header"><code>insp2acao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L405" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>insp2acao</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>)</p>
 </blockquote>
 <p>Recebe o objeto <code>fiscaliza</code> e a string referente à inspeção <code>insp</code> e retorna um dicionário resumo da Ação atrelada à inspeção</p>
 <p>Args:
@@ -400,7 +400,7 @@ Returns: dicionário com os dados formatados</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="detalhar_inspecao" class="doc_header"><code>detalhar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L425" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>detalhar_inspecao</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário"=<em><code>None</code></em>, <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel"=<em><code>None</code></em>, <strong><code>fiscaliza</code></strong>:"Objeto Redmine logado, opcional ao login e senha"=<em><code>None</code></em>, <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>)</p>
+<h4 id="detalhar_inspecao" class="doc_header"><code>detalhar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L452" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>detalhar_inspecao</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário"=<em><code>None</code></em>, <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel"=<em><code>None</code></em>, <strong><code>fiscaliza</code></strong>:"Objeto Redmine logado, opcional ao login e senha"=<em><code>None</code></em>, <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Recebe número da inspeção <code>inspecao</code>, o login e senha ou opcionalmente objeto Redmine logado <code>fiscaliza</code>
 inspecao: str - Número da Inspeção a ser relatada
@@ -453,7 +453,7 @@ teste: bool - Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizad
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="atualiza_fiscaliza" class="doc_header"><code>atualiza_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L501" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>atualiza_fiscaliza</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fields</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status</code></strong>:<code>str</code>, <strong><code>Notes</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="atualiza_fiscaliza" class="doc_header"><code>atualiza_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L531" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>atualiza_fiscaliza</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fields</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Atualiza a Inspeção <code>insp</code> para a Situação <code>status</code> com os dados do dicionário <code>fields</code></p>
 
@@ -492,7 +492,7 @@ teste: bool - Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizad
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="relatar_inspecao" class="doc_header"><code>relatar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L530" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>relatar_inspecao</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário", <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel", <strong><code>dados</code></strong>:"Dicionário já validado com os Dados a serem relatados", <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>)</p>
+<h4 id="relatar_inspecao" class="doc_header"><code>relatar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L561" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>relatar_inspecao</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário", <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel", <strong><code>dados</code></strong>:"Dicionário já validado com os Dados a serem relatados", <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Relata a inspeção <code>inspecao</code> com os dados constantes no dicionário <code>dados</code></p>
 

@@ -61,8 +61,9 @@ show_doc(detalhar_inspecao)
 ```
 
 
-<h4 id="detalhar_inspecao" class="doc_header"><code>detalhar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/main/fiscaliza/redmine.py#L406" class="source_link" style="float:right">[source]</a></h4>
-> <code>detalhar_inspecao</code>(**`inspecao`**:`str`, **`login`**:`str`=*`None`*, **`senha`**:`str`=*`None`*, **`fiscaliza`**:`Redmine`=*`None`*, **`teste`**:`bool`=*`True`*)
+
+<h4 id="detalhar_inspecao" class="doc_header"><code>detalhar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L435" class="source_link" style="float:right">[source]</a></h4>
+> <code>detalhar_inspecao</code>(**`inspecao`**:"Número da Inspeção a ser relatada", **`login`**:"Login Anatel do Usuário"=*`None`*, **`senha`**:"Senha Utilizada nos Sistemas Interativos da Anatel"=*`None`*, **`fiscaliza`**:"Objeto Redmine logado, opcional ao login e senha"=*`None`*, **`teste`**:"Indica se o relato será de teste"=*`True`*)
 Recebe número da inspeção `inspecao`, o login e senha ou opcionalmente objeto Redmine logado `fiscaliza`
 inspecao: str - Número da Inspeção a ser relatada
 login: str - Login Anatel do Usuário
@@ -75,508 +76,124 @@ Returns:
 
 
 
-Vamos exemplificar a Inspeção de Teste `57684`
+Vamos exemplificar a Inspeção de Teste `57824`
 
 ```python
 login = getuser()
 senha = getpass()
-inspecao = '57684'
 ```
 
      ··········
 
-
 ```python
+inspecao = '57824'
 detalhes = detalhar_inspecao(inspecao, login, senha)
+console.print(detalhes)
 ```
 
 
-```python
-for k,v in detalhes.items():
-    console.print(f'[red]{k} [blue]-> [green]{v}')
-```
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">id </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">57684</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'id'</span>: <span style="color: #008000; text-decoration-color: #008000">'57824'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'subject'</span>: <span style="color: #008000; text-decoration-color: #008000">'INSP_GR01_2021_0518'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'status'</span>: <span style="color: #008000; text-decoration-color: #008000">'Rascunho'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'priority'</span>: <span style="color: #008000; text-decoration-color: #008000">'Normal'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'start_date'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'due_date'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Classe_da_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Tipo_de_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Ano'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Numero_Sei_do_Processo'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"53504.000007/2021-50", "link_acesso"=&gt;"https://sei</span>
+<span style="color: #008000; text-decoration-color: #008000">hm.anatel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455"}'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Descricao_da_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Fiscal_Responsavel'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Fiscais'</span>: <span style="font-weight: bold">[]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Entidade_da_Inspecao'</span>: <span style="font-weight: bold">[]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'UF_Municipio'</span>: <span style="font-weight: bold">[]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Servicos_da_Inspecao'</span>: <span style="font-weight: bold">[]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Preparacao'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Deslocamento'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Execucao'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Conclusao'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'SAV'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'PCDP'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Procedimentos'</span>: <span style="font-weight: bold">[]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Agrupamento'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'AppFiscaliza'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'descricao_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Users'</span>: <span style="font-weight: bold">[</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Alexandre Elias de Andrade Oliveira'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Alexandre Freitas de Lima'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Alexandre Inacio'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Alexandre Junzo Hamada'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Alfredo de Andrade Filho'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Ananias Pereira'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Antonio Carlos Cardoso de Mello'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Aparecido Sebastiao da Silva'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Arthur Pisaruk'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Carlos Augusto de Carvalho'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Carlos Eduardo Guimaraes Silveira'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Carlos da Paixao Filho'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Celio Yukio Takahashi'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Celso Luiz Maximino'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Diogo Caldeira'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Ediceu Beraldi'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Eduardo Narkevicius'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Elcio Maehara'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Eustaquio Lages Duarte'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Fiscal UD'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Gauber Albuquerque'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Gilson Ponce Ayres Filho'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Helio Lopes de Carvalho Filho'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Higor Paz Melo'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Hugo Santana Lima'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Humberto Barbosa Vinagre'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Jamilson Evangelista'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Joao Yokoyama'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Joaquim Miranda'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'José Antônio S. Sanches'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Julio Cesar de Assis Santos'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Kiyotomo Kawamura'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Laert Calil Junior'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Lannei Vilela Moraes'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Luis Lagomes'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Luiz Vinicios Mielniczuk Seelig'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Marcelo Augusto Scacabarozi'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Marcio Costa'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Marcio Rodrigues Maciel'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Marcos Antônio Rodrigues'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Marcos Juliano Valim da Silva'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Maria Teresa Flosi Garrafa'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Mario Augusto Volpini'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Murilo Amaro'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Osnir Lopes'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Paulo Diogo Costa'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Pedro Arai'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Renato Sadao Kushioyada'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Ricardo Santos Marques'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Ricardo da Silva e Souza'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Roberto Carlos Soares Campos'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Roberto Ferreira dos Santos'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Roberto Takata'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rodrigo Barbosa de Paula'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rogerio Zambotto'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Sergio Pereira'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Thiago Silva'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Thomaz Honma Ishida'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Vinicius Paiva de Oliveira'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Vitor Zelada'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Wellington Devechi Piauilino'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Wladimir Senise'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'marcio colazingari'</span>
+    <span style="font-weight: bold">]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Modificado'</span>: <span style="color: #008000; text-decoration-color: #008000">'Atualizado por Ronaldo da Silva Alves Batista em 2021-05-25 às 18:16:42'</span>
+<span style="font-weight: bold">}</span>
 </pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">subject </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">INSP_GR01_2021_0504</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">status </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Rascunho</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">priority </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Normal</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">start_date </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">due_date </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Classe_da_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Tipo_de_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Ano </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Numero_Sei_do_Processo </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"53504.000007/2021-50"</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"https://seihm.an</span>
-<span style="color: #008000; text-decoration-color: #008000">atel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455"</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Descricao_da_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Fiscal_Responsavel </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Fiscais </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Entidade_da_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">UF_Municipio </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Servicos_da_Inspecao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas_de_Preparacao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas_de_Deslocamento </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas_de_Execucao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Horas_de_Conclusao </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">SAV </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">PCDP </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Procedimentos </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Agrupamento </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">AppFiscaliza </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">id_ACAO </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">52876</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">nome_ACAO </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">ACAO_GR01_2021_0491</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">descricao_ACAO </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Teste</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800000; text-decoration-color: #800000">Users </span><span style="color: #000080; text-decoration-color: #000080">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'Alexandre Elias de Andrade Oliveira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Alexandre Freitas de Lima'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Alexandre </span>
-<span style="color: #008000; text-decoration-color: #008000">Inacio'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Alexandre Junzo Hamada'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Alfredo de Andrade Filho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Ananias Pereira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Antonio </span>
-<span style="color: #008000; text-decoration-color: #008000">Carlos Cardoso de Mello'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Aparecido Sebastiao da Silva'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Arthur Pisaruk'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Carlos Augusto </span>
-<span style="color: #008000; text-decoration-color: #008000">de Carvalho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Carlos Eduardo Guimaraes Silveira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Carlos da Paixao Filho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Celio Yukio </span>
-<span style="color: #008000; text-decoration-color: #008000">Takahashi'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Celso Luiz Maximino'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Diogo Caldeira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Ediceu Beraldi'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Eduardo Narkevicius'</span><span style="color: #008000; text-decoration-color: #008000">,</span>
-<span style="color: #008000; text-decoration-color: #008000">'Elcio Maehara'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Eustaquio Lages Duarte'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Fiscal UD'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Gauber Albuquerque'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Gilson Ponce </span>
-<span style="color: #008000; text-decoration-color: #008000">Ayres Filho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Helio Lopes de Carvalho Filho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Higor Paz Melo'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Hugo Santana Lima'</span><span style="color: #008000; text-decoration-color: #008000">, </span>
-<span style="color: #008000; text-decoration-color: #008000">'Humberto Barbosa Vinagre'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Jamilson Evangelista'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Joao Yokoyama'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Joaquim Miranda'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'José</span>
-<span style="color: #008000; text-decoration-color: #008000">Antônio S. Sanches'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Julio Cesar de Assis Santos'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Kiyotomo Kawamura'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Laert Calil </span>
-<span style="color: #008000; text-decoration-color: #008000">Junior'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Lannei Vilela Moraes'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Luis Lagomes'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Luiz Vinicios Mielniczuk Seelig'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcelo </span>
-<span style="color: #008000; text-decoration-color: #008000">Augusto Scacabarozi'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcio Costa'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcio Rodrigues Maciel'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcos Antônio Rodrigues'</span><span style="color: #008000; text-decoration-color: #008000">, </span>
-<span style="color: #008000; text-decoration-color: #008000">'Marcos Juliano Valim da Silva'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Maria Teresa Flosi Garrafa'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Mario Augusto Volpini'</span><span style="color: #008000; text-decoration-color: #008000">, </span>
-<span style="color: #008000; text-decoration-color: #008000">'Murilo Amaro'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Osnir Lopes'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Paulo Diogo Costa'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Pedro Arai'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Renato Sadao Kushioyada'</span><span style="color: #008000; text-decoration-color: #008000">, </span>
-<span style="color: #008000; text-decoration-color: #008000">'Ricardo Santos Marques'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Ricardo da Silva e Souza'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Roberto Carlos Soares Campos'</span><span style="color: #008000; text-decoration-color: #008000">, </span>
-<span style="color: #008000; text-decoration-color: #008000">'Roberto Ferreira dos Santos'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Roberto Takata'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Rodrigo Barbosa de Paula'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Rogerio </span>
-<span style="color: #008000; text-decoration-color: #008000">Zambotto'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Sergio Pereira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Thiago Silva'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Thomaz Honma </span>
-<span style="color: #008000; text-decoration-color: #008000">Ishida'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Vinicius Paiva de Oliveira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Vitor Zelada'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Wellington Devechi Piauilino'</span><span style="color: #008000; text-decoration-color: #008000">, </span>
-<span style="color: #008000; text-decoration-color: #008000">'Wladimir Senise'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'marcio colazingari'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
-</pre>
-
-
-Agora vamos testar o retorno de informações para um Inspeção no Fiscaliza de produção `teste=False`.
-
-
-```python
-inspecao = '51804'
-detalhes = detalhar_inspecao(inspecao, login, senha, teste=False)
-```
-
-
-
-```python
-for k,v in detalhes.items():
-    console.print(f'[blue]{k} [red]-> [green]{v}')
-```
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">id </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">51804</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">subject </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">INSP_GR01_2021_0449</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">status </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Conferida</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">priority </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Normal</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">start_date </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2020</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">10</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">22</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">due_date </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">03</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">31</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Classe_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Técnica</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Tipo_de_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Uso do Espectro - Monitoração</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Ano </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">178</span><span style="color: #000080; text-decoration-color: #000080"> </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Numero_Sei_do_Processo </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"53504.006733/2020-03"</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span><span style="color: #008000; text-decoration-color: #008000">=&gt;</span><span style="color: #008000; text-decoration-color: #008000">"https://sei.anat</span>
-<span style="color: #008000; text-decoration-color: #008000">el.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=6892566"</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Descricao_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Atendimento da Denúncia AC202010213075425 </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6104512</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">)</span><span style="color: #008000; text-decoration-color: #008000">, verificação da </span>
-<span style="color: #008000; text-decoration-color: #008000">Potência e Intensidade de Campo Elétrico da Frequência </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">105.</span><span style="color: #008000; text-decoration-color: #008000">1MHz e seus harmônicos, além da </span>
-<span style="color: #008000; text-decoration-color: #008000">checagem de Intermodulação e Espúrios nas frequências </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">450.</span><span style="color: #008000; text-decoration-color: #008000">3MHz e 750MHz.</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscal_Responsavel </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Ronaldo da Silva Alves Batista</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscais </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Entidade_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'{"valor":"30913990000110","texto":"SISTEMA TRANSRIO DE COMUNICACAO </span>
-<span style="color: #008000; text-decoration-color: #008000">LTDA  (30913990000110)"}'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">UF_Municipio </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'RJ/Rio de Janeiro'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Servicos_da_Inspecao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'230 - COLETIVO - RADIODIFUSÃO SONORA EM FREQÜÊNCIA MODULADA'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Qnt_de_emissoes_na_faixa </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">1</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Emissoes_nao_autorizadas </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Preparacao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Deslocamento </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Execucao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">32</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Horas_de_Conclusao </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">SAV </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">PCDP </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Procedimentos </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[]</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Latitude </span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">(</span><span style="color: #000080; text-decoration-color: #000080">coordenadas</span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">)</span><span style="color: #000080; text-decoration-color: #000080"> </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">-22.94694</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Longitude </span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">(</span><span style="color: #000080; text-decoration-color: #000080">coordenadas</span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">)</span><span style="color: #000080; text-decoration-color: #000080"> </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">-43.21944</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Uso_de_PF </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Não se aplica PF - uso apenas de formulários</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Acao_de_risco_a_vida_criada </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Não</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequencia_Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">105.1</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade_da_Frequencia_Inicial </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">MHz</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Frequencia_Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">750</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Unidade_da_Frequencia_Final </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">MHz</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Agrupamento </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">AppFiscaliza </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">596</span><span style="color: #000080; text-decoration-color: #000080"> </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">598</span><span style="color: #000080; text-decoration-color: #000080"> </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">id_ACAO </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">51803</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">nome_ACAO </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">ACAO_GR01_2021_0456</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">descricao_ACAO </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">Atendimento à Denúncia AC202010213075425 </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">6104512</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">)</span>
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Users </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'Alexandre Elias de Andrade Oliveira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Alexandre Freitas de Lima'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Alexandre </span>
-<span style="color: #008000; text-decoration-color: #008000">Inacio'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Alexandre Junzo Hamada'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Alfredo de Andrade Filho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Ananias Pereira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Antonio </span>
-<span style="color: #008000; text-decoration-color: #008000">Carlos Cardoso de Mello'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Aparecido Sebastiao da Silva'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Arthur Pisaruk'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Carlos Augusto </span>
-<span style="color: #008000; text-decoration-color: #008000">de Carvalho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Carlos Eduardo Guimaraes Silveira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Carlos da Paixao Filho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Celio Yukio </span>
-<span style="color: #008000; text-decoration-color: #008000">Takahashi'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Celso Luiz Maximino'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Diogo Caldeira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Ediceu Beraldi'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Eduardo Narkevicius'</span><span style="color: #008000; text-decoration-color: #008000">,</span>
-<span style="color: #008000; text-decoration-color: #008000">'Elcio Maehara'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Eustaquio Lages Duarte'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Fiscal UD'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Gauber Albuquerque'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Gilson Ponce </span>
-<span style="color: #008000; text-decoration-color: #008000">Ayres Filho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Helio Lopes de Carvalho Filho'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Higor da Paz Melo'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Hugo Santana Lima'</span><span style="color: #008000; text-decoration-color: #008000">, </span>
-<span style="color: #008000; text-decoration-color: #008000">'Humberto Barbosa Vinagre'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Jamilson Evangelista'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Joao Yokoyama'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Joaquim Miranda'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'José</span>
-<span style="color: #008000; text-decoration-color: #008000">Antônio S. Sanches'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Julio Cesar de Assis Santos'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Kiyotomo Kawamura'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Laert Calil </span>
-<span style="color: #008000; text-decoration-color: #008000">Junior'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Lannei Vilela Moraes'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Luis Lagomes'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Luiz Vinicios Mielniczuk Seelig'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcelo </span>
-<span style="color: #008000; text-decoration-color: #008000">Augusto Scacabarozi'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcelo Vaz Netto'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcio Colazingari'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcio Costa'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcio </span>
-<span style="color: #008000; text-decoration-color: #008000">Rodrigues Maciel'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcos Antônio Rodrigues'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Marcos Juliano Valim da Silva'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Maria Teresa</span>
-<span style="color: #008000; text-decoration-color: #008000">Flosi Garrafa'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Mario Augusto Volpini'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Murilo Amaro'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Osnir Lopes'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Paulo Diogo Costa'</span><span style="color: #008000; text-decoration-color: #008000">, </span>
-<span style="color: #008000; text-decoration-color: #008000">'Pedro Arai'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Renato Sadao Kushioyada'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Ricardo Santos Marques'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Ricardo da Silva e </span>
-<span style="color: #008000; text-decoration-color: #008000">Souza'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Roberto Carlos Soares Campos'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Roberto Ferreira dos Santos'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Roberto Takata'</span><span style="color: #008000; text-decoration-color: #008000">, </span>
-<span style="color: #008000; text-decoration-color: #008000">'Rodrigo Barbosa de Paula'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Rogerio Zambotto'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Sergio </span>
-<span style="color: #008000; text-decoration-color: #008000">Pereira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Thiago Silva'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Thomaz Honma Ishida'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Vinicius Paiva de Oliveira'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Vitor </span>
-<span style="color: #008000; text-decoration-color: #008000">Zelada'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Wellington Devechi Piauilino'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Wladimir Senise'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]</span>
-</pre>
-
 
 ### Validação de Dados e Formatação para submeter à API
 A função anterior somente retorna as informações já constantes em dada Inspeção ( Issue ) do Fiscaliza. Para alterarmos ou atualizarmos dada inspeção, precisamos passar um dicionário de dados ou um caminho para um arquivo `.json` onde conste esse dicionário de dados serializado. O exemplo seguinte mostra um dicionário de dados com as informações básicas constantes de uma monitoração e a formatação que elas são validadas:
-
 
 
 ```python
@@ -596,11 +213,7 @@ d['Fiscais'] = ['Ronaldo da Silva Alves Batista', 'Paulo Diogo Costa', 'Mario Au
 
 # Windows
 d['Html'] = 'D:\\OneDrive - ANATEL\\Monitoramento\\Processos\\53504.0005432021-55\\Guarulhos.html' #str
-
-#ou 
-
-#Unix d['Html'] = '/d/OneDrive - ANATEL/Monitoramento/53504.0005432021-55/Guarulhos.html' #str
-            
+          
 d['Gerar_Relatorio'] = 1 # int 0 ou 1
 
 d['Frequencia_Inicial']  = 54 #int ou float
@@ -641,16 +254,13 @@ d['Acao_de_risco_a_vida_criada'] = 'Não' # string Sim | Não
 
 d['Impossibilidade_acesso_online'] = '0' # string '0' | '1'
 
-d['Reservar_Instrumentos'] = '0' #string '0' = Não | '1' = 'Sim'
+d['Reservar_Instrumentos'] = 0 #string '0' = Não | '1' = 'Sim'
 
-d['Utilizou_algum_instrumento'] = '0'
-
-#d['Reserva_de_Instrumentos'] = '' 
+d['Utilizou_algum_instrumento'] = 0
 
 d['Notes'] = "Não foi constatada irregularidade no Período monitorado" # string
 
 # No caso de uma tabela, string formatada como csv
-
 d['Notes'] = """Faixa, Classe Especial, Classe A, Classe B, Classe C
                 VHF-L,0,5,7,5
                 VHF-H,0,12,1,0
@@ -668,12 +278,14 @@ A API do Redmine possui formatos específicos de como esses campos devem ser sub
 show_doc(validar_dicionario)
 ```
 
+<h4 id="validar_dicionario" class="doc_header"><code>validar_dicionario</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L104" class="source_link" style="float:right">[source]</a></h4>
+> <code>validar_dicionario</code>(**`data_dict`**:"Dicionário de Dados ou Caminho para o arquivo .json", **`inspecao`**:"Número da Inspeção a ser relatada", **`login`**:"Login Anatel do Usuário"=*`None`*, **`senha`**:"Senha Utilizada nos Sistemas Interativos da Anatel"=*`None`*, **`fiscaliza`**:"Objeto Redmine logado, opcional ao login e senha"=*`None`*, **`teste`**:"Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizado"=*`True`*, **`save_path`**:"Caminho para salvar o dicionário formatado"=*`None`*)
+Valida as informações de data_dict e as formata como exigido pela API do Redmine.
+Opcionalmente salva o dicionário serializado como .json caso seja passado um `save_path` válido
+Returns: dicionário com os dados formatados
 
-<h4 id="validar_dicionario" class="doc_header"><code>validar_dicionario</code><a href="https://github.com/ronaldokun/fiscaliza/tree/main/fiscaliza/redmine.py#L58" class="source_link" style="float:right">[source]</a></h4>
-> <code>validar_dicionario</code>(**`data_dict`**:"Dicionário de Dados ou Caminho para o arquivo .json ou .pkl", **`inspecao`**:"Número da Inspeção a ser relatada", **`login`**:"Login Anatel do Usuário"=*`None`*, **`senha`**:"Senha Utilizada nos Sistemas Interativos da Anatel"=*`None`*, **`fiscaliza`**:"Objeto Redmine logado, opcional ao login e senha"=*`None`*, **`teste`**:"Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizado"=*`True`*)
 
 ```python
-inspecao = '57684'
 dados = validar_dicionario(d, inspecao, login, senha)
 ```
 
@@ -709,14 +321,13 @@ for k,v in dados.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscal_Responsavel </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">25</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscal_Responsavel </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">25</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">887</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscais </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">26</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Paulo Diogo Costa'</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'Mario</span>
-<span style="color: #008000; text-decoration-color: #008000">Augusto Volpini'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Fiscais </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">26</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">887</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">607</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">165</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">]}</span>
 </pre>
 
 
@@ -826,13 +437,13 @@ for k,v in dados.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Latitude </span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">(</span><span style="color: #000080; text-decoration-color: #000080">coordenadas</span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">)</span><span style="color: #000080; text-decoration-color: #000080"> </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">170</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">-22.94694</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Latitude </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">170</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">-22.94694</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Longitude </span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">(</span><span style="color: #000080; text-decoration-color: #000080">coordenadas</span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">)</span><span style="color: #000080; text-decoration-color: #000080"> </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">171</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">-43.21944</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Longitude </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">171</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">-43.21944</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
@@ -856,13 +467,13 @@ for k,v in dados.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Reservar_Instrumentos </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">658</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'0'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Reservar_Instrumentos </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">658</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Utilizou_algum_instrumento </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">660</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000">'0'</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Utilizou_algum_instrumento </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">660</span><span style="color: #008000; text-decoration-color: #008000">, </span><span style="color: #008000; text-decoration-color: #008000">'value'</span><span style="color: #008000; text-decoration-color: #008000">: </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">}</span>
 </pre>
 
 
@@ -893,89 +504,156 @@ show_doc(relatar_inspecao)
 ```
 
 
-<h4 id="relatar_inspecao" class="doc_header"><code>relatar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/main/fiscaliza/redmine.py#L491" class="source_link" style="float:right">[source]</a></h4>
-> <code>relatar_inspecao</code>(**`login`**:"Login Anatel do Usuário", **`senha`**:"Senha Utilizada nos Sistemas Interativos da Anatel", **`inspecao`**:"Número da Inspeção a ser relatada", **`dados`**:"Dicionário com os Dados a serem relatados", **`teste`**:"Indica se o relato será de teste"=*`True`*)
+<h4 id="relatar_inspecao" class="doc_header"><code>relatar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L540" class="source_link" style="float:right">[source]</a></h4>
+> <code>relatar_inspecao</code>(**`inspecao`**:"Número da Inspeção a ser relatada", **`login`**:"Login Anatel do Usuário", **`senha`**:"Senha Utilizada nos Sistemas Interativos da Anatel", **`dados`**:"Dicionário já validado com os Dados a serem relatados", **`teste`**:"Indica se o relato será de teste"=*`True`*)
 Relata a inspeção `inspecao` com os dados constantes no dicionário `dados`
 
-
 ```python
-inspecao = '57684'
 relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 ```
 
 
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Usuário Autenticado com Sucesso 👍</span>
 </pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57684</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57824</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
 <span style="color: #008000; text-decoration-color: #008000">'descricao_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span><span style="font-weight: bold">}</span>
 </pre>
-
-
-
-
-
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Rascunho ❗</span>
+</pre>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Sucesso ✨
+</pre>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Aguardando Execução ❗</span>
 </pre>
-
-
-
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-
-
-
-
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Sucesso ✨
 </pre>
-
-
-
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-
-
-
-
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Em andamento ❗</span>
 </pre>
-
-
-
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-
-
-
-
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Sucesso ✨
 </pre>
-
-
-
-
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Assine o Relatorio_de_Monitoramento: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"0190565"</span>, <span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"https://seihm.anat</span>
-<span style="color: #008000; text-decoration-color: #008000">el.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455&amp;id_document</span>
-<span style="color: #008000; text-decoration-color: #008000">o=1962827"</span><span style="font-weight: bold">}</span> e chame a função novamente ❗
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Relatando ❗</span>
 </pre>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">✒ Assine o Relatorio_de_Monitoramento: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">"numero"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"0190660"</span>, <span style="color: #008000; text-decoration-color: #008000">"link_acesso"</span>=&gt;<span style="color: #008000; text-decoration-color: #008000">"https://seihm.an</span>
+<span style="color: #008000; text-decoration-color: #008000">atel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455&amp;id_docume</span>
+<span style="color: #008000; text-decoration-color: #008000">nto=1962947"</span><span style="font-weight: bold">}</span> e chame a função novamente ❗
+</pre>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
+    {'id': '57824',
+     'subject': 'INSP_GR01_2021_0518',
+     'status': 'Relatando',
+     'priority': 'Normal',
+     'start_date': '2021-03-19',
+     'due_date': '2021-12-31',
+     'Classe_da_Inspecao': 'Técnica',
+     'Tipo_de_Inspecao': 'Uso do Espectro - Monitoração',
+     'Ano': '2021',
+     'Numero_Sei_do_Processo': '{"numero"=>"53504.000007/2021-50", "link_acesso"=>"https://seihm.anatel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=1962455"}',
+     'Descricao_da_Inspecao': 'Atendimento da Denúncia AC202010213075425 (6104512), \nverificação da Potência e Intensidade de Campo Elétrico da Frequência 105.1MHz e seus harmônicos, \nalém da checagem de Intermodulação e Espúrios nas frequências 450.3MHz e 750MHz.',
+     'Fiscal_Responsavel': 'Ronaldo da Silva Alves Batista',
+     'Fiscais': ['Ronaldo da Silva Alves Batista',
+      'Paulo Diogo Costa',
+      'Mario Augusto Volpini'],
+     'Entidade_da_Inspecao': [],
+     'UF_Municipio': ['SP/São Paulo'],
+     'Servicos_da_Inspecao': ['800 - COLETIVO - RETRANSMISSAO DE T.V.',
+      '231 - COLETIVO - RADIODIFUSÃO COMUNITÁRIA',
+      '230 - COLETIVO - RADIODIFUSÃO SONORA EM FREQÜÊNCIA MODULADA'],
+     'Qnt_de_emissoes_na_faixa': '12',
+     'Emissoes_nao_autorizadas': '70',
+     'Horas_de_Preparacao': '2',
+     'Horas_de_Deslocamento': '0',
+     'Horas_de_Execucao': '32',
+     'Horas_de_Conclusao': '6',
+     'SAV': '',
+     'PCDP': '',
+     'Procedimentos': [],
+     'Latitude': '-22.94694',
+     'Longitude': '-43.21944',
+     'Uso_de_PF': 'Não se aplica PF - uso apenas de formulários',
+     'Acao_de_risco_a_vida_criada': 'Não',
+     'Frequencia_Inicial': '54',
+     'Unidade_da_Frequencia_Inicial': 'MHz',
+     'Frequencia_Final': '700',
+     'Unidade_da_Frequencia_Final': 'MHz',
+     'Agrupamento': '',
+     'AppFiscaliza': '0',
+     'Relatorio_de_Monitoramento': '{"numero"=>"0190660", "link_acesso"=>"https://seihm.anatel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=1962455&id_documento=1962947"}',
+     'Reservar_Instrumentos': '0',
+     'Utilizou_algum_instrumento': '0',
+     'id_ACAO': 52876,
+     'nome_ACAO': 'ACAO_GR01_2021_0491',
+     'descricao_ACAO': 'Teste',
+     'Users': ['Alexandre Elias de Andrade Oliveira',
+      'Alexandre Freitas de Lima',
+      'Alexandre Inacio',
+      'Alexandre Junzo Hamada',
+      'Alfredo de Andrade Filho',
+      'Ananias Pereira',
+      'Antonio Carlos Cardoso de Mello',
+      'Aparecido Sebastiao da Silva',
+      'Arthur Pisaruk',
+      'Carlos Augusto de Carvalho',
+      'Carlos Eduardo Guimaraes Silveira',
+      'Carlos da Paixao Filho',
+      'Celio Yukio Takahashi',
+      'Celso Luiz Maximino',
+      'Diogo Caldeira',
+      'Ediceu Beraldi',
+      'Eduardo Narkevicius',
+      'Elcio Maehara',
+      'Eustaquio Lages Duarte',
+      'Fiscal UD',
+      'Gauber Albuquerque',
+      'Gilson Ponce Ayres Filho',
+      'Helio Lopes de Carvalho Filho',
+      'Higor Paz Melo',
+      'Hugo Santana Lima',
+      'Humberto Barbosa Vinagre',
+      'Jamilson Evangelista',
+      'Joao Yokoyama',
+      'Joaquim Miranda',
+      'José Antônio S. Sanches',
+      'Julio Cesar de Assis Santos',
+      'Kiyotomo Kawamura',
+      'Laert Calil Junior',
+      'Lannei Vilela Moraes',
+      'Luis Lagomes',
+      'Luiz Vinicios Mielniczuk Seelig',
+      'Marcelo Augusto Scacabarozi',
+      'Marcio Costa',
+      'Marcio Rodrigues Maciel',
+      'Marcos Antônio Rodrigues',
+      'Marcos Juliano Valim da Silva',
+      'Maria Teresa Flosi Garrafa',
+      'Mario Augusto Volpini',
+      'Murilo Amaro',
+      'Osnir Lopes',
+      'Paulo Diogo Costa',
+      'Pedro Arai',
+      'Renato Sadao Kushioyada',
+      'Ricardo Santos Marques',
+      'Ricardo da Silva e Souza',
+      'Roberto Carlos Soares Campos',
+      'Roberto Ferreira dos Santos',
+      'Roberto Takata',
+      'Rodrigo Barbosa de Paula',
+      'Rogerio Zambotto',
+      'Ronaldo da Silva Alves Batista',
+      'Sergio Pereira',
+      'Thiago Silva',
+      'Thomaz Honma Ishida',
+      'Vinicius Paiva de Oliveira',
+      'Vitor Zelada',
+      'Wellington Devechi Piauilino',
+      'Wladimir Senise',
+      'marcio colazingari'],
+     'Modificado': 'Atualizado por Ronaldo da Silva Alves Batista em 2021-05-25 às 19:01:49'}
 
 
 
@@ -1001,12 +679,18 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57684</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57824</span> vinculada à Ação <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>, <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>, 
 <span style="color: #008000; text-decoration-color: #008000">'descricao_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span><span style="font-weight: bold">}</span>
 </pre>
 
 
 
+
+
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">Estado Atual: Relatando ❗</span>
+</pre>
 
 
 
@@ -1047,65 +731,61 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Inspeção Relatada 😎
 </pre>
 
+Os mesmos passos acima podem ser efetuados no **Fiscaliza** de produção, bastando passar o argumento `teste=False` nas funções acima
 
+```python
+inspecao = '51849'
+detalhes = detalhar_inspecao(inspecao, login, senha, teste=False)
+console.print(detalhes)
+```
 
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'id'</span>: <span style="color: #008000; text-decoration-color: #008000">'57684'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'subject'</span>: <span style="color: #008000; text-decoration-color: #008000">'INSP_GR01_2021_0504'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'status'</span>: <span style="color: #008000; text-decoration-color: #008000">'Relatada'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'id'</span>: <span style="color: #008000; text-decoration-color: #008000">'51849'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'subject'</span>: <span style="color: #008000; text-decoration-color: #008000">'INSP_GR01_2021_0456'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'status'</span>: <span style="color: #008000; text-decoration-color: #008000">'Rascunho'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'priority'</span>: <span style="color: #008000; text-decoration-color: #008000">'Normal'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'start_date'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021-03-19'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'due_date'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021-12-31'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'start_date'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021-03-09'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'due_date'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021-06-30'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Classe_da_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">'Técnica'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Tipo_de_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">'Uso do Espectro - Monitoração'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Ano'</span>: <span style="color: #008000; text-decoration-color: #008000">'2021'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Numero_Sei_do_Processo'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"53504.000007/2021-50", "link_acesso"=&gt;"https://sei</span>
-<span style="color: #008000; text-decoration-color: #008000">hm.anatel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455"}'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Descricao_da_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">'Atendimento da Denúncia AC202010213075425 (6104512), </span>
-<span style="color: #008000; text-decoration-color: #008000">\nverificação da Potência e Intensidade de Campo Elétrico da Frequência 105.1MHz e seus </span>
-<span style="color: #008000; text-decoration-color: #008000">harmônicos, \nalém da checagem de Intermodulação e Espúrios nas frequências 450.3MHz e </span>
-<span style="color: #008000; text-decoration-color: #008000">750MHz.'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Fiscal_Responsavel'</span>: <span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Fiscais'</span>: <span style="font-weight: bold">[</span>
-        <span style="color: #008000; text-decoration-color: #008000">'Ronaldo da Silva Alves Batista'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Paulo Diogo Costa'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Mario Augusto Volpini'</span>
-    <span style="font-weight: bold">]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coordenacao'</span>: <span style="color: #008000; text-decoration-color: #008000">'FI3'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Numero_Sei_do_Processo'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"53504.001879/2021-35", "link_acesso"=&gt;"https://sei</span>
+<span style="color: #008000; text-decoration-color: #008000">.anatel.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=7542104"}'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Descricao_da_Inspecao'</span>: <span style="color: #008000; text-decoration-color: #008000">'[PMEC 2021] GR01. Etapa 1.'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Fiscal_Responsavel'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arthur Pisaruk'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Fiscais'</span>: <span style="font-weight: bold">[]</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Entidade_da_Inspecao'</span>: <span style="font-weight: bold">[]</span>,
     <span style="color: #008000; text-decoration-color: #008000">'UF_Municipio'</span>: <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'SP/São Paulo'</span><span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Servicos_da_Inspecao'</span>: <span style="font-weight: bold">[</span>
-        <span style="color: #008000; text-decoration-color: #008000">'800 - COLETIVO - RETRANSMISSAO DE T.V.'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'231 - COLETIVO - RADIODIFUSÃO COMUNITÁRIA'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'230 - COLETIVO - RADIODIFUSÃO SONORA EM FREQÜÊNCIA MODULADA'</span>
-    <span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Qnt_de_emissoes_na_faixa'</span>: <span style="color: #008000; text-decoration-color: #008000">'12'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Emissoes_nao_autorizadas'</span>: <span style="color: #008000; text-decoration-color: #008000">'70'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Preparacao'</span>: <span style="color: #008000; text-decoration-color: #008000">'2'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Deslocamento'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Execucao'</span>: <span style="color: #008000; text-decoration-color: #008000">'32'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Conclusao'</span>: <span style="color: #008000; text-decoration-color: #008000">'6'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Servicos_da_Inspecao'</span>: <span style="font-weight: bold">[]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Qnt_de_emissoes_na_faixa'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Emissoes_nao_autorizadas'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Preparacao'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Deslocamento'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Execucao'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Horas_de_Conclusao'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
     <span style="color: #008000; text-decoration-color: #008000">'SAV'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
     <span style="color: #008000; text-decoration-color: #008000">'PCDP'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Procedimentos'</span>: <span style="font-weight: bold">[]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Latitude'</span>: <span style="color: #008000; text-decoration-color: #008000">'-22.94694'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Longitude'</span>: <span style="color: #008000; text-decoration-color: #008000">'-43.21944'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Uso_de_PF'</span>: <span style="color: #008000; text-decoration-color: #008000">'Não se aplica PF - uso apenas de formulários'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Acao_de_risco_a_vida_criada'</span>: <span style="color: #008000; text-decoration-color: #008000">'Não'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Frequencia_Inicial'</span>: <span style="color: #008000; text-decoration-color: #008000">'54'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Latitude'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Longitude'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Uso_de_PF'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Acao_de_risco_a_vida_criada'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Frequencia_Inicial'</span>: <span style="color: #008000; text-decoration-color: #008000">'12.29'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Unidade_da_Frequencia_Inicial'</span>: <span style="color: #008000; text-decoration-color: #008000">'MHz'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Frequencia_Final'</span>: <span style="color: #008000; text-decoration-color: #008000">'700'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Frequencia_Final'</span>: <span style="color: #008000; text-decoration-color: #008000">'5460'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Unidade_da_Frequencia_Final'</span>: <span style="color: #008000; text-decoration-color: #008000">'MHz'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Agrupamento'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Agrupamento'</span>: <span style="color: #008000; text-decoration-color: #008000">'[PMEC 2021] GR01. Etapa 1.'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'AppFiscaliza'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Relatorio_de_Monitoramento'</span>: <span style="color: #008000; text-decoration-color: #008000">'{"numero"=&gt;"0190565", "link_acesso"=&gt;"https://seihm.anatel</span>
-<span style="color: #008000; text-decoration-color: #008000">.gov.br/sei/controlador.php?acao=procedimento_trabalhar&amp;id_procedimento=1962455&amp;id_documento=</span>
-<span style="color: #008000; text-decoration-color: #008000">1962827"}'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Reservar_Instrumentos'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Utilizou_algum_instrumento'</span>: <span style="color: #008000; text-decoration-color: #008000">'0'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">52876</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0491'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'descricao_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'Teste'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Reservar_Instrumentos'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Utilizou_algum_instrumento'</span>: <span style="color: #008000; text-decoration-color: #008000">''</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'id_ACAO'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">47823</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'nome_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'ACAO_GR01_2021_0338'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'descricao_ACAO'</span>: <span style="color: #008000; text-decoration-color: #008000">'[PMEC 2021] Monitorar canais e faixas de frequências relacionados às </span>
+<span style="color: #008000; text-decoration-color: #008000">aplicações críticas (como, por exemplo, radionavegação e radiocomunicação aeronáutica e </span>
+<span style="color: #008000; text-decoration-color: #008000">canais de emergência) na forma a ser estabelecida no Plano de Ação de Fiscalização GR08FI2 </span>
+<span style="color: #008000; text-decoration-color: #008000">(SEI nº 6383328).'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Users'</span>: <span style="font-weight: bold">[</span>
         <span style="color: #008000; text-decoration-color: #008000">'Alexandre Elias de Andrade Oliveira'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Alexandre Freitas de Lima'</span>,
@@ -1130,7 +810,7 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
         <span style="color: #008000; text-decoration-color: #008000">'Gauber Albuquerque'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Gilson Ponce Ayres Filho'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Helio Lopes de Carvalho Filho'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Higor Paz Melo'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Higor da Paz Melo'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Hugo Santana Lima'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Humberto Barbosa Vinagre'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Jamilson Evangelista'</span>,
@@ -1144,6 +824,8 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
         <span style="color: #008000; text-decoration-color: #008000">'Luis Lagomes'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Luiz Vinicios Mielniczuk Seelig'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Marcelo Augusto Scacabarozi'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Marcelo Vaz Netto'</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Marcio Colazingari'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Marcio Costa'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Marcio Rodrigues Maciel'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Marcos Antônio Rodrigues'</span>,
@@ -1169,9 +851,8 @@ estado = relatar_inspecao(login, senha, inspecao, dados=dados, teste=True)
         <span style="color: #008000; text-decoration-color: #008000">'Vinicius Paiva de Oliveira'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Vitor Zelada'</span>,
         <span style="color: #008000; text-decoration-color: #008000">'Wellington Devechi Piauilino'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Wladimir Senise'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'marcio colazingari'</span>
-    <span style="font-weight: bold">]</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Wladimir Senise'</span>
+    <span style="font-weight: bold">]</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Modificado'</span>: <span style="color: #008000; text-decoration-color: #008000">'Atualizado por Ronaldo da Silva Alves Batista em 2021-05-24 às 13:12:32'</span>
 <span style="font-weight: bold">}</span>
 </pre>
-
