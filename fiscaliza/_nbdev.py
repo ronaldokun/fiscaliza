@@ -33,6 +33,7 @@ index = {"URL": "constants.ipynb",
          "auth_user": "redmine.ipynb",
          "issue2users": "redmine.ipynb",
          "insp2acao": "redmine.ipynb",
+         "utf2ascii": "redmine.ipynb",
          "detalhar_inspecao": "redmine.ipynb",
          "atualiza_fiscaliza": "redmine.ipynb",
          "relatar_inspecao": "redmine.ipynb"}
