@@ -45,21 +45,6 @@ nb_path: "nbs\redmine.ipynb"
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The autoreload extension is already loaded. To reload it, use:
-  %reload_ext autoreload
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
@@ -400,7 +385,7 @@ Returns: dicionário com os dados formatados</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="utf2ascii" class="doc_header"><code>utf2ascii</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L443" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>utf2ascii</code>(<strong><code>string</code></strong>)</p>
+<h4 id="utf2ascii" class="doc_header"><code>utf2ascii</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L444" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>utf2ascii</code>(<strong><code>s</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -424,7 +409,7 @@ Returns: dicionário com os dados formatados</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="detalhar_inspecao" class="doc_header"><code>detalhar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L448" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>detalhar_inspecao</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário"=<em><code>None</code></em>, <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel"=<em><code>None</code></em>, <strong><code>fiscaliza</code></strong>:"Objeto Redmine logado, opcional ao login e senha"=<em><code>None</code></em>, <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>)</p>
+<h4 id="detalhar_issue" class="doc_header"><code>detalhar_issue</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L449" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>detalhar_issue</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário"=<em><code>None</code></em>, <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel"=<em><code>None</code></em>, <strong><code>fiscaliza</code></strong>:"Objeto Redmine logado, opcional ao login e senha"=<em><code>None</code></em>, <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Recebe número da inspeção <code>inspecao</code>, o login e senha ou opcionalmente objeto Redmine logado <code>fiscaliza</code>
 inspecao: str - Número da Inspeção a ser relatada
@@ -477,7 +462,7 @@ teste: bool - Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizad
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="atualiza_fiscaliza" class="doc_header"><code>atualiza_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L527" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>atualiza_fiscaliza</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fields</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status</code></strong>:<code>str</code>)</p>
+<h4 id="atualiza_fiscaliza" class="doc_header"><code>atualiza_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L530" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>atualiza_fiscaliza</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fields</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Atualiza a Inspeção <code>insp</code> para a Situação <code>status</code> com os dados do dicionário <code>fields</code></p>
 
@@ -516,7 +501,7 @@ teste: bool - Caso verdadeiro o Fiscaliza de Teste ( Homologação ) é utilizad
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="relatar_inspecao" class="doc_header"><code>relatar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L556" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>relatar_inspecao</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário", <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel", <strong><code>dados</code></strong>:"Dicionário já validado com os Dados a serem relatados", <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>)</p>
+<h4 id="relatar_inspecao" class="doc_header"><code>relatar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/redmine.py#L559" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>relatar_inspecao</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário", <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel", <strong><code>dados</code></strong>:"Dicionário já validado com os Dados a serem relatados", <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Relata a inspeção <code>inspecao</code> com os dados constantes no dicionário <code>dados</code></p>
 

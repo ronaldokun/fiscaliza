@@ -1,5 +1,5 @@
 # Fiscaliza
-> Scripts para baixar informações sobre inspeções no Sistema Fiscaliza da Anatel e atualizar inspeções por meio da API do Redmine.
+> Scripts para baixar informações sobre issues ( Ação, Inspeção, Reserva de Instrumentos etc..) no Sistema Fiscaliza da Anatel e atualizar inspeções por meio da API do Redmine.
 
 
 ```python
