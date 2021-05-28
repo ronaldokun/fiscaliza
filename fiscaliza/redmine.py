@@ -53,7 +53,7 @@ def check_update(
     """
     if not isinstance(value, dtype):
         raise TypeError(
-            f"É esperado que o campo {value} seja do tipo {dtype}, o fornecido foi {type(value)}"
+            f"É esperado que o campo {field} seja do tipo {dtype}, o fornecido foi {type(value)}"
         )
 
     if values_set is not None and not set(listify(value)).issubset(set(values_set)):
@@ -195,7 +195,7 @@ def validar_dicionario(
         criar = keys[6]
         if (relatorio := d.get(criar, None)) is not None:
             d[key] = check_update(key, html.read_text(), str)
-            d[criar] = check_update(criar, relatorio, DICT_FIELDS[criar], (0, 1))
+            d[criar] = check_update(criar, relatorio, DICT_FIELDS[criar], (0, 1, '0', '1'))
 
     key = keys[7]
     if freq_init := d.get(key):
@@ -316,8 +316,8 @@ def validar_dicionario(
         d[key] = check_update(key, online, DICT_FIELDS[key], ("0", "1"))
 
     key = keys[26]
-    if Notes := d.get(key):
-        d[key] = journal2table(Notes)
+    if notes := d.get(key):
+        d[key] = '\n\n'.join(journal2table(note) for note in notes)
 
     key = keys[27]
     if entidade := d.get(key):
@@ -343,11 +343,11 @@ def validar_dicionario(
 
     key = keys[32]
     if (reserva := d.get(key)) is not None:
-        d[key] = check_update(key, reserva, DICT_FIELDS[key], (0, 1))
+        d[key] = check_update(key, reserva, DICT_FIELDS[key], (0, 1, '0', '1'))
 
     key = keys[34]
     if (utilizou := d.get(key)) is not None:
-        d[key] = check_update(key, utilizou, DICT_FIELDS[key], (0, 1))
+        d[key] = check_update(key, utilizou, DICT_FIELDS[key], (0, 1, '0', '1'))
 
     if save_path is not None:
         json.dump(d, Path(save_path).open("w", encoding="utf-8"))
@@ -493,7 +493,6 @@ def detalhar_issue(
         except ValueError:
             pass
     if (value := result.get("Fiscais", None)) is not None:
-        print(value)
         try:
             result["Fiscais"] = [id2users.get(int(v), v) for v in result["Fiscais"]]
         except ValueError:
@@ -607,6 +606,8 @@ def relatar_inspecao(
     if index >= len(lista_status):
         index = len(lista_status) - 1
 
+    emoji = ':sparkles:'
+
     for status in lista_status[index:]:
         with console.status(
             f"Atualizando {antes} para {status}",
@@ -623,17 +624,11 @@ def relatar_inspecao(
             else:
                 atualiza_fiscaliza(inspecao, dados, fiscaliza, status)
 
-            console.print("Sucesso :sparkles:")
+            if status == 'Relatada':
+                emoji = ':sunglasses:'
 
-        with console.status("Resgatando Situação Atual da Inspeção...", spinner="pong"):
-            status_atual = detalhar_issue(inspecao, fiscaliza=fiscaliza)
-            console.print(
-                f"[bold green]Estado Atual: {status_atual['status']} :exclamation:"
-            )
+            console.print(f"Inspeção {inspecao} atualizada para [green]{status} {emoji}")
 
         antes = status
-
-    if status_atual["status"] == "Relatada":
-        console.print("Inspeção Relatada :sunglasses:")
 
     return status_atual

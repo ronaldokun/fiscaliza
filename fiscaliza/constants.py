@@ -71,7 +71,7 @@ DICT_FIELDS = {
     "Fiscal_Responsavel": str,
     "Fiscais": list,
     "Html": str,
-    "Gerar_Relatorio": int,
+    "Gerar_Relatorio": (int, str),
     "Frequencia_Inicial": (int, float),
     "Unidade_da_Frequencia_Inicial": str,
     "Frequencia_Final": (int, float),
@@ -97,9 +97,9 @@ DICT_FIELDS = {
     "SAV": str,
     "PCDP": str,
     "Procedimentos": list,
-    "Reservar_Instrumentos": int,
+    "Reservar_Instrumentos": (int,str),
     "Reserva_de_Instrumentos": list,
-    "Utilizou_algum_instrumento": int,
+    "Utilizou_algum_instrumento": (int, str),
     "Coordenacao": str,
 }
 
