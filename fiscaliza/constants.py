@@ -2,7 +2,7 @@
 
 __all__ = ['URL', 'URLHM', 'URLHM2', 'ACAO_DESCRIPTION', 'ACAO_TRACKER', 'FIELDS', 'CUSTOM_IDS', 'SITUACAO',
            'DICT_FIELDS', 'JSON_FIELDS', 'CLASSE', 'TIPO', 'STATUS', 'SERVICOS', 'PF', 'PROCEDIMENTOS', 'ID2FIELD',
-           'HM2PROD', 'FIELD2ID', 'ESTADOS']
+           'HM2PROD', 'PROD2HM', 'FIELD2ID', 'ESTADOS']
 
 # Cell
 URL = "https://sistemas.anatel.gov.br/fiscaliza/"
@@ -297,6 +297,8 @@ ID2FIELD = {
 }
 
 HM2PROD = {537: 543, 534: 541, 535: 544, 658: 596, 659: 597, 660: 598}
+
+PROD2HM = {543: 537, 541: 534, 544: 535, 596: 658, 597: 659, 598: 660}
 
 FIELD2ID = {
     "Tipo_de_Inspecao": 2,
