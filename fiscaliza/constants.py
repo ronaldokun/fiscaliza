@@ -2,7 +2,7 @@
 
 __all__ = ['URL', 'URLHM', 'URLHM2', 'ACAO_DESCRIPTION', 'ACAO_TRACKER', 'FIELDS', 'CUSTOM_IDS', 'SITUACAO',
            'DICT_FIELDS', 'JSON_FIELDS', 'CLASSE', 'TIPO', 'STATUS', 'SERVICOS', 'PF', 'PROCEDIMENTOS', 'ID2FIELD',
-           'HM2PROD', 'PROD2HM', 'FIELD2ID', 'ESTADOS']
+           'HM2PROD', 'PROD2HM', 'FIELD2ID', 'ESTADOS', 'TABLECOLS']
 
 # Cell
 URL = "https://sistemas.anatel.gov.br/fiscaliza/"
@@ -370,3 +370,5 @@ ESTADOS = [
     "TO",
     "DF",
 ]
+
+TABLECOLS = {'NaoLicenciados': 'Não licenciados', 'NaoLicenciaveis': 'Não licenciáveis', 'NaoDefinido': 'Não definido', 'Servico': 'Serviço'}
