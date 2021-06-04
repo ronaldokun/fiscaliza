@@ -576,7 +576,7 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
         due_date = fields.get("Data_Limite", "")
     else:
         start_date, due_date = None, None
-    Notes = fields.get("Notes") if status == "Relatando" else None
+    Notes = fields.get("Notes") if status in ("Relatando", "Relatada") else None
     return fiscaliza.issue.update(
         issue.id,
         status_id=SITUACAO[status],

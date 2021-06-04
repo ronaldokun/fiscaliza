@@ -371,4 +371,4 @@ ESTADOS = [
     "DF",
 ]
 
-TABLECOLS = {'NaoLicenciados': 'Não licenciados', 'NaoLicenciaveis': 'Não licenciáveis', 'NaoDefinido': 'Não definido', 'Servico': 'Serviço'}
+TABLECOLS = {'NaoLicenciados': 'Não Licenciados', 'NaoLicenciaveis': 'Não Licenciáveis', 'NaoDefinido': 'Não Sefinido', 'Servico': 'Serviço'}
