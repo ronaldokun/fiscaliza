@@ -130,13 +130,11 @@ STATUS = {
         "Descricao_da_Inspecao",
         "Fiscal_Responsavel",
         "Fiscais",
-        "Entidade_da_Inspecao",
     ),
     "Em andamento": (
         "Html",
         "Gerar_Relatorio",
         "Reservar_Instrumentos"
-        # "Reserva_de_Instrumentos",
     ),
     "Relatando": (
         "Frequencia_Inicial",
