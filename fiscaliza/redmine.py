@@ -21,6 +21,7 @@ from fastcore.test import *
 from fastcore.basics import listify
 from fastcore.script import Param, call_parse, bool_arg
 from fastcore.xtras import is_listy
+from fastcore.test import ExceptionExpected
 from .constants import *
 
 # Cell
@@ -169,6 +170,7 @@ def validar_dicionario(
         assert (
             fiscaliza is not None
         ), "Para logar no Fiscaliza é preciso login e senha ou o objeto fiscaliza"
+
         valida_fiscaliza(fiscaliza)
     else:
         fiscaliza = auth_user(login, senha, teste)
@@ -183,6 +185,8 @@ def validar_dicionario(
     date_pattern = "([2]\d{3})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])"
     d = {k: v for k, v in data_dict.items() if k in DICT_FIELDS.keys()}
     id2name, name2id = issue2users(issue_id, fiscaliza)
+
+    console = Console()
 
     key = keys[0]
     if classe := d.get(key):
@@ -220,12 +224,12 @@ def validar_dicionario(
                     d[chave] = check_update(chave, html.read_text(), DICT_FIELDS[chave])
                     d[key] = check_update(key, relatorio, dtype, (1, "1"))
                 else:
-                    d[key] = check_update(key, relatorio, dtype, (0, "0"))
+                    raise ValueError(f"Foi solicitado a criação de um relatório no entanto o caminho do arquivo html não é válido: {html}")
             else:
-                d[key] = check_update(key, relatorio, dtype, (0, "0"))
+                raise ValueError(f"Foi solicitado a criação de um relatório no entanto o caminho do arquivo html não é válido: {html}")
 
         else:
-            d[key] = check_update(key, relatorio, dtype, (0, "0"))
+            d[key] = check_update(key, 0, dtype)
     else:
         d[key] = check_update(key, 0, dtype)
 
@@ -382,7 +386,9 @@ def validar_dicionario(
         d[key] = check_update(key, utilizou, DICT_FIELDS[key], (0, 1, "0", "1"))
 
     if save_path is not None:
+        console = Console()
         json.dump(d, Path(save_path).open("w", encoding="utf-8"))
+        console.print("[bold green]Dados formatados salvos com sucesso :100:")
 
     return d
 
@@ -392,8 +398,12 @@ def auth_user(username, password, teste=True, verify=True):
     fiscaliza = Redmine(
         url, username=username, password=password, requests={"verify": verify}
     )
-    fiscaliza.auth()
-    return fiscaliza
+    try:
+        fiscaliza.auth()
+        return fiscaliza
+
+    except ConnectionError:
+        console.print('[bold red] Sem resposta do Servidor. Verifique: Conexão com a Internet | VPN  | Fiscaliza fora do ar')
 
 
 def issue2users(insp: str, fiscaliza: Redmine) -> tuple:
@@ -562,20 +572,20 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
     """Atualiza a Inspeção `insp` para a Situação `status` com os dados do dicionário `fields`"""
     assert (
         status in STATUS
-    ), f"Digite uma das mudanças de lituação válidas: {STATUS.keys()}"
+    ), f"Digite uma das mudanças de situação válidas: {STATUS.keys()}"
     valida_fiscaliza(fiscaliza)
     issue = fiscaliza.issue.get(insp, include=["relations", "attachments"])
     issue_status = str(getattr(issue, "status", ""))
     if issue_status == status:
         logging.info(f"A inspeção atual já está no status desejado: {status}.")
-    custom_fields = [fields.get(field, "") for field in STATUS[status]]
+    custom_fields = [fields.get(field, "") for field in DICT_FIELDS.keys()] #STATUS[status]]
     if not len(custom_fields):
         custom_fields = None
-    if status in ("Relatando", "Relatada"):
-        start_date = fields.get("Data_de_Inicio", "")
-        due_date = fields.get("Data_Limite", "")
-    else:
-        start_date, due_date = None, None
+#    if status in ("Relatando", "Relatada"):
+    start_date = fields.get("Data_de_Inicio", "")
+    due_date = fields.get("Data_Limite", "")
+#     else:
+#         start_date, due_date = None, None
     Notes = fields.get("Notes") if status in ("Relatando") else None
     return fiscaliza.issue.update(
         issue.id,
@@ -594,9 +604,10 @@ def relatar_inspecao(
     senha: Param("Senha Utilizada nos Sistemas Interativos da Anatel", str),
     dados: Param("Dicionário já validado com os Dados a serem relatados"),
     teste: Param("Indica se o relato será de teste", bool_arg) = True,
+    parar_em: Param("String indicando até onde o relato deve ser avançado", str) = "Relatada",
 ):
     """Relata a inspeção `inspecao` com os dados constantes no dicionário `dados`"""
-    console = Console()
+    assert parar_em in list(SITUACAO.keys())[1:], f"Forneça um dos valores para parar_em {SITUACAO.keys()}"
     if not isinstance(dados, dict):
         try:
             path = Path(dados)
@@ -611,6 +622,8 @@ def relatar_inspecao(
         else:
             raise TypeError(f"Formato de Arquivo Desconhecido {path.suffix}")
 
+    dados = dados.copy() #Não altera o dicionário original
+    console = Console()
     fiscaliza = auth_user(login, senha, teste)
     console.print("Usuário Autenticado com Sucesso :thumbs_up:", style="bold green")
 
@@ -628,21 +641,26 @@ def relatar_inspecao(
             inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
         )
         console.print(
-            f"[bold green]Estado Atual: {status_atual['status']} :exclamation:"
+            f"[cyan]Estado Atual: [bold green]{status_atual['status']} :bangbang:"
         )
 
-    antes = status_atual["status"]
+    atual = status_atual["status"]
     lista_status = list(SITUACAO.keys())
+    index = min(lista_status.index(atual) + 1, len(lista_status) - 1)
+    lista_status = lista_status[index:lista_status.index(parar_em)+1]
 
-    index = lista_status.index(antes) + 1
-    if index >= len(lista_status):
-        index = len(lista_status) - 1
+    if status_atual.get('Relatorio_de_Monitoramento'):
+        console.print(f'[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado :warning:')
+        del dados['Html']
+
+
+    console.print(f":woman_technologist: [cyan] A inspeção será atualizada até a situação [bold green]{parar_em}")
 
     emoji = ":sparkles:"
 
-    for status in lista_status[index:]:
+    for status in lista_status:
         with console.status(
-            f"Atualizando {antes} para {status}",
+            "Atualizando...",
             spinner="runner",
         ):
             if status == "Relatada":
@@ -650,7 +668,7 @@ def relatar_inspecao(
                     atualiza_fiscaliza(inspecao, dados, fiscaliza, status)
                 except ValidationError:
                     console.print(
-                        f":black_nib: Assine o Relatório de Monitoramento e chame a função novamente :exclamation:"
+                        f":black_nib: [bold red]Assine o Relatório de Monitoramento e chame a função novamente :exclamation:"
                     )
                     break
             else:
@@ -660,9 +678,24 @@ def relatar_inspecao(
                 emoji = ":sunglasses:"
 
             console.print(
-                f"Inspeção {inspecao} atualizada para [green]{status} {emoji}"
+                f"[cyan]Inspeção {inspecao} atualizada para [bold green]{status} {emoji}"
             )
 
-        antes = status
+        if dados['Gerar_Relatorio']['value'] == 1 and 'Html' in dados: #Caso o relatório ainda conste nos dados verifica se já foi criado.
+            with console.status("Resgatando Situação Atual da Inspeção...", spinner="pong"):
+                status_atual = detalhar_issue(
+                    inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
+                )
+                console.print(
+                    f"[cyan]Estado Atual: [bold green]{status_atual['status']} :bangbang:"
+                )
 
+                if status_atual.get('Relatorio_de_Monitoramento'):
+                    console.print(f'[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado :warning:')
+                    del dados['Html']
+
+    with console.status("Relato efetuado, retornando situação atual da inspeção...", spinner="monkey"):
+        status_atual = detalhar_issue(
+            inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
+        )
     return status_atual
