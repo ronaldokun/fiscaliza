@@ -646,7 +646,7 @@ def relatar_inspecao(
 
     atual = status_atual["status"]
     lista_status = list(SITUACAO.keys())
-    index = min(lista_status.index(atual) + 1, len(lista_status) - 1)
+    index = lista_status.index(atual)
     lista_status = lista_status[index:lista_status.index(parar_em)+1]
 
     if status_atual.get('Relatorio_de_Monitoramento'):
