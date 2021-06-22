@@ -29,7 +29,8 @@ from .constants import *
 def baixar_dados(pasta: str):
     """Faz o Download da Planilha de Dados filtrados das Bases da Anatel"""
     r = requests.get(BASE_DADOS)
-    Path(f'{pasta}/AnatelDB.xlsx').write_bytes(r.content)
+    Path(f"{pasta}/AnatelDB.xlsx").write_bytes(r.content)
+
 
 def journal2table(journal):
     """Recebe a string journal, caso a formatação seja compatível com um csv, retorna este formato como markdown
@@ -47,10 +48,10 @@ def journal2table(journal):
         ]
         if not len(set([len(t) for t in table])) == 1:
             print(
-                "O texto passado como Notes, não está configurado corretamente para formatar uma tabela"
+                "O texto passado como notes, não está configurado corretamente para formatar uma tabela"
             )
             print(
-                "No Campo Notes será enviada a string no formato que está, sem modificação"
+                "No Campo notes será enviada a string no formato que está, sem modificação"
             )
             return journal
         values = table[1:]
@@ -202,10 +203,9 @@ def validar_dicionario(
     if tipo := d.get(key):
         d[key] = check_update(key, tipo, DICT_FIELDS[key], TIPO, True)
 
-
     key = keys[2]
     if not d.get(key):
-        raise ValueError("O campo Descricao_da_Inspecao não pode ficar vazio")
+        raise ValueError("O campo description não pode ficar vazio")
 
     key = keys[3]
     if fiscal := d.get(key):
@@ -231,9 +231,13 @@ def validar_dicionario(
                     d[chave] = check_update(chave, html.read_text(), DICT_FIELDS[chave])
                     d[key] = check_update(key, relatorio, dtype, (1, "1"))
                 else:
-                    raise ValueError(f"Foi solicitado a criação de um relatório no entanto o caminho do arquivo html não é válido: {html}")
+                    raise ValueError(
+                        f"Foi solicitado a criação de um relatório no entanto o caminho do arquivo html não é válido: {html}"
+                    )
             else:
-                raise ValueError(f"Foi solicitado a criação de um relatório no entanto o caminho do arquivo html não é válido: {html}")
+                raise ValueError(
+                    f"Foi solicitado a criação de um relatório no entanto o caminho do arquivo html não é válido: {html}"
+                )
 
         else:
             d[key] = check_update(key, 0, dtype)
@@ -263,7 +267,7 @@ def validar_dicionario(
         ), f"A data informada é inválida {start_date}, informe o formato yyyy-mm-dd"
         d[key] = start_date
     else:
-        raise ValueError(f'O campo "Data_de_Inicio" não pode ficar vazio!')
+        raise ValueError(f'O campo "start_date" não pode ficar vazio!')
 
     key = keys[12]
     if due_date := d.get(key):
@@ -272,7 +276,7 @@ def validar_dicionario(
         ), f"A data informada é inválida {due_date}, informe o formato yyyy-mm-dd"
         d[key] = due_date
     else:
-        raise ValueError(f'O campo "Data_Limite" não poder ficar vazio!')
+        raise ValueError(f'O campo "due_date" não poder ficar vazio!')
 
     key = keys[13]
     if municipio := d.get(key):
@@ -410,7 +414,9 @@ def auth_user(username, password, teste=True, verify=True):
         return fiscaliza
 
     except ConnectionError:
-        console.print('[bold red] Sem resposta do Servidor. Verifique: Conexão com a Internet | VPN  | Fiscaliza fora do ar')
+        console.print(
+            "[bold red] Sem resposta do Servidor. Verifique: Conexão com a Internet | VPN  | Fiscaliza fora do ar"
+        )
 
 
 def issue2users(insp: str, fiscaliza: Redmine) -> tuple:
@@ -585,14 +591,21 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
     issue_status = str(getattr(issue, "status", ""))
     if issue_status == status:
         logging.info(f"A inspeção atual já está no status desejado: {status}.")
-    assert 'Descricao_da_Inspecao' in fields, "O campo Descricao_da_Inspecao não pode ficar vazio"
-    description = fields['Descricao_da_Inspecao']
-    custom_fields = [fields.get(field, "") for field in DICT_FIELDS.keys()] #STATUS[status]]
+    custom_fields = [
+        fields.get(field, "") for field in DICT_FIELDS.keys()
+    ]  # STATUS[status]]
     if not len(custom_fields):
         custom_fields = None
-    start_date = fields.get("Data_de_Inicio", "")
-    due_date = fields.get("Data_Limite", "")
-    Notes = fields.get("Notes") if status in ("Relatando") else None
+    start_date = fields.get("start_date", None)
+    due_date = fields.get("due_date", None)
+    description = fields.get("description", None)
+    notes = None
+    if status == 'Relatando':
+        notes = fields.get('notes', None)
+        for journal in issue.journals:
+            if notes == getattr(journal, 'notes', None):
+                notes = None
+                break
     return fiscaliza.issue.update(
         issue.id,
         description=description,
@@ -600,7 +613,7 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
         custom_fields=custom_fields,
         start_date=start_date,
         due_date=due_date,
-        notes=Notes,
+        notes=notes,
     )
 
 # Cell
@@ -611,10 +624,15 @@ def relatar_inspecao(
     senha: Param("Senha Utilizada nos Sistemas Interativos da Anatel", str),
     dados: Param("Dicionário já validado com os Dados a serem relatados"),
     teste: Param("Indica se o relato será de teste", bool_arg) = True,
-    parar_em: Param("String indicando até onde o relato deve ser avançado", str) = "Relatada",
+    parar_em: Param(
+        "String indicando até onde o relato deve ser avançado", str
+    ) = "Relatada",
+    substituir_relatorio: Param("Substituir o relatório criado caso houver?", bool_arg) = False,
 ):
     """Relata a inspeção `inspecao` com os dados constantes no dicionário `dados`"""
-    assert parar_em in list(SITUACAO.keys())[1:], f"Forneça um dos valores para parar_em {SITUACAO.keys()}"
+    assert (
+        parar_em in list(SITUACAO.keys())[1:]
+    ), f"Forneça um dos valores para parar_em {SITUACAO.keys()}"
     if not isinstance(dados, dict):
         try:
             path = Path(dados)
@@ -629,7 +647,7 @@ def relatar_inspecao(
         else:
             raise TypeError(f"Formato de Arquivo Desconhecido {path.suffix}")
 
-    dados = dados.copy() #Não altera o dicionário original
+    dados = dados.copy()  # Não altera o dicionário original
     console = Console()
     fiscaliza = auth_user(login, senha, teste)
     console.print("Usuário Autenticado com Sucesso :thumbs_up:", style="bold green")
@@ -654,14 +672,30 @@ def relatar_inspecao(
     atual = status_atual["status"]
     lista_status = list(SITUACAO.keys())
     index = lista_status.index(atual)
-    lista_status = lista_status[index:lista_status.index(parar_em)+1]
+    lista_status = lista_status[index : lista_status.index(parar_em) + 1]
 
-    if status_atual.get('Relatorio_de_Monitoramento'):
-        console.print(f'[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado :warning:')
-        del dados['Html']
+    if relatorio := status_atual.get("Relatorio_de_Monitoramento"):
+        if not substituir_relatorio:
+            console.print(
+                f"[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado :warning:"
+            )
+            del dados["Html"]
+        else:
+            console.print(
+                f":wastebasket: [red] Foi solicitado a substituição do Relatório, é preciso atualizar a inspeção para descartá-lo primeiramente. Aguarde..."
+            )
+            temp = dados.copy()
+            temp['Gerar_Relatorio']['value'] = 0
+            temp['Relatorio_de_Monitoramento'] = {'id':FIELD2ID['Relatorio_de_Monitoramento'], 'value': ''}
+            #temp['Relatorio_de_Monitoramento'] = ''
+            del temp['Html']
+            atualiza_fiscaliza(inspecao, temp, fiscaliza, status=atual)
+            atualiza_fiscaliza(inspecao, temp, fiscaliza, status=atual)
+            relatorio = None
 
-
-    console.print(f":woman_technologist: [cyan] A inspeção será atualizada até a situação [bold green]{parar_em}")
+    console.print(
+        f":woman_technologist: [cyan] A inspeção será atualizada até a situação [bold green]{parar_em}"
+    )
 
     emoji = ":sparkles:"
 
@@ -688,8 +722,12 @@ def relatar_inspecao(
                 f"{emoji} [cyan]Inspeção {inspecao} atualizada para [bold green]{status}"
             )
 
-        if dados['Gerar_Relatorio']['value'] == 1 and 'Html' in dados: #Caso o relatório ainda conste nos dados verifica se já foi criado.
-            with console.status("Resgatando Situação Atual da Inspeção...", spinner="pong"):
+        if (
+            dados["Gerar_Relatorio"]["value"] == 1 and "Html" in dados
+        ):  # Caso o relatório ainda conste nos dados verifica se já foi criado.
+            with console.status(
+                "Resgatando Situação Atual da Inspeção...", spinner="pong"
+            ):
                 status_atual = detalhar_issue(
                     inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
                 )
@@ -697,11 +735,15 @@ def relatar_inspecao(
                     f":white_check_mark: [cyan]Estado Atual: [bold green]{status_atual['status']}"
                 )
 
-                if status_atual.get('Relatorio_de_Monitoramento'):
-                    console.print(f'[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado :warning:')
-                    del dados['Html']
+                if relatorio := status_atual.get("Relatorio_de_Monitoramento"):
+                    console.print(
+                        f"[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado :warning:"
+                    )
+                    del dados["Html"]
 
-    with console.status("Relato efetuado, retornando situação atual da inspeção...", spinner="monkey"):
+    with console.status(
+        "Relato efetuado, retornando situação atual da inspeção...", spinner="monkey"
+    ):
         status_atual = detalhar_issue(
             inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
         )

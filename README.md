@@ -224,9 +224,9 @@ d['Frequencia_Final'] = 700 #int ou float
 
 d['Unidade_da_Frequencia_Final'] = 'MHz' #string
 
-d['Data_de_Inicio'] = '2021-03-19' #YYYY-MM-DD #string nesse formato
+d['start_date'] = '2021-03-19' #YYYY-MM-DD #string nesse formato
 
-d['Data_Limite'] = '2021-12-31'  #YYYY-MM-DD #string nesse formato
+d['due_date'] = '2021-12-31'  #YYYY-MM-DD #string nesse formato
 
 d['UF_Municipio'] = "SP/São Paulo" # string ou Lista de Strings: ["SP/São Paulo", "SP/Sorocaba"]
 
@@ -258,10 +258,10 @@ d['Reservar_Instrumentos'] = 0 #string '0' = Não | '1' = 'Sim'
 
 d['Utilizou_algum_instrumento'] = 0
 
-d['Notes'] = "Não foi constatada irregularidade no Período monitorado" # string
+d['notes'] = "Não foi constatada irregularidade no Período monitorado" # string
 
 # No caso de uma tabela, string formatada como csv
-d['Notes'] = """Faixa, Classe Especial, Classe A, Classe B, Classe C
+d['notes'] = """Faixa, Classe Especial, Classe A, Classe B, Classe C
                 VHF-L,0,5,7,5
                 VHF-H,0,12,1,0
                 UHF,1,1,2,4
@@ -373,13 +373,13 @@ for k,v in dados.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Data_de_Inicio </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">03</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">19</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">start_date </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">03</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">19</span>
 </pre>
 
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Data_Limite </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">12</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">31</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">due_date </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">2021</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">12</span><span style="color: #008000; text-decoration-color: #008000">-</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">31</span>
 </pre>
 
 
@@ -479,7 +479,7 @@ for k,v in dados.items():
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">Notes </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">|_.  Faixa                                      |_.   Classe Especial |_.   Classe A</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">notes </span><span style="color: #800000; text-decoration-color: #800000">-&gt; </span><span style="color: #008000; text-decoration-color: #008000">|_.  Faixa                                      |_.   Classe Especial |_.   Classe A</span>
 <span style="color: #008000; text-decoration-color: #008000">|_.   Classe B |_.   Classe C |</span>
 <span style="color: #008000; text-decoration-color: #008000">|</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">&lt;.</span><span style="color: #008000; text-decoration-color: #008000"> VHF-L                                       |</span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">&gt;</span><span style="color: #008000; text-decoration-color: #008000">.                 </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">0</span><span style="color: #008000; text-decoration-color: #008000"> |&gt;.          </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">5</span><span style="color: #008000; text-decoration-color: #008000"> |&gt;.     </span>
 <span style="color: #008000; text-decoration-color: #008000; font-weight: bold">7</span><span style="color: #008000; text-decoration-color: #008000"> |&gt;.          </span><span style="color: #008000; text-decoration-color: #008000; font-weight: bold">5</span><span style="color: #008000; text-decoration-color: #008000"> |</span>

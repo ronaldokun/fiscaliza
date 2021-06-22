@@ -13,7 +13,15 @@ ACAO_DESCRIPTION = 54
 ACAO_TRACKER = 2
 
 # Cell
-FIELDS = ["id", "subject", "status", "priority", "start_date", "due_date"]
+FIELDS = [
+    "id",
+    "subject",
+    "status",
+    "priority",
+    "start_date",
+    "due_date",
+    "description",
+]
 CUSTOM_IDS = [
     2,
     5,
@@ -68,7 +76,7 @@ SITUACAO = {
 DICT_FIELDS = {
     "Classe_da_Inspecao": str,
     "Tipo_de_Inspecao": str,
-    "Descricao_da_Inspecao": str,
+    "description": str,
     "Fiscal_Responsavel": str,
     "Fiscais": list,
     "Html": str,
@@ -77,8 +85,8 @@ DICT_FIELDS = {
     "Unidade_da_Frequencia_Inicial": str,
     "Frequencia_Final": (int, float),
     "Unidade_da_Frequencia_Final": str,
-    "Data_de_Inicio": str,
-    "Data_Limite": str,
+    "start_date": str,
+    "due_date": str,
     "UF_Municipio": (str, list),
     "Servicos_da_Inspecao": (str, list),
     "Qnt_de_emissoes_na_faixa": int,
@@ -92,13 +100,13 @@ DICT_FIELDS = {
     "Uso_de_PF": str,
     "Acao_de_risco_a_vida_criada": str,
     "Impossibilidade_acesso_online": str,
-    "Notes": str,
+    "notes": str,
     "Entidade_da_Inspecao": str,
     "Agrupamento": int,
     "SAV": str,
     "PCDP": str,
     "Procedimentos": list,
-    "Reservar_Instrumentos": (int,str),
+    "Reservar_Instrumentos": (int, str),
     "Reserva_de_Instrumentos": list,
     "Utilizou_algum_instrumento": (int, str),
     "Coordenacao": str,
@@ -132,11 +140,7 @@ STATUS = {
         "Fiscal_Responsavel",
         "Fiscais",
     ),
-    "Em andamento": (
-        "Html",
-        "Gerar_Relatorio",
-        "Reservar_Instrumentos"
-    ),
+    "Em andamento": ("Html", "Gerar_Relatorio", "Reservar_Instrumentos"),
     "Relatando": (
         "Frequencia_Inicial",
         "Frequencia_Final",
@@ -257,7 +261,6 @@ PROCEDIMENTOS = (
 ID2FIELD = {
     2: "Tipo_de_Inspecao",
     5: "Ano",
-    22: "Descricao_da_Inspecao",
     25: "Fiscal_Responsavel",
     26: "Fiscais",
     30: "Entidade_da_Inspecao",
@@ -302,7 +305,6 @@ PROD2HM = {543: 537, 541: 534, 544: 535, 596: 658, 597: 659, 598: 660}
 FIELD2ID = {
     "Tipo_de_Inspecao": 2,
     "Ano": 5,
-    "Descricao_da_Inspecao": 22,
     "Fiscal_Responsavel": 25,
     "Fiscais": 26,
     "Entidade_da_Inspecao": 30,
@@ -370,11 +372,13 @@ ESTADOS = [
     "DF",
 ]
 
-TABLECOLS = {'NaoLicenciados': 'Não Licenciados',
-             'NaoLicenciaveis': 'Não Licenciáveis',
-             'NaoDefinido': 'Não Definido',
-             'Servico': 'Serviço',
-             'Classe_Especial': 'Classe Especial',
-             'Classe_A': 'Classe A',
-             'Classe_B': 'Classe B',
-             'Classe_C': 'Classe C'}
+TABLECOLS = {
+    "NaoLicenciados": "Não Licenciados",
+    "NaoLicenciaveis": "Não Licenciáveis",
+    "NaoDefinido": "Não Definido",
+    "Servico": "Serviço",
+    "Classe_Especial": "Classe Especial",
+    "Classe_A": "Classe A",
+    "Classe_B": "Classe B",
+    "Classe_C": "Classe C",
+}
