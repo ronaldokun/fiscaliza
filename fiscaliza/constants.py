@@ -110,6 +110,7 @@ DICT_FIELDS = {
     "Reserva_de_Instrumentos": list,
     "Utilizou_algum_instrumento": (int, str),
     "Coordenacao": str,
+    "Relatorio_de_Monitoramento": str,
 }
 
 JSON_FIELDS = (
