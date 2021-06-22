@@ -376,5 +376,5 @@ TABLECOLS = {'NaoLicenciados': 'Não Licenciados',
              'Servico': 'Serviço',
              'Classe_Especial': 'Classe Especial',
              'Classe_A': 'Classe A',
-             'Classe B': 'Classe B',
-             'Classe C': 'Classe C'}
+             'Classe_B': 'Classe B',
+             'Classe_C': 'Classe C'}
