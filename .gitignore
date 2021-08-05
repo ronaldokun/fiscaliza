@@ -141,3 +141,5 @@ checklink/cookies.txt
 
 # PyPI
 .pypirc
+
+*desktop.ini
