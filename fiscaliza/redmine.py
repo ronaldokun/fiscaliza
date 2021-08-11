@@ -370,12 +370,11 @@ def validar_dicionario(
 
     key = keys[34]
     if (anexos := d.get(key)) is not None:
-        anexos = listify(anexos)
         d[key] = []
         for item in listify(anexos):
             if not isinstance(item, dict):
                 raise TypeError(
-                    f"Para cada item da chave {key} é esperado um dicionário, foi retornado {type(d)}"
+                    f"Para cada item da chave {key} é esperado um dicionário, foi retornado {type(item)}"
                 )
             if not {"path", "filename"}.issubset(item.keys()):
                 raise ValueError(
@@ -591,27 +590,20 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
             if notes == getattr(journal, "notes", None):
                 notes = None
                 break
-    if uploads is not None:
-         return fiscaliza.issue.update(
-            issue.id,
-            description=description,
-            status_id=SITUACAO[status],
-            custom_fields=custom_fields,
-            start_date=start_date,
-            due_date=due_date,
-            notes=notes,
-            uploads=uploads,
-        )
 
-    return fiscaliza.issue.update(
-            issue.id,
-            description=description,
+    kwargs = dict(description=description,
             status_id=SITUACAO[status],
             custom_fields=custom_fields,
             start_date=start_date,
-            due_date=due_date,
-            notes=notes,
-        )
+            due_date=due_date)
+
+    if notes is not None:
+        kwargs['notes'] = notes
+
+    if uploads is not None:
+        kwargs['uploads'] = uploads
+
+    return fiscaliza.issue.update(issue.id, **kwargs)
 
 # Cell
 @call_parse
@@ -671,8 +663,6 @@ def relatar_inspecao(
     atual = status_atual["status"]
     lista_status = list(SITUACAO.keys())
     index = lista_status.index(atual)
-#     if atual == 'Rascunho':
-#         index += 1
     lista_status = lista_status[index : lista_status.index(parar_em) + 1]
 
     if relatorio := status_atual.get("Relatorio_de_Monitoramento"):

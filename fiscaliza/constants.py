@@ -107,11 +107,8 @@ DICT_FIELDS = {
     "PCDP": str,
     "Procedimentos": list,
     "Reservar_Instrumentos": (int, str),
-#     "Reserva_de_Instrumentos": list,
     "Utilizou_algum_instrumento": (int, str),
-#     "Coordenacao": str,
-#     "Relatorio_de_Monitoramento": str,
-    "uploads": List[dict]
+    "uploads": List[dict],
 }
 
 JSON_FIELDS = (
