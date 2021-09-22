@@ -109,6 +109,7 @@ DICT_FIELDS = {
     "Reservar_Instrumentos": (int, str),
     "Utilizou_algum_instrumento": (int, str),
     "uploads": List[dict],
+    "Relatorio_de_Monitoramento": int,
 }
 
 JSON_FIELDS = (

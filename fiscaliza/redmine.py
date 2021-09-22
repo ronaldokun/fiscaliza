@@ -336,7 +336,7 @@ def validar_dicionario(
 
     key = keys[26]
     if notes := d.get(key):
-        d[key] = "\n".join(journal2table(note) for note in notes)
+        d[key] = "\n".join(journal2table(note) for note in notes) if is_listy(notes) else notes
 
     key = keys[27]
     if entidade := d.get(key):
@@ -371,7 +371,9 @@ def validar_dicionario(
     key = keys[34]
     if (anexos := d.get(key)) is not None:
         d[key] = []
-        for item in listify(anexos):
+        if not is_listy(anexos):
+            anexos = [anexos]
+        for item in anexos:
             if not isinstance(item, dict):
                 raise TypeError(
                     f"Para cada item da chave {key} é esperado um dicionário, foi retornado {type(item)}"
@@ -575,7 +577,10 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
     issue_status = str(getattr(issue, "status", ""))
     if issue_status == status:
         logging.info(f"A inspeção atual já está no status desejado: {status}.")
-    custom_fields = [fields.get(field, "") for field in DICT_FIELDS.keys() if field != 'uploads']
+    custom_fields = []
+    for field in DICT_FIELDS.keys():
+        if (f := fields.get(field, None)) and field != 'uploads':
+            custom_fields.append(f)
     if not len(custom_fields):
         custom_fields = None
     start_date = fields.get("start_date", None)
