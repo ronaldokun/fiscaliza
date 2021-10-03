@@ -39,7 +39,7 @@ def journal2table(journal):
             for j in journal.split("\n")
             if j.strip() != ""
         ]
-        if not len(set([len(t) for t in table])) == 1:
+        if len({len(t) for t in table}) != 1:
             print(
                 "O texto passado como notes, não está configurado corretamente para formatar uma tabela"
             )
@@ -94,8 +94,7 @@ def valida_fiscaliza(fiscaliza_obj: Redmine) -> None:
     """Checa se `fiscaliza_obj` é do tipo `Redmine`"""
     if not isinstance(fiscaliza_obj, Redmine):
         raise TypeError(
-            f"O Objeto Fiscaliza deve ser uma instância autenticada "
-            "(logada) da classe Redmine, o typo do objeto fornecido é {type(fiscaliza_obj)}"
+            'O Objeto Fiscaliza deve ser uma instância autenticada (logada) da classe Redmine, o typo do objeto fornecido é {type(fiscaliza_obj)}'
         )
 
 
