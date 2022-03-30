@@ -410,7 +410,6 @@ FIELD2ID = {
     "Longitude": 171,
     "Coordenacao": 178,
     "Agrupamento": 213,
-    "Utilizou_algum_instrumento": 280,
     "Numero_Sei_do_Processo": 422,
     "Impossibilidade_acesso_online": 450,
     "AppFiscaliza": 463,
@@ -424,6 +423,7 @@ FIELD2ID = {
     "Utilizou_algum_instrumento": 598,
     "Tecnicas_Amostrais": 692,
 }
+
 
 ESTADOS = [
     "AC",
