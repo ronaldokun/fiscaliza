@@ -113,9 +113,6 @@ DICT_FIELDS = {
     "Utilizou_algum_instrumento": (int, str),
     "uploads": List[dict],
     "Relatorio_de_Monitoramento": int,
-    "DocsRI": (int, str),
-    "Tecnicas_Amostrais": str,
-    "CienciaRI": str,
 }
 
 CUSTOM_FIELDS = {k:v for k,v in DICT_FIELDS.items() if k not in ('description', 'start_date', 'due_date', 'notes', 'uploads')}
@@ -174,13 +171,8 @@ STATUS = {
         "Impossibilidade_acesso_online",
         "Utilizou_algum_instrumento",
     ),
-    "Relatada": (
-        "DocsRI",
-        "Tecnicas_Amostrais",
-        "CienciaRI",
-    ),
+    "Relatada": ()
 }
-
 
 SERVICOS = {
     "000": "000 - Não Aplicável",
@@ -370,16 +362,12 @@ ID2FIELD = {
     422: "Numero_Sei_do_Processo",
     450: "Impossibilidade_acesso_online",
     463: "AppFiscaliza",
-    478: "CienciaRI",
-    479: "DocsRI",
-    692: "Tecnicas_Amostrais",
     541: "Gerar_Relatorio",
     544: "Relatorio_de_Monitoramento",
     543: "Html",
     596: "Reservar_Instrumentos",
     597: "Reserva_de_Instrumentos",
     598: "Utilizou_algum_instrumento",
-    692: "Tecnicas_Amostrais",
 }
 
 FIELD2ID = {
@@ -410,20 +398,17 @@ FIELD2ID = {
     "Longitude": 171,
     "Coordenacao": 178,
     "Agrupamento": 213,
+    "Utilizou_algum_instrumento": 280,
     "Numero_Sei_do_Processo": 422,
     "Impossibilidade_acesso_online": 450,
     "AppFiscaliza": 463,
-    "CienciaRI": 478,
-    "DocsRI": 479,
     "Gerar_Relatorio": 541,
     "Relatorio_de_Monitoramento": 544,
     "Html": 543,
     "Reservar_Instrumentos": 596,
     "Reserva_de_Instrumentos": 597,
     "Utilizou_algum_instrumento": 598,
-    "Tecnicas_Amostrais": 692,
 }
-
 
 ESTADOS = [
     "AC",

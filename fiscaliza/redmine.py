@@ -39,7 +39,7 @@ def journal2table(journal):
             for j in journal.split("\n")
             if j.strip() != ""
         ]
-        if len({len(t) for t in table}) != 1:
+        if not len(set([len(t) for t in table])) == 1:
             print(
                 "O texto passado como notes, não está configurado corretamente para formatar uma tabela"
             )
@@ -94,7 +94,8 @@ def valida_fiscaliza(fiscaliza_obj: Redmine) -> None:
     """Checa se `fiscaliza_obj` é do tipo `Redmine`"""
     if not isinstance(fiscaliza_obj, Redmine):
         raise TypeError(
-            'O Objeto Fiscaliza deve ser uma instância autenticada (logada) da classe Redmine, o typo do objeto fornecido é {type(fiscaliza_obj)}'
+            f"O Objeto Fiscaliza deve ser uma instância autenticada "
+            "(logada) da classe Redmine, o typo do objeto fornecido é {type(fiscaliza_obj)}"
         )
 
 
@@ -212,8 +213,8 @@ def validar_dicionario(
 
         else:
             d[key] = check_update(key, 0, dtype)
-    else:
-        d[key] = check_update(key, 0, dtype)
+    # else:
+    #     d[key] = check_update(key, 0, dtype)
 
     key = keys[7]
     if freq_init := d.get(key):
@@ -382,25 +383,6 @@ def validar_dicionario(
                     f"É obrigatório que cada dicionário de anexos contenha no mínimo as chaves path e filename!"
                 )
             d[key].append(item)
-
-    key = keys[36]
-    if (docsri := d.get(key)) is not None:
-        d[key] = check_update(key, docsri, DICT_FIELDS[key], (0, 1, "0", "1"))
-
-    key = keys[37]
-    if (tecnicas_amostrais := d.get(key)) is not None:
-        d[key] = check_update(key, tecnicas_amostrais, DICT_FIELDS[key], ("Usou técnicas amostrais", "Não usou técnicas amostrais"))
-
-    key = keys[38]
-    if ciencia_ri := d.get(key):
-        assert re.match(
-            date_pattern, ciencia_ri
-        ), f"A data informada é inválida {ciencia_ri}, informe o formato yyyy-mm-dd"
-        d[key] = check_update(key, ciencia_ri, DICT_FIELDS[key])
-    else:
-        raise ValueError(f'O campo "ciencia_ri" não pode ficar vazio!')
-
-
 
     if save_path is not None:
         console = Console()
@@ -600,7 +582,7 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
         logging.info(f"A inspeção atual já está no status desejado: {status}.")
     custom_fields = []
     for field in CUSTOM_FIELDS.keys():
-        if (f := fields.get(field, None)) and field != 'uploads':
+        if (f := fields.get(field, None)):
             custom_fields.append(f)
     if not len(custom_fields):
         custom_fields = None
@@ -631,19 +613,7 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
 
     kwargs = {k:v for k, v in kwargs.items() if v is not None}
 
-    print(kwargs)
-
     fiscaliza.issue.update(issue.id, **kwargs)
-
-    # while True:
-    #     try:
-    #         fiscaliza.issue.update(issue.id, **kwargs)
-    #     except ServerError:
-    #         print(f"Server Error Returned trying to eliminate a custom_field")
-    #         p = kwargs['custom_fields'].pop()
-    #         print(kwargs['custom_fields'])
-    #         if not p:
-    #               break
 
 # Cell
 @call_parse
