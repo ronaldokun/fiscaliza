@@ -47,8 +47,8 @@ CUSTOM_IDS = [
     157,
     158,
     159,
-    170,
-    171,
+    # 170,
+    # 171,
     178,
     213,
     280,
@@ -64,6 +64,7 @@ CUSTOM_IDS = [
     597,
     598,
     692,
+    717
 ]
 
 SITUACAO = {
@@ -161,11 +162,10 @@ STATUS = {
         "Horas_de_Deslocamento",
         "Horas_de_Execucao",
         "Horas_de_Conclusao",
+        "Coordenadas_Geograficas",
         "SAV",
         "PCDP",
         "Procedimentos",
-        "Latitude",
-        "Longitude",
         "Uso_de_PF",
         "Acao_de_risco_a_vida_criada",
         "Impossibilidade_acesso_online",
@@ -368,6 +368,7 @@ ID2FIELD = {
     596: "Reservar_Instrumentos",
     597: "Reserva_de_Instrumentos",
     598: "Utilizou_algum_instrumento",
+    717: "Coordenadas_Geograficas",
 }
 
 FIELD2ID = {
@@ -396,6 +397,7 @@ FIELD2ID = {
     "Unidade_da_Frequencia_Final": 159,
     "Latitude": 170,
     "Longitude": 171,
+    "Coordenadas_Geograficas": 717,
     "Coordenacao": 178,
     "Agrupamento": 213,
     "Utilizou_algum_instrumento": 280,
