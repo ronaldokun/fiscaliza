@@ -421,14 +421,13 @@ def issue2users(insp: str, fiscaliza: Redmine) -> tuple:
     name2id = {}
     names = []
     for member in members:
-        if roles := getattr(member, "roles", []):
-            for role in roles:
-                if str(role) == "Inspeção-Execução":
-                    if user := getattr(member, "user", None):
-                        if (id_ := getattr(user, "id", None)) and (
-                            name := getattr(user, "name", None)
-                        ):
-                            names.append((id_, name))
+        for role in getattr(member, "roles", []):
+            if str(role) == "Inspeção-Execução":
+                if user := getattr(member, "user", None):
+                    if (id_ := getattr(user, "id", None)) and (
+                        name := getattr(user, "name", None)
+                    ):
+                        names.append((id_, name))
 
     names.sort(key=lambda x: x[1])
     id2name = dict(names)
@@ -586,14 +585,14 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
             custom_fields.append(f)
     if not len(custom_fields):
         custom_fields = None
-    start_date = fields.get("start_date", None)
-    due_date = fields.get("due_date", None)
-    description = fields.get("description", None)
+    start_date = fields.get("start_date")
+    due_date = fields.get("due_date")
+    description = fields.get("description")
     notes = None
     uploads=None
     if status == "Relatando":
-        notes = fields.get("notes", None)
-        uploads = fields.get("uploads", None)
+        notes = fields.get("notes")
+        uploads = fields.get("uploads")
         for journal in issue.journals:
             if notes == getattr(journal, "notes", None):
                 notes = None
@@ -653,7 +652,6 @@ def relatar_inspecao(
     console.print("Usuário Autenticado com Sucesso :thumbs_up:", style="bold green")
     data = dados.copy()  # Não altera o dicionário original
 
-
     if issue_type(inspecao, fiscaliza) == "Ação":
         console.print(
             f":exclamation: O número de inspeção inserido {inspecao} corresponde a uma [bold red]Ação[/bold red] :exclamation:"
@@ -679,12 +677,12 @@ def relatar_inspecao(
     if relatorio := status_atual.get("Relatorio_de_Monitoramento", None):
         if not substituir_relatorio:
             console.print(
-                f"[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado :warning:"
+                "[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado :warning:"
             )
             del data["Html"]
         else:
             console.print(
-                f":wastebasket: [red] Foi solicitado a substituição do Relatório, é preciso atualizar a inspeção para descartá-lo primeiramente. Aguarde..."
+                ":wastebasket: [red] Foi solicitado a substituição do Relatório, é preciso atualizar a inspeção para descartá-lo primeiramente. Aguarde..."
             )
             temp = data.copy()
             temp["Gerar_Relatorio"] = {"id": FIELD2ID["Gerar_Relatorio"], "value": 0}
