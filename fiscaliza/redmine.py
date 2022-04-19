@@ -23,6 +23,7 @@ from fastcore.script import Param, call_parse, bool_arg
 from fastcore.xtras import is_listy
 from fastcore.test import ExceptionExpected
 from .constants import *
+from .municipios import MUNICIPIOS
 
 # Cell
 def journal2table(journal):
@@ -213,8 +214,6 @@ def validar_dicionario(
 
         else:
             d[key] = check_update(key, 0, dtype)
-    # else:
-    #     d[key] = check_update(key, 0, dtype)
 
     key = keys[7]
     if freq_init := d.get(key):
@@ -252,9 +251,6 @@ def validar_dicionario(
 
     key = keys[13]
     if municipio := d.get(key):
-        # stream = pkg_resources.resource_stream(__name__, "files/municipios.json")
-        stream = (Path.cwd() / "files/municipios.json").open()
-        municipios = set(json.load(stream))
         municipio = listify(municipio)
         lista_municipios = []
         for m in municipio:
@@ -262,10 +258,9 @@ def validar_dicionario(
             if not match:
                 raise ValueError(f"Verifique o formato da string UF/Municipio: {m}")
             lista_municipios.append(
-                check_update(key, m, str, municipios, True)["value"]
+                check_update(key, m, str, MUNICIPIOS, True)["value"]
             )
         d[key] = {"id": FIELD2ID[key], "value": lista_municipios}
-        del municipios
 
     key = keys[14]
     if servicos := d.get(key):
@@ -310,7 +305,10 @@ def validar_dicionario(
             raise ValueError(
                 f"O valor de latitude inserido está fora dos extremos do Brasil: ({min_lat}, {max_lat})"
             )
-        check_update(key, lat, DICT_FIELDS[key])
+        try:
+            lat = float(lat)
+        except ValueError:
+            raise ValueError(f"O valor de latitude inserido não é um número: {lat}")
 
     key = keys[22]
     if (long := d.get(key, "")) != "":
@@ -320,7 +318,13 @@ def validar_dicionario(
             raise ValueError(
                 f"O valor de longitude inserido está fora dos extremos do Brasil: ({min_long}, {max_long})"
             )
-        check_update(key, long, DICT_FIELDS[key])
+        try:
+            long = float(long)
+        except ValueError:
+            raise ValueError(
+                f"O valor de longitude inserido não é um número válido: {long}"
+            )
+
 
     d["Coordenadas_Geograficas"] = {
         "id": 717,
