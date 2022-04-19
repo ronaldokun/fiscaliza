@@ -40,7 +40,7 @@ def journal2table(journal):
             for j in journal.split("\n")
             if j.strip() != ""
         ]
-        if not len(set([len(t) for t in table])) == 1:
+        if len({len(t) for t in table}) != 1:
             print(
                 "O texto passado como notes, não está configurado corretamente para formatar uma tabela"
             )
@@ -109,7 +109,6 @@ def issue_type(insp, fiscaliza):
     return "Desconhecido"
 
 # Cell
-@call_parse
 def validar_dicionario(
     data_dict: Param("Dicionário de Dados ou Caminho para o arquivo .json"),
     inspecao: Param("Número da Inspeção a ser relatada", str),
@@ -484,23 +483,19 @@ def insp2acao(insp: str, fiscaliza: Redmine) -> dict:
                     (tracker := getattr(issue_to_id, "tracker", None))
                     and (getattr(tracker, "id", None) == 2)
                 ):
-                    if (
-                        description := getattr(issue_to_id, "custom_fields", None)
-                    ) is not None:
-                        if description := description.get(ACAO_DESCRIPTION, None):
-                            description = getattr(description, "value", "")
-                        else:
-                            description = ""
-                    else:
+                    if (description := getattr(issue_to_id, "custom_fields", None)) is None:
                         description = ""
 
+                    elif description := description.get(ACAO_DESCRIPTION, None):
+                        description = getattr(description, "value", "")
+                    else:
+                        description = ""
                     return {
                         "id_ACAO": getattr(issue_to_id, "id", ""),
                         "nome_ACAO": str(issue_to_id),
                         "descricao_ACAO": description,
                     }
-    else:
-        return {"id_ACAO": "", "nome_ACAO": "", "descricao_ACAO": ""}
+    return {"id_ACAO": "", "nome_ACAO": "", "descricao_ACAO": ""}
 
 
 def utf2ascii(s):
@@ -728,21 +723,9 @@ def relatar_inspecao(
             "Atualizando...",
             spinner="runner",
         ):
-            # data = {k:v for k,v in dados.items() if k in STATUS[status]}
-            if status == "Relatada":
-                try:
-                    atualiza_fiscaliza(inspecao, data, fiscaliza, status)
-                except ValidationError as e:
-                    console.print(e)
-                    raise ValidationError(repr(e)) from e
-                    #     f":black_nib: [bold red]Assine o Relatório de Monitoramento e chame a função novamente :exclamation:"
-                    # )
-            else:
-                atualiza_fiscaliza(inspecao, data, fiscaliza, status)
-
+            atualiza_fiscaliza(inspecao, data, fiscaliza, status)
             if status == "Relatada":
                 emoji = ":sunglasses:"
-
             console.print(
                 f"{emoji} [cyan]Inspeção {inspecao} atualizada para [bold green]{status}"
             )
@@ -754,8 +737,8 @@ def relatar_inspecao(
             and not relatorio
         ):  # Caso o relatório ainda conste nos dados verifica se já foi criado.
             with console.status(
-                "Resgatando Situação Atual da Inspeção...", spinner="pong"
-            ):
+                            "Resgatando Situação Atual da Inspeção...", spinner="pong"
+                        ):
                 status_atual = detalhar_issue(
                     inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
                 )
@@ -764,9 +747,8 @@ def relatar_inspecao(
                 )
 
                 if relatorio := status_atual.get("Relatorio_de_Monitoramento"):
-                    console.print(
-                        f"[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado nesta chamada :warning:"
-                    )
+                    console.print("[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado nesta chamada :warning:")
+
                     del data["Html"]
 
     with console.status(
