@@ -36,6 +36,7 @@ index = {"URL": "constants.ipynb",
          "utf2ascii": "redmine.ipynb",
          "detalhar_issue": "redmine.ipynb",
          "atualiza_fiscaliza": "redmine.ipynb",
+         "gerar_relatorio": "redmine.ipynb",
          "relatar_inspecao": "redmine.ipynb"}
 
 modules = ["constants.py",

@@ -2,7 +2,7 @@
 
 __all__ = ['journal2table', 'value_text_string', 'check_update', 'view_string', 'valida_fiscaliza', 'issue_type',
            'validar_dicionario', 'auth_user', 'issue2users', 'insp2acao', 'utf2ascii', 'detalhar_issue',
-           'atualiza_fiscaliza', 'relatar_inspecao']
+           'atualiza_fiscaliza', 'gerar_relatorio', 'relatar_inspecao']
 
 # Cell
 import json
@@ -324,7 +324,6 @@ def validar_dicionario(
                 f"O valor de longitude inserido não é um número válido: {long}"
             )
 
-
     d["Coordenadas_Geograficas"] = {
         "id": 717,
         "value": '{"latitude"=>"' + str(lat) + '", "longitude"=>"' + str(long) + '"}',
@@ -483,7 +482,9 @@ def insp2acao(insp: str, fiscaliza: Redmine) -> dict:
                     (tracker := getattr(issue_to_id, "tracker", None))
                     and (getattr(tracker, "id", None) == 2)
                 ):
-                    if (description := getattr(issue_to_id, "custom_fields", None)) is None:
+                    if (
+                        description := getattr(issue_to_id, "custom_fields", None)
+                    ) is None:
                         description = ""
 
                     elif description := description.get(ACAO_DESCRIPTION, None):
@@ -597,7 +598,8 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
     if issue_status == status:
         logging.info(f"A inspeção atual já está no status desejado: {status}.")
     custom_fields = []
-    for field in CUSTOM_FIELDS.keys():
+    # for field in CUSTOM_FIELDS.keys():
+    for field in STATUS[status]:
         if f := fields.get(field, None):
             custom_fields.append(f)
     if not len(custom_fields):
@@ -632,6 +634,59 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
     kwargs = {k: v for k, v in kwargs.items() if v is not None}
 
     fiscaliza.issue.update(issue.id, **kwargs)
+
+
+def gerar_relatorio(
+    inspecao: str,
+    data: dict,
+    fiscaliza: Redmine,
+    status_atual: dict,
+    teste: bool = False,
+    substituir_relatorio: bool = False,
+):
+    """Deleta o Relatório da Inspeção `inspecao`"""
+    console = Console()
+
+    if (
+        "Gerar_Relatorio" in data
+        and data["Gerar_Relatorio"]["value"] == 1
+        and "Html" in data
+    ):
+        while status_atual.get("Relatorio_de_Monitoramento"):
+            if not substituir_relatorio:
+                console.print(
+                    "[bold red] :warning: Já existe um Relatório de Monitoramento e não foi solicitado substituição :warning:"
+                )
+                data["Gerar_Relatorio"]["value"] == 0
+                del data["Html"]
+                break
+            console.print(
+                ":wastebasket: [red] Foi solicitado a substituição do Relatório, é preciso atualizar a inspeção para descartá-lo primeiramente. Aguarde..."
+            )
+            temp = data.copy()
+            temp["Gerar_Relatorio"] = {"id": FIELD2ID["Gerar_Relatorio"], "value": 0}
+            temp["Relatorio_de_Monitoramento"] = {
+                "id": FIELD2ID["Relatorio_de_Monitoramento"],
+                "value": "",
+            }
+            temp["Html"] = {"id": FIELD2ID["Html"], "value": ""}
+            atualiza_fiscaliza(inspecao, temp, fiscaliza, status="Relatando")
+            status_atual = detalhar_issue(
+                inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
+            )
+            if status_atual.get("Relatorio_de_Monitoramento"):
+                raise ValueError(
+                    "Não foi possível excluir o Relatório de Monitoramento"
+                )
+        atualiza_fiscaliza(inspecao, data, fiscaliza, status="Relatando")
+        status_atual = detalhar_issue(
+            inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
+        )
+        if not status_atual.get("Relatorio_de_Monitoramento"):
+            raise ValueError("Não foi possível gerar o Relatório de Monitoramento")
+        return status_atual
+    atualiza_fiscaliza(inspecao, data, fiscaliza, status="Relatando")
+    return detalhar_issue(inspecao=inspecao, fiscaliza=fiscaliza, teste=teste)
 
 # Cell
 def relatar_inspecao(
@@ -692,26 +747,6 @@ def relatar_inspecao(
     index = min(lista_status.index(atual), len(lista_status) - 1)
     lista_status = lista_status[index : lista_status.index(parar_em) + 1]
 
-    if relatorio := status_atual.get("Relatorio_de_Monitoramento", None):
-        if not substituir_relatorio:
-            console.print(
-                "[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado :warning:"
-            )
-            del data["Html"]
-        else:
-            console.print(
-                ":wastebasket: [red] Foi solicitado a substituição do Relatório, é preciso atualizar a inspeção para descartá-lo primeiramente. Aguarde..."
-            )
-            temp = data.copy()
-            temp["Gerar_Relatorio"] = {"id": FIELD2ID["Gerar_Relatorio"], "value": 0}
-            temp["Relatorio_de_Monitoramento"] = {
-                "id": FIELD2ID["Relatorio_de_Monitoramento"],
-                "value": "",
-            }
-            temp["Html"] = {"id": FIELD2ID["Html"], "value": ""}
-            atualiza_fiscaliza(inspecao, temp, fiscaliza, status=atual)
-            relatorio = None
-
     console.print(
         f":woman_technologist: [cyan] A inspeção será atualizada até a situação [bold green]{parar_em}"
     )
@@ -721,40 +756,23 @@ def relatar_inspecao(
     for status in lista_status:
         with console.status(
             "Atualizando...",
-            spinner="runner",
+            spinner="bouncingBall",
         ):
-            atualiza_fiscaliza(inspecao, data, fiscaliza, status)
             if status == "Relatada":
                 emoji = ":sunglasses:"
-            console.print(
-                f"{emoji} [cyan]Inspeção {inspecao} atualizada para [bold green]{status}"
-            )
-
-        if (
-            "Gerar_Relatorio" in data
-            and data["Gerar_Relatorio"]["value"] == 1
-            and "Html" in data
-            and not relatorio
-        ):  # Caso o relatório ainda conste nos dados verifica se já foi criado.
-            with console.status(
-                            "Resgatando Situação Atual da Inspeção...", spinner="pong"
-                        ):
+            if status == "Relatando":
+                status_atual = gerar_relatorio(
+                    inspecao, data, fiscaliza, status_atual, teste, substituir_relatorio
+                )
+            else:
+                atualiza_fiscaliza(inspecao, data, fiscaliza, status=status)
                 status_atual = detalhar_issue(
                     inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
                 )
-                console.print(
-                    f":white_check_mark: [cyan]Estado Atual: [bold green]{status_atual['status']}"
-                )
+            console.print(
+                f"{emoji} [cyan]Inspeção {inspecao} atualizada para [bold green]{status_atual['status']}"
+            )
 
-                if relatorio := status_atual.get("Relatorio_de_Monitoramento"):
-                    console.print("[bold red] :warning: Já existe um Relatório de Monitoramento criado, esse campo não será atualizado nesta chamada :warning:")
+    console.print(":fist: [green] Relato efetuado")
 
-                    del data["Html"]
-
-    with console.status(
-        "Relato efetuado, retornando situação atual da inspeção...", spinner="monkey"
-    ):
-        status_atual = detalhar_issue(
-            inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
-        )
     return status_atual
