@@ -11,5 +11,5 @@ python-redmine==2.3.0
 requests==2.25.1
 rich==10.2.2
 tabulate==0.8.9
-urllib3==1.26.4
+urllib3==1.26.5
 wincertstore==0.2
