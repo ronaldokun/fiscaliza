@@ -6,6 +6,7 @@ __all__ = ['journal2table', 'value_text_string', 'check_update', 'view_string']
 import json
 from typing import Iterable
 from fastcore.basics import listify
+
 from .constants import TABLECOLS, FIELD2ID
 from tabulate import tabulate
 
@@ -37,16 +38,40 @@ def journal2table(journal):
 
     return tabulate(values, headers, tablefmt="textile")
 
+
 def value_text_string(input_value):
     """Formata `input_value` como string json contendo chaves `texto` e `valor` com o mesmo valor de `input_value`"""
     return "{" + '"valor":"{0}","texto":"{0}"'.format(input_value) + "}"
 
 
+# def check_update(
+#     field: str, value, dtype, values_set: Iterable = None, format: bool = False
+# ) -> dict:
+#     """checa se `value` é do tipo `dtype`. Opcionalmente checa se `value` pertence ao conjunto `values_set`
+#     Opcionalmente formata `value` com a função `value_text_string`
+#     Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "value" : ...}
+#     """
+#     if not isinstance(value, dtype):
+#         raise TypeError(
+#             f"É esperado que o campo {field} seja do tipo {dtype}, o fornecido foi {type(value)}"
+#         )
+
+#     if values_set is not None and not set(listify(value)).issubset(set(values_set)):
+#         raise ValueError(
+#             f"O valor para {field} : {value} deve pertencer ao conjunto: {values_set}"
+#         )
+
+#     if format:
+#         value = value_text_string(value)
+
+#     return {"id": FIELD2ID[field], "value": value}
+
+
 def check_update(
-    field: str, value, dtype, values_set: Iterable = None, val_text_string: bool = False
+    field: str, value, dtype, values_set: Iterable = None, format: bool = False
 ) -> dict:
-    """checa se `value` é do tipo `dtype`. Opcionalmente checa se `value` pertence ao conjunto `values_set`
-    Opcionalmente formata `value` com a função `value_text_string`
+    """Checa se o valor `value` do campo `field` está dentro das atribuições definidas no
+    dicionário DICT_FIELD[`field`]
     Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "value" : ...}
     """
     if not isinstance(value, dtype):
@@ -54,12 +79,12 @@ def check_update(
             f"É esperado que o campo {field} seja do tipo {dtype}, o fornecido foi {type(value)}"
         )
 
-    if values_set is not None and not set(listify(value)).issubset(set(values_set)):
+    if values_set and not set(listify(value)).issubset(set(values_set)):
         raise ValueError(
             f"O valor para {field} : {value} deve pertencer ao conjunto: {values_set}"
         )
 
-    if val_text_string:
+    if format:
         value = value_text_string(value)
 
     return {"id": FIELD2ID[field], "value": value}

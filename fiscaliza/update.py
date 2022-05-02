@@ -11,9 +11,8 @@ from fastcore.test import *
 from fastcore.script import Param, call_parse, bool_arg
 from fastcore.test import ExceptionExpected
 from .constants import SITUACAO, STATUS, FIELD2ID
-from .validation import valida_fiscaliza
+from .validation import valida_fiscaliza, validar_dados
 from .info import detalhar_issue, insp2acao, auth_user, issue_type
-
 
 # Cell
 def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str):
@@ -26,10 +25,12 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
 
     issue = fiscaliza.issue.get(insp, include=["relations", "attachments"])
 
-    issue_status = getattr(issue, "status", "")
+    # issue_status = getattr(issue["status"], "name", None)
 
-    if SITUACAO.index(status) > SITUACAO.index(issue_status): # Não é possível retornar para uma situação anterior
-        raise ValueError(f"A inspeção está na situação: {issue_status}. Não é possível retornar para uma situação anterior.")
+    # situacoes = list(SITUACAO.keys())
+
+    # if situacoes.index(status) > situacoes.index(issue_status): # Não é possível retornar para uma situação anterior
+    #     raise ValueError(f"A inspeção está na situação: {issue_status}. Não é possível retornar para uma situação anterior.")
 
     custom_fields = []
     for field in STATUS[status]:
@@ -104,24 +105,42 @@ def gerar_relatorio(
             }
             temp["Html"] = {"id": FIELD2ID["Html"], "value": ""}
             atualiza_fiscaliza(inspecao, temp, fiscaliza, status="Relatando")
-            status_atual = detalhar_issue(
-                inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
-            )
+            status_atual = detalhar_issue(inspecao, fiscaliza=fiscaliza, teste=teste)
             if status_atual.get("Relatorio_de_Monitoramento"):
                 raise ValueError(
                     "Não foi possível excluir o Relatório de Monitoramento"
                 )
         atualiza_fiscaliza(inspecao, data, fiscaliza, status="Relatando")
-        status_atual = detalhar_issue(
-            inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
-        )
+        status_atual = detalhar_issue(inspecao, fiscaliza=fiscaliza, teste=teste)
         if not status_atual.get("Relatorio_de_Monitoramento"):
             raise ValueError("Não foi possível gerar o Relatório de Monitoramento")
         return status_atual
     atualiza_fiscaliza(inspecao, data, fiscaliza, status="Relatando")
-    return detalhar_issue(inspecao=inspecao, fiscaliza=fiscaliza, teste=teste)
+    return detalhar_issue(inspecao, fiscaliza=fiscaliza, teste=teste)
 
 # Cell
+
+
+def _parse_data_dict(dados, inspecao, fiscaliza):
+    if not isinstance(dados, dict):
+        try:
+            path = Path(dados)
+            assert path.exists(), f"O caminho retornado não existe: {path}!"
+            assert (
+                path.is_file()
+            ), f"O caminho retornado {path} não corresponde a um arquivo!"
+        except TypeError as e:
+            raise ValueError(f"O caminho de arquivo inserido {dados} é inválido") from e
+        if path.suffix == ".json":
+            dados = json.loads(path.read_text())
+        else:
+            raise TypeError(f"Formato de Arquivo Desconhecido {path.suffix}")
+
+    return validar_dados(
+        dados, inspecao, fiscaliza=fiscaliza
+    )  # Não altera o dicionário original
+
+
 @call_parse
 def relatar_inspecao(
     inspecao: Param("Número da Inspeção a ser relatada", str),
@@ -140,24 +159,12 @@ def relatar_inspecao(
     assert (
         parar_em in SITUACAO.keys()
     ), f"Forneça um dos valores para parar_em {SITUACAO.keys()}"
-    if not isinstance(dados, dict):
-        try:
-            path = Path(dados)
-            assert path.exists(), f"O caminho retornado não existe: {path}!"
-            assert (
-                path.is_file()
-            ), f"O caminho retornado {path} não corresponde a um arquivo!"
-        except TypeError as e:
-            raise ValueError(f"O caminho de arquivo inserido {dados} é inválido") from e
-        if path.suffix == ".json":
-            dados = json.loads(path.read_text())
-        else:
-            raise TypeError(f"Formato de Arquivo Desconhecido {path.suffix}")
 
     console = Console()
     fiscaliza = auth_user(login, senha, teste)
     console.print("Usuário Autenticado com Sucesso :thumbs_up:", style="bold green")
-    data = dados.copy()  # Não altera o dicionário original
+
+    data = _parse_data_dict(dados, inspecao, fiscaliza)
 
     if issue_type(inspecao, fiscaliza) == "Ação":
         console.print(
@@ -169,15 +176,19 @@ def relatar_inspecao(
     console.print(f"Inspeção {inspecao} vinculada à Ação {acao['id_ACAO']}")
 
     with console.status("Resgatando Situação Atual da Inspeção...", spinner="pong"):
-        status_atual = detalhar_issue(
-            inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
-        )
-        console.print(
-            f":white_check_mark: [cyan]Estado Atual: [bold green]{status_atual['status']}"
+        status_atual = detalhar_issue(inspecao, fiscaliza=fiscaliza, teste=teste)
+    atual = status_atual["status"]
+    console.print(f":white_check_mark: [cyan]Estado Atual: [bold green]{atual}")
+
+    lista_status = list(SITUACAO.keys())
+
+    if lista_status.index(atual) > lista_status.index(
+        parar_em
+    ):  # Não é possível retornar para uma situação anterior
+        raise ValueError(
+            f"A inspeção está na situação: {atual}. Não é possível retornar para uma situação anterior: {parar_em}."
         )
 
-    atual = status_atual["status"]
-    lista_status = list(SITUACAO.keys())
     index = min(lista_status.index(atual), len(lista_status) - 1)
     lista_status = lista_status[index : lista_status.index(parar_em) + 1]
 
@@ -201,12 +212,12 @@ def relatar_inspecao(
             else:
                 atualiza_fiscaliza(inspecao, data, fiscaliza, status=status)
                 status_atual = detalhar_issue(
-                    inspecao=inspecao, fiscaliza=fiscaliza, teste=teste
+                    inspecao, fiscaliza=fiscaliza, teste=teste
                 )
-            console.print(
-                f"{emoji} [cyan]Inspeção {inspecao} atualizada para [bold green]{status_atual['status']}"
-            )
+        console.print(
+            f"{emoji} [cyan]Inspeção {inspecao} atualizada para [bold green]{status_atual['status']}"
+        )
 
-    console.print(":fist: [green] Relato efetuado")
+    console.print(":zap: [green] Relato efetuado")
 
     return status_atual

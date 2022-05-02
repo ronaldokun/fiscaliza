@@ -66,7 +66,7 @@ nb_path: "nbs\format.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="journal2table" class="doc_header"><code>journal2table</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/format.py#L13" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>journal2table</code>(<strong><code>journal</code></strong>)</p>
+<h4 id="journal2table" class="doc_header"><code>journal2table</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/format.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>journal2table</code>(<strong><code>journal</code></strong>)</p>
 </blockquote>
 <p>Recebe a string journal, caso a formatação seja compatível com um csv, retorna este formato como markdown
 Do contrário simplesmente retorna a string inalterada</p>
@@ -92,7 +92,7 @@ Do contrário simplesmente retorna a string inalterada</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="value_text_string" class="doc_header"><code>value_text_string</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/format.py#L40" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>value_text_string</code>(<strong><code>input_value</code></strong>)</p>
+<h4 id="value_text_string" class="doc_header"><code>value_text_string</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/format.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>value_text_string</code>(<strong><code>input_value</code></strong>)</p>
 </blockquote>
 <p>Formata <code>input_value</code> como string json contendo chaves <code>texto</code> e <code>valor</code> com o mesmo valor de <code>input_value</code></p>
 
@@ -117,10 +117,10 @@ Do contrário simplesmente retorna a string inalterada</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="check_update" class="doc_header"><code>check_update</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/format.py#L45" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>check_update</code>(<strong><code>field</code></strong>:<code>str</code>, <strong><code>value</code></strong>, <strong><code>dtype</code></strong>, <strong><code>values_set</code></strong>:<code>typing.Iterable</code>=<em><code>None</code></em>, <strong><code>val_text_string</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="check_update" class="doc_header"><code>check_update</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/format.py#L70" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>check_update</code>(<strong><code>field</code></strong>:<code>str</code>, <strong><code>value</code></strong>, <strong><code>dtype</code></strong>, <strong><code>values_set</code></strong>:<code>typing.Iterable</code>=<em><code>None</code></em>, <strong><code>format</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
-<p>checa se <code>value</code> é do tipo <code>dtype</code>. Opcionalmente checa se <code>value</code> pertence ao conjunto <code>values_set</code>
-Opcionalmente formata <code>value</code> com a função <a href="/fiscaliza/format.html#value_text_string"><code>value_text_string</code></a>
+<p>Checa se o valor <code>value</code> do campo <code>field</code> está dentro das atribuições definidas no
+dicionário DICT_FIELD[<code>field</code>]
 Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "value" : ...}</p>
 
 </div>
@@ -144,7 +144,7 @@ Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="view_string" class="doc_header"><code>view_string</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/format.py#L68" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>view_string</code>(<strong><code>s</code></strong>)</p>
+<h4 id="view_string" class="doc_header"><code>view_string</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/format.py#L93" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>view_string</code>(<strong><code>s</code></strong>)</p>
 </blockquote>
 <p>Recebe uma string formatada como json e retorna somente o valor 'value' da string</p>
 
