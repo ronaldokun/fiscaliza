@@ -97,19 +97,17 @@ def _validar_relatorio(dados, key="Gerar_Relatorio"):
         raise ValueError(f"Arquivo {html} não existe")
     if not html.is_file():
         raise ValueError(f"Arquivo {html} não é um arquivo")
-    try:
-        dados["Html"] = check_update(
-            "Html", html.read_text(), DICT_FIELDS["Html"]["type"]
-        )
-        dados["Gerar_Relatorio"] = check_update(
-            "Gerar_Relatorio",
-            relatorio,
-            DICT_FIELDS[key].get("type"),
-            DICT_FIELDS[key].get("set"),
-            DICT_FIELDS[key].get("format"),
-        )
-    except Exception as e:
-        raise ValueError(f"Arquivo {html} não pôde ser lido") from e
+    # try:
+    dados["Html"] = check_update("Html", html.read_text(), DICT_FIELDS["Html"]["type"])
+    dados[key] = check_update(
+        key,
+        relatorio,
+        DICT_FIELDS[key].get("type"),
+        DICT_FIELDS[key].get("set"),
+        DICT_FIELDS[key].get("format"),
+    )
+    # except Exception as e:
+    #     raise ValueError(f"Arquivo {html} não pôde ser lido") from e
 
 
 def _validar_data(dados, key):
