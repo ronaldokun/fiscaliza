@@ -98,7 +98,57 @@ nb_path: "nbs\validation.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="auth_user" class="doc_header"><code>auth_user</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/validation.py#L44" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>auth_user</code>(<strong><code>username</code></strong>, <strong><code>password</code></strong>, <strong><code>teste</code></strong>=<em><code>True</code></em>, <strong><code>verify</code></strong>=<em><code>True</code></em>)</p>
+<h4 id="auth_user" class="doc_header"><code>auth_user</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/validation.py#L44" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>auth_user</code>(<strong><code>username</code></strong>=<em><code>None</code></em>, <strong><code>password</code></strong>=<em><code>None</code></em>, <strong><code>api</code></strong>=<em><code>None</code></em>, <strong><code>teste</code></strong>=<em><code>True</code></em>)</p>
+</blockquote>
+<p>Autentica o usuário e retorna um objeto Redmine logado</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="valida_fiscaliza" class="doc_header"><code>valida_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/validation.py#L60" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>valida_fiscaliza</code>(<strong><code>login</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>senha</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>api</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>=<em><code>None</code></em>, <strong><code>teste</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+</blockquote>
+<p>Checa se <code>fiscaliza</code> é um objeto do tipo <code>Redmine</code> ou autentica o usuário e retorna um objeto Redmine</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="parse_dict" class="doc_header"><code>parse_dict</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/validation.py#L79" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_dict</code>(<strong><code>data_dict</code></strong>:<code>Union</code>[<code>dict</code>, <code>str</code>, <code>Path</code>])</p>
 </blockquote>
 
 </div>
@@ -122,56 +172,7 @@ nb_path: "nbs\validation.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="valida_fiscaliza" class="doc_header"><code>valida_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/validation.py#L59" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>valida_fiscaliza</code>(<strong><code>fiscaliza_obj</code></strong>:<code>Redmine</code>)</p>
-</blockquote>
-<p>Checa se <code>fiscaliza_obj</code> é do tipo <code>Redmine</code></p>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="parse_dict" class="doc_header"><code>parse_dict</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/validation.py#L68" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_dict</code>(<strong><code>data_dict</code></strong>:<code>Union</code>[<code>dict</code>, <code>str</code>, <code>Path</code>])</p>
-</blockquote>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="validar_dados" class="doc_header"><code>validar_dados</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/validation.py#L208" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>validar_dados</code>(<strong><code>data_dict</code></strong>:<code>Union</code>[<code>dict</code>, <code>Path</code>, <code>str</code>], <strong><code>inspecao</code></strong>:<code>Union</code>[<code>int</code>, <code>str</code>], <strong><code>login</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>senha</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>=<em><code>None</code></em>, <strong><code>teste</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="validar_dados" class="doc_header"><code>validar_dados</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/validation.py#L219" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>validar_dados</code>(<strong><code>data_dict</code></strong>:<code>Union</code>[<code>dict</code>, <code>Path</code>, <code>str</code>], <strong><code>inspecao</code></strong>:<code>Union</code>[<code>int</code>, <code>str</code>], <strong><code>login</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>senha</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>=<em><code>None</code></em>, <strong><code>teste</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Valida as informações de data_dict e as formata como exigido pela API do Redmine.
 Returns: dicionário com os dados formatados</p>

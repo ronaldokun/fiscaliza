@@ -21,7 +21,7 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
         status in SITUACAO
     ), f"Digite uma das mudanças de situação válidas: {SITUACAO.keys()}"
 
-    valida_fiscaliza(fiscaliza)
+    fiscaliza = valida_fiscaliza(fiscaliza=fiscaliza)
 
     issue = fiscaliza.issue.get(insp, include=["relations", "attachments"])
 
