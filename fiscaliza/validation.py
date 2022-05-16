@@ -88,28 +88,33 @@ def parse_dict(data_dict: Union[dict, str, Path]) -> dict:
             raise ValueError(
                 f"O caminho de arquivo inserido {data_dict} é inválido"
             ) from e
-        if path.suffix == ".json":
-            return json.loads(path.read_text())
-        else:
+        if path.suffix != ".json":
             raise TypeError(f"Formato de Arquivo Desconhecido {path.suffix}")
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except UnicodeDecodeError:
+            return json.loads(path.read_text(encoding="cp1252"))
+
     return data_dict.copy()
 
 
 def _validar_relatorio(dados, key="Gerar_Relatorio"):
     """Valida se o arquivo do relatório existe e está legível"""
-    if (relatorio := dados.get(key)) not in (1, "1"):
-        return
-    if (html := dados.get("Html")) is None:
-        raise ValueError(
-            f"Foi solicitado a criação de um relatório no entanto o arquivo html não é válido: {html}"
-        )
-    html = Path(html)
-    if not html.exists():
-        raise ValueError(f"Arquivo {html} não existe")
-    if not html.is_file():
-        raise ValueError(f"Arquivo {html} não é um arquivo")
-    # try:
-    dados["Html"] = check_update("Html", html.read_text(), DICT_FIELDS["Html"]["type"])
+    if (relatorio := dados.get(key)) in (1, "1"):
+        if (html := dados.get("Html")) is None:
+            raise ValueError(
+                f"Foi solicitado a criação de um relatório no entanto o arquivo html não é válido: {html}"
+            )
+        html = Path(html)
+        if not html.exists():
+            raise ValueError(f"Arquivo {html} não existe")
+        if not html.is_file():
+            raise ValueError(f"Arquivo {html} não é um arquivo")
+        try:
+            html_text = html.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            html_text = html.read_text(encoding="cp1252")
+        dados["Html"] = check_update("Html", html_text, DICT_FIELDS["Html"]["type"])
     dados[key] = check_update(
         key,
         relatorio,
@@ -117,8 +122,6 @@ def _validar_relatorio(dados, key="Gerar_Relatorio"):
         DICT_FIELDS[key].get("set"),
         DICT_FIELDS[key].get("format"),
     )
-    # except Exception as e:
-    #     raise ValueError(f"Arquivo {html} não pôde ser lido") from e
 
 
 def _validar_data(dados, key):
@@ -315,7 +318,11 @@ DICT_FIELDS = {
     "Fiscal_Responsavel": {"type": str},
     "Fiscais": {"type": Iterable},
     "Html": {"type": str},
-    "Gerar_Relatorio": {"type": (int, str), "custom": _validar_relatorio},
+    "Gerar_Relatorio": {
+        "type": (int, str),
+        "set": (0, "0", 1, "1"),
+        "custom": _validar_relatorio,
+    },
     "Frequencia_Inicial": {"type": (int, float)},
     "Unidade_da_Frequencia_Inicial": {"type": str, "set": ("kHz", "MHz", "GHz")},
     "Frequencia_Final": {"type": (int, float)},

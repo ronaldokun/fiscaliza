@@ -44,28 +44,6 @@ def value_text_string(input_value):
     return "{" + '"valor":"{0}","texto":"{0}"'.format(input_value) + "}"
 
 
-# def check_update(
-#     field: str, value, dtype, values_set: Iterable = None, format: bool = False
-# ) -> dict:
-#     """checa se `value` é do tipo `dtype`. Opcionalmente checa se `value` pertence ao conjunto `values_set`
-#     Opcionalmente formata `value` com a função `value_text_string`
-#     Returns: Dicionário no formato compatível com a API do Redmine {"id" : ... , "value" : ...}
-#     """
-#     if not isinstance(value, dtype):
-#         raise TypeError(
-#             f"É esperado que o campo {field} seja do tipo {dtype}, o fornecido foi {type(value)}"
-#         )
-
-#     if values_set is not None and not set(listify(value)).issubset(set(values_set)):
-#         raise ValueError(
-#             f"O valor para {field} : {value} deve pertencer ao conjunto: {values_set}"
-#         )
-
-#     if format:
-#         value = value_text_string(value)
-
-#     return {"id": FIELD2ID[field], "value": value}
-
 
 def check_update(
     field: str, value, dtype, values_set: Iterable = None, format: bool = False

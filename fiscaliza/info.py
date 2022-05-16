@@ -10,7 +10,6 @@ from datetime import datetime, timedelta
 import contextlib
 from pathlib import Path
 from typing import Union
-from tqdm.auto import tqdm
 
 from rich import print
 from redminelib import Redmine
@@ -20,12 +19,10 @@ from redminelib.exceptions import ResourceAttrError
 from fastcore.foundation import L
 from fastcore.xtras import is_listy, listify
 from fastcore.script import Param, call_parse, bool_arg
-from fastcore.parallel import parallel
-from fastcore.basics import partialler
 
 
 from .constants import ACAO_DESCRIPTION, KWARGS, IDS, FIELDS, JSON_FIELDS
-from .validation import auth_user, valida_fiscaliza, issue2users
+from .validation import valida_fiscaliza, issue2users
 from .format import view_string
 
 # Cell
