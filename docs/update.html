@@ -80,7 +80,7 @@ nb_path: "nbs\update.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="atualiza_fiscaliza" class="doc_header"><code>atualiza_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/update.py#L18" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>atualiza_fiscaliza</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fields</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status</code></strong>:<code>str</code>)</p>
+<h4 id="atualiza_fiscaliza" class="doc_header"><code>atualiza_fiscaliza</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/update.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>atualiza_fiscaliza</code>(<strong><code>insp</code></strong>:<code>str</code>, <strong><code>fields</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Atualiza a Inspeção <code>insp</code> para a Situação <code>status</code> com os dados do dicionário <code>fields</code></p>
 
@@ -105,7 +105,7 @@ nb_path: "nbs\update.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="excluir_relatorio" class="doc_header"><code>excluir_relatorio</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/update.py#L73" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>excluir_relatorio</code>(<strong><code>inspecao</code></strong>:<code>str</code>, <strong><code>data</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status_atual</code></strong>:<code>dict</code>, <strong><code>teste</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="del_attach" class="doc_header"><code>del_attach</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/update.py#L68" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>del_attach</code>(<strong><code>issue</code></strong>, <strong><code>fiscaliza</code></strong>, <strong><code>filename</code></strong>=<em><code>'Info.json'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -129,7 +129,31 @@ nb_path: "nbs\update.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="gerar_relatorio" class="doc_header"><code>gerar_relatorio</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/update.py#L97" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>gerar_relatorio</code>(<strong><code>inspecao</code></strong>:<code>str</code>, <strong><code>data</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status_atual</code></strong>:<code>dict</code>, <strong><code>teste</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>substituir_relatorio</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="excluir_relatorio" class="doc_header"><code>excluir_relatorio</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/update.py#L75" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>excluir_relatorio</code>(<strong><code>inspecao</code></strong>:<code>str</code>, <strong><code>data</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status_atual</code></strong>:<code>dict</code>, <strong><code>teste</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="gerar_relatorio" class="doc_header"><code>gerar_relatorio</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/update.py#L99" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>gerar_relatorio</code>(<strong><code>inspecao</code></strong>:<code>str</code>, <strong><code>data</code></strong>:<code>dict</code>, <strong><code>fiscaliza</code></strong>:<code>Redmine</code>, <strong><code>status_atual</code></strong>:<code>dict</code>, <strong><code>teste</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>substituir_relatorio</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Deleta o Relatório da Inspeção <code>inspecao</code></p>
 
@@ -168,7 +192,7 @@ nb_path: "nbs\update.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="relatar_inspecao" class="doc_header"><code>relatar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/update.py#L134" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>relatar_inspecao</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário", <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel", <strong><code>dados</code></strong>:"Dicionário já validado com os Dados a serem relatados", <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>, <strong><code>parar_em</code></strong>:"String indicando até onde o relato deve ser avançado"=<em><code>'Relatada'</code></em>, <strong><code>substituir_relatorio</code></strong>:"Substituir o relatório criado caso houver?"=<em><code>False</code></em>)</p>
+<h4 id="relatar_inspecao" class="doc_header"><code>relatar_inspecao</code><a href="https://github.com/ronaldokun/fiscaliza/tree/master/fiscaliza/update.py#L138" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>relatar_inspecao</code>(<strong><code>inspecao</code></strong>:"Número da Inspeção a ser relatada", <strong><code>login</code></strong>:"Login Anatel do Usuário", <strong><code>senha</code></strong>:"Senha Utilizada nos Sistemas Interativos da Anatel", <strong><code>dados</code></strong>:"Dicionário já validado com os Dados a serem relatados", <strong><code>teste</code></strong>:"Indica se o relato será de teste"=<em><code>True</code></em>, <strong><code>parar_em</code></strong>:"String indicando até onde o relato deve ser avançado"=<em><code>'Relatada'</code></em>, <strong><code>substituir_relatorio</code></strong>:"Substituir o relatório criado caso houver?"=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Relata a inspeção <code>inspecao</code> com os dados constantes no dicionário <code>dados</code></p>
 

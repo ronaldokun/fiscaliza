@@ -307,7 +307,8 @@ def validar_dados(
     }
     dados.pop("Latitude", None)
     dados.pop("Longitude", None)
-
+    if "Gerar_Relatorio" in dados and dados["Gerar_Relatorio"]["value"] in (0, "0"):
+        dados.pop("uploads", None)
     return dados
 
 
