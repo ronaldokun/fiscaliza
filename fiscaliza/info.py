@@ -111,7 +111,7 @@ def detalhar_issue(
     if (attachments := getattr(i, "attachments")) is not None:
         issue_data["Anexos"] = {d["filename"]: d["content_url"] for d in attachments}
 
-    issue_data |= {k: getattr(i, k, "") for k in KWARGS}
+    issue_data.update({k: getattr(i, k, "") for k in KWARGS})
 
     id2field = dict(zip(IDS, FIELDS))
 
@@ -126,7 +126,7 @@ def detalhar_issue(
                     f"O atributo 'value' não existe na Issue mencionada: key {field.id}, name: {field.name}"
                 ) from e
 
-    issue_data |= insp2acao(issue, fiscaliza)
+    issue_data.update(insp2acao(issue, fiscaliza))
     id2users, users2id = issue2users(issue, fiscaliza)
 
     if (value := issue_data.get("Fiscal_Responsavel", None)) is not None:
