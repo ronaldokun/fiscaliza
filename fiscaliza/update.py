@@ -7,9 +7,10 @@ import json
 from pathlib import Path
 from redminelib import Redmine
 from rich.console import Console
+from rich.progress import track
 from fastcore.test import *
 from fastcore.script import Param, call_parse, bool_arg
-from fastcore.test import ExceptionExpected
+from fastcore.xtras import listify
 
 from .constants import SITUACAO, STATUS, FIELD2ID
 from .validation import valida_fiscaliza, validar_dados, auth_user
@@ -64,11 +65,11 @@ def atualiza_fiscaliza(insp: str, fields: dict, fiscaliza: Redmine, status: str)
     fiscaliza.issue.update(issue.id, **kwargs)
 
 
-# improve this
-def del_attach(issue, fiscaliza, filename="Info.json"):
+def del_attach(issue, fiscaliza, filenames="Info.json"):
+    filenames = listify(filenames)
     attachments = extract_attachments(issue, fiscaliza=fiscaliza)
     for attach in attachments:
-        if attach.filename == filename:
+        if attach.filename in filenames:
             attach.delete()
 
 
@@ -104,7 +105,7 @@ def gerar_relatorio(
     teste: bool = False,
     substituir_relatorio: bool = False,
 ):
-    """Deleta o Relatório da Inspeção `inspecao`"""
+    """Gera o Relatório da Inspeção `inspecao` caso não existir ou seja substituído"""
     if substituir_relatorio:
         excluir_relatorio(inspecao, data, fiscaliza, status_atual)
     if "Gerar_Relatorio" in data and data["Gerar_Relatorio"]["value"] in (1, "1"):
@@ -152,7 +153,7 @@ def relatar_inspecao(
     """Relata a inspeção `inspecao` com os dados constantes no dicionário `dados`"""
     assert (
         parar_em in SITUACAO.keys()
-    ), f"Forneça um dos valores para parar_em {SITUACAO.keys()}"
+    ), f"Valor inválido do parâmetro `parar_em`. Forneça um dos valores {SITUACAO.keys()}"
 
     console = Console()
     fiscaliza = auth_user(login, senha, teste=teste)
@@ -175,7 +176,9 @@ def relatar_inspecao(
 
     with console.status("Resgatando Situação Atual da Inspeção...", spinner="pong"):
         status_atual = detalhar_issue(inspecao, fiscaliza=fiscaliza, teste=teste)
+
     atual = getattr(status_atual["status"], "name")
+
     console.print(f":white_check_mark: [cyan]Estado Atual: [bold green]{atual}")
 
     lista_status = list(SITUACAO.keys())
@@ -194,28 +197,18 @@ def relatar_inspecao(
         f":woman_technologist: [cyan] A inspeção será atualizada até a situação [bold green]{parar_em}"
     )
 
-    emoji = ":sparkles:"
-
-    for status in lista_status:
-        with console.status(
-            "Atualizando...",
-            spinner="bouncingBall",
-        ):
-            if status == "Relatada":
-                emoji = ":sunglasses:"
-            if status == "Relatando":
-                status_atual = gerar_relatorio(
-                    inspecao, data, fiscaliza, status_atual, teste, substituir_relatorio
-                )
-            else:
-                atualiza_fiscaliza(inspecao, data, fiscaliza, status=status)
-                status_atual = detalhar_issue(
-                    inspecao, fiscaliza=fiscaliza, teste=teste
-                )
-        console.print(
-            f"{emoji} [cyan]Inspeção {inspecao} atualizada para [bold green]{status_atual['status']}"
-        )
-
-    console.print(":zap: [green] Relato efetuado")
+    for status in track(lista_status, description="Efetuado o relato...", total=len(lista_status)):
+        if status == "Relatando":
+            status_atual = gerar_relatorio(
+                inspecao, data, fiscaliza, status_atual, teste, substituir_relatorio
+            )
+        else:
+            atualiza_fiscaliza(inspecao, data, fiscaliza, status=status)
+            status_atual = detalhar_issue(
+                inspecao, fiscaliza=fiscaliza, teste=teste
+            )
+    console.print(
+        f":sunglasses: [cyan]Inspeção {inspecao} atualizada para [bold green]{status_atual['status']}"
+    )
 
     return status_atual

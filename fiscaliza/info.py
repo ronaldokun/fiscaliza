@@ -8,9 +8,10 @@ from unidecode import unidecode
 from datetime import datetime, timedelta
 import contextlib
 from pathlib import Path
-from typing import Union
+from typing import Union, Iterable
 
 from rich import print
+from tqdm.auto import tqdm
 from redminelib import Redmine
 from redminelib.resources import Issue
 from redminelib.exceptions import ResourceAttrError
@@ -90,7 +91,7 @@ def detalhar_issue(
     api: str = None,
     fiscaliza: Redmine = None,
     teste: bool = True,
-) -> dict:
+) -> dict:  # sourcery skip: remove-unnecessary-cast
     """Recebe número da inspeção `inspecao`, o login e senha ou opcionalmente objeto Redmine logado `fiscaliza`
     inspecao: str - Número da Inspeção a ser relatada
     login: str - Login Anatel do Usuário
@@ -111,7 +112,7 @@ def detalhar_issue(
     if (attachments := getattr(i, "attachments")) is not None:
         issue_data["Anexos"] = {d["filename"]: d["content_url"] for d in attachments}
 
-    issue_data.update({k: getattr(i, k, "") for k in KWARGS})
+    issue_data.update({k: str(getattr(i, k, "")) for k in KWARGS})
 
     id2field = dict(zip(IDS, FIELDS))
 
@@ -213,7 +214,7 @@ def download_attachments(
 ):  # sourcery skip: remove-unnecessary-cast
     attachments = extract_attachments(issue_obj, login, senha, api, teste=teste)
     savepath = Path(f"{savepath}/{issue_obj}")
-    savepath.mkdir(exist_ok=True)
+    savepath.mkdir(exist_ok=True, parents=True)
     attachments.map(lambda attach: _download_attachment(attach, savepath))
 
 
@@ -224,6 +225,7 @@ def extract_attachments(
     api: str = None,
     fiscaliza: Redmine = None,
     teste: bool = True,
+    filter: Iterable[str] = ('relatada', 'conferida', 'aprovada'),
 ):  # sourcery skip: remove-unnecessary-cast
     attachments = L()
     fiscaliza = valida_fiscaliza(login, senha, api, fiscaliza, teste)
@@ -233,7 +235,7 @@ def extract_attachments(
     if (
         getattr(getattr(issue_obj, "tracker", None), "name", None)
         == "Atividade de Inspeção"
-    ):
+    ) and str(getattr(issue_obj, "status", '')).lower() in filter:
         attachments.extend(getattr(issue_obj, "attachments", []))
         return attachments
 
@@ -241,7 +243,7 @@ def extract_attachments(
         relations = (
             L(relations).map(dict).filter(lambda r: r["issue_to_id"] == issue_obj.id)
         )
-        for r in relations:
+        for r in tqdm(relations, total=len(relations)):
             issue_obj = fiscaliza.issue.get(
                 r["issue_id"], include=["relations", "attachments"]
             )
@@ -250,6 +252,6 @@ def extract_attachments(
                 tipo := getattr(getattr(issue_obj, "tracker", None), "name", None)
             ) == "Ação de Inspeção":
                 attachments.extend(extract_attachments(issue_obj, fiscaliza=fiscaliza))
-            elif tipo == "Atividade de Inspeção":
+            elif tipo == "Atividade de Inspeção" and str(getattr(issue_obj, "status", '')).lower() in filter:
                 attachments.extend(getattr(issue_obj, "attachments", []))
     return attachments
