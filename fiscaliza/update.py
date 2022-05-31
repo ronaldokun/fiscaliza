@@ -90,7 +90,7 @@ def excluir_relatorio(
         }
         temp["Html"] = {"id": FIELD2ID["Html"], "value": ""}
         atualiza_fiscaliza(
-            inspecao, temp, fiscaliza, status=status_atual["status"].name
+            inspecao, temp, fiscaliza, status=status_atual["status"]
         )
         status_atual = detalhar_issue(inspecao, fiscaliza=fiscaliza, teste=teste)
         if status_atual.get("Relatorio_de_Monitoramento"):
@@ -177,7 +177,7 @@ def relatar_inspecao(
     with console.status("Resgatando Situação Atual da Inspeção...", spinner="pong"):
         status_atual = detalhar_issue(inspecao, fiscaliza=fiscaliza, teste=teste)
 
-    atual = getattr(status_atual["status"], "name")
+    atual = status_atual["status"]
 
     console.print(f":white_check_mark: [cyan]Estado Atual: [bold green]{atual}")
 

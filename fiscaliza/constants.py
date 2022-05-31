@@ -285,6 +285,7 @@ SITUACAO = {
     "Aguardando Execução": 11,
     "Em andamento": 13,
     "Relatando": 14,
+    "Relatada": 15,
 }
 
 CANCELADA = 19
