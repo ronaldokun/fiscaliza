@@ -9,6 +9,7 @@ from pathlib import Path
 import json
 
 from redminelib import Redmine
+from redminelib.resources import Issue
 from fastcore.xtras import is_listy, listify
 from rich.console import Console
 
@@ -18,10 +19,14 @@ from .format import check_update, journal2table
 date_pattern = re.compile("([2]\d{3})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])")
 
 # Cell
-def issue2users(insp: str, fiscaliza: Redmine) -> tuple:
+def issue2users(issue: Union[str, int, Issue], fiscaliza: Redmine) -> tuple:
     """Recebe objeto Redmine `fiscaliza` e string `insp` e retorna um dicionário com os usuários do grupo Inspeção-Execução"""
-    fiscaliza = valida_fiscaliza(fiscaliza=fiscaliza)
-    proj = fiscaliza.issue.get(insp).project.name.lower()
+    if not isinstance(issue, Issue) and isinstance(issue, (str, int)):
+        fiscaliza = valida_fiscaliza(fiscaliza)
+        issue = fiscaliza.issue.get(issue, include=["relations", "attachments"])
+    # TODO: Raise Exception with else clause
+
+    proj = issue.project.name.lower()
     members = fiscaliza.project_membership.filter(project_id=proj)
     id2name = {}
     name2id = {}
@@ -67,10 +72,8 @@ def valida_fiscaliza(
     """Checa se `fiscaliza` é um objeto do tipo `Redmine` ou autentica o usuário e retorna um objeto Redmine"""
     if isinstance(fiscaliza, Redmine):
         return fiscaliza
-    if api is not None:
-        return auth_user(api=api, teste=teste)
-    if login and senha:
-        return auth_user(username=login, password=senha, teste=teste)
+    if (login and senha) or api:
+        return auth_user(username=login, password=senha, api=api, teste=teste)
     raise ValueError(
         "Não foi fornecida uma das 3 opções: Chave api | login e senha | objeto Redmine"
     )
