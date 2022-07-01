@@ -2,6 +2,9 @@
   "fiscaliza": {
     "Overview": "/",
     "Constants": "constants.html",
-    "Redmine": "redmine.html"
+    "Formata\u00e7\u00e3o de dados": "format.html",
+    "Informa\u00e7\u00f5es ": "info.html",
+    "Update": "update.html",
+    "Valida\u00e7\u00e3o": "validation.html"
   }
 }

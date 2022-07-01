@@ -12,7 +12,7 @@ import contextlib
 from typing import Union, Iterable
 
 from rich import print
-from tqdm.auto import tqdm
+from rich.progress import track
 from redminelib import Redmine
 from redminelib.resources import Issue
 from redminelib.exceptions import ResourceAttrError, ReadonlyAttrError
@@ -304,9 +304,12 @@ def extract_attachments(
 
         if (
             getattr(getattr(issue_obj, "tracker", None), "name", None)
-            == "Solicitação de Inspeção"
+            in {
+                "Solicitação de Inspeção",
+                "Ação de Inspeção",
+            }
         ):
-            relations = tqdm(relations, total=len(relations))
+            relations = track(relations, total=len(relations))
 
         for r in relations:
             issue_obj = fiscaliza.issue.get(

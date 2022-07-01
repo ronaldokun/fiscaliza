@@ -2,7 +2,7 @@ topnav:
 - title: Topnav
   items:
     - title: github
-      external_url: https://github.com/ronaldokun/fiscaliza/tree/main/
+      external_url: https://github.com/ronaldokun/fiscaliza/tree/master/
 
 #Topnav dropdowns
 topnav_dropdowns:
