@@ -4,7 +4,6 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"URL": "constants.ipynb",
          "URLHM": "constants.ipynb",
-         "URLHM2": "constants.ipynb",
          "ACAO_DESCRIPTION": "constants.ipynb",
          "ACAO_TRACKER": "constants.ipynb",
          "KWARGS": "constants.ipynb",
