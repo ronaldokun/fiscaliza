@@ -2,8 +2,10 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"URL": "constants.ipynb",
-         "URLHM": "constants.ipynb",
+index = {"URL_PD_PUB": "constants.ipynb",
+         "URL_PD_INTRA": "constants.ipynb",
+         "URL_HM_PUB": "constants.ipynb",
+         "URL_HM_INTRA": "constants.ipynb",
          "ACAO_DESCRIPTION": "constants.ipynb",
          "ACAO_TRACKER": "constants.ipynb",
          "KWARGS": "constants.ipynb",
@@ -23,16 +25,6 @@ index = {"URL": "constants.ipynb",
          "PROCEDIMENTOS": "constants.ipynb",
          "ESTADOS": "constants.ipynb",
          "MUNICIPIOS": "constants.ipynb",
-         "journal2table": "format.ipynb",
-         "value_text_string": "format.ipynb",
-         "check_update": "format.ipynb",
-         "view_string": "format.ipynb",
-         "insp2acao": "info.ipynb",
-         "issue_type": "info.ipynb",
-         "utf2ascii": "info.ipynb",
-         "detalhar_issue": "info.ipynb",
-         "download_attachments": "info.ipynb",
-         "extract_attachments": "info.ipynb",
          "atualiza_fiscaliza": "update.ipynb",
          "del_attach": "update.ipynb",
          "excluir_relatorio": "update.ipynb",
@@ -44,13 +36,23 @@ index = {"URL": "constants.ipynb",
          "valida_fiscaliza": "validation.ipynb",
          "parse_dict": "validation.ipynb",
          "validar_dados": "validation.ipynb",
-         "DICT_FIELDS": "validation.ipynb"}
+         "DICT_FIELDS": "validation.ipynb",
+         "journal2table": "format.ipynb",
+         "value_text_string": "format.ipynb",
+         "check_update": "format.ipynb",
+         "view_string": "format.ipynb",
+         "insp2acao": "info.ipynb",
+         "issue_type": "info.ipynb",
+         "utf2ascii": "info.ipynb",
+         "detalhar_issue": "info.ipynb",
+         "download_attachments": "info.ipynb",
+         "extract_attachments": "info.ipynb"}
 
 modules = ["constants.py",
-           "format.py",
-           "info.py",
            "update.py",
-           "validation.py"]
+           "validation.py",
+           "format.py",
+           "info.py"]
 
 doc_url = "https://ronaldokun.github.io/fiscaliza/"
 
