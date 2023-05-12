@@ -19,7 +19,7 @@ dependencies:
       - colorama==0.4.4
       - commonmark==0.9.1
       - fastcore==1.5.28
-      - fiscaliza==0.2.19
+      - fiscaliza==0.2.20
       - idna==3.3
       - packaging==21.3
       - pygments==2.12.0
